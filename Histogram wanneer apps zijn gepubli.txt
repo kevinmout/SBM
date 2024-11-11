@@ -1,0 +1,11 @@
+Histogram wanneer apps zijn gepublished.
+Histogram rating apps.
+Een statistiek maken van nb_rating en rating_app.
+Welke developer heeft het meeste succes?
+rating_app, nb_rating correlatie met in_app en has_ads.
+price_gplay correlatie met rating. Zijn gratis apps beter dan betaalde apps.
+Informatie over top 15 apps die niet zo successvol zijn.
+Welke categorie het best presteert?
+
+
+whats_new in correlatie met downloads.
