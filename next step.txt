@@ -7,3 +7,12 @@ Topic 2: Freemium vs Paid-For Apps
 Topic 3: SDK Evolution and App LifeCycle
 1. How many downloads before and after sdk activation?
 
+
+
+
+
+Outliers
+Distribution of free, freemium, paid. Average downloads per category
+Opzoek gaan naar candy crush
+Duplicates op my_app_id
+Clean notebook
