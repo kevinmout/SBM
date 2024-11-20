@@ -1,0 +1,242 @@
+---
+title: "**Orbisk vs. Choco: Strategic Insights from Business Models and Resource-Based View**"
+subtitle: "Individual Assignment - Strategy and Business Models"
+author: "Noa Mollee - u202196"
+date: "October 31, 2024"
+date-format: DD/MM/YYYY # Set date format to long
+format: 
+  pdf: #Output pdf
+    documentclass: article
+    number-sections: true
+    toc: true #table of contents
+    toc-title: Contents #name table of contents
+    papersize: a4
+    fontsize: 12pt
+    fontfamily: mathptmx
+    geometry:
+      - top=25mm #top margin
+      - left=25mm #left margin
+    pdf-engine: pdflatex
+    cap-location: bottom # Set table caption location to bottom
+    include-in-header: 
+      - text: |
+          \usepackage{graphicx}
+    include-before-body:
+      - text: |
+          \vspace{2em}
+          \begin{center}
+            \includegraphics[width=0.3\textwidth]{figures/jads.png}
+          \end{center}
+          \vspace{3em}
+bibliography: references.bib
+bibliographystyle: apa
+---
+
+<!-- horizontal line -->
+
+\newpage
+
+# Introduction <!-- 800-1,000 words -->
+
+Each year, roughly a third of all food meant for human consumption is wasted [@dou_global_2021] According to @dou_global_2021, in the U.S. the majority of the food waste happens in households (24.5 million tonnes per year), and consumer-facing businesses (22.7 million tonnes per year). This excessive amount of waste leads to unnecessary consumption of water and green house gas emissions [@reutter_food_2017]. However, optimizing every step of the supply chain has the potential to reduce this waste [@jeswani_extent_2021]. Using AI technologies, start-ups are trying to devise a solution to issue of food waste.
+
+One such company is Orbisk, a Dutch start-up based in Utrecht. They created machine learning technology to track and analyze food disposal in commercial kitchens. To more seamlessly implement this in real life, Orbisk has developed a device called *Orbi*. This device automatically captures your food as you are throwing it out. By tracking food waste and showing this in a comprehensible dashboard, end-users can easily track their daily food wastage, with the ultimate goal of reducing it.
+
+Choco shares a similar mission with Orbisk: reducing food waste. However, where Orbisk focuses on tracking and analyzing waste, Choco aims to prevent waste from happening in the first place by simplifying food ordering processes within the restaurant industry. Through optimizing these processes using AI, Choco seeks to eliminate inefficiencies that often lead to food being wasted.
+
+## What is a Business or Revenue Model? {#sec-intro_business_model}
+
+The term "business model" is commonly used in everyday language, and broadly refers to how a business operates and makes revenue [@CambridgeBusinessModel]. Managerial research uses a more precise definition. In this domain, the business model of a company generally refers to the transactional relationships between the firm and its customers, partners, and vendors [@business_model_Zott]. In essence, a business model tries to capture not only what the company is selling, but also the related costs, the required resources, and the target audience. Defining and analyzing the business model should allow for predicting the success of a business.
+
+Notably, Orbisk and Choco are both data-driven start-ups. Hence, a crucial resource is data, and this should be taken into account when analyzing their business models. @hartmann_capturing_2016 shed light on six different types of data-driven business models (DDBM) among start-ups. Based on their framework in combination with the Oswald Business Model Canvas [@osterwalder2010business] , the business models of these two start-ups will be assessed.
+
+Despite the prevalence of business models in both scientific literature as well as managerial practices, it is important to note a business model may not always accurately predict the actual success of a firm [@dasilva_business_2014]. When estimating the viability of business models, some firms tend to rely on predictions of the future. The paper by @dasilva_business_2014 brings up the example of Pets.com, which overestimated its potential customer base and how high they could raise their prices. Despite their notoriety due to their marketing budget, the firm still failed. Therefore, it is prudent to base your estimates about your customer base and revenue purely on the current, and not the future.
+
+A smaller but important subsection of a firm's business model is its revenue model. It only asks the question: "*How will a customer pay for the product?*". It is solely concerned with the possible revenue streams and, unlike the business model, does not consider factors such as customer segments or the value proposition. Both the resource-based view as well as the revenue model are related to finance: the former considers the resources (financial, or otherwise) available to the company, while the revenue model concerns how the firm makes sure those financial resources stay sufficient.
+
+## What is a Resource-Based View?
+
+A contributing factor to the success of a firm is the unique resources and capabilities a company possesses, which distinguish them from competitors. The resource-based view provides a framework to analyze these resources and capabilities.
+
+Resources are a part of the Business Model Generation approach of [@osterwalder2010business]. They are the assets that allow you to create your product. These extend beyond financial capital to include physical, human, and organizational assets. Simply put, resources are everything a firm has to their disposal to create a product. These resources provide a competitive advantage if they are valuable, rare, difficult to imitate, and embedded within the organization [@collis_competing_1995]. Generally, to assess the quality of a resource, the VRIO (value, rarity, inimitability, organized) framework is used.
+
+However, resources are not everything; you also need to be able to use these resources to their full disposal. These are the *capabilities* of a firm. Capabilities are usually based on human capital and the skills within your team. You could have an unlimited budget and the greatest physical resources, but without expertise within your team to use these resources, they will not lead to a viable business.
+
+As mentioned in section @sec-intro_business_model, data is a key resource for both Orbisk and Choco, as they are data-driven startups. With the rise of AI, data is becoming a strategic resource [@hartmann2020rise]: owning data can give you a head-start over competition in developing new AI models and techniques. Since these two start-ups are particularly data-focused, it will be crucial to investigate whether they are the owner of their data.
+
+## Application of the theories
+
+Analyzing companies through different strategic lenses provides a more comprehensive understanding of how they achieve success and sustain competitive advantage. The business model framework highlights a company’s ability to create value through innovative design themes and customer relationships, while the resource-based view emphasizes the importance of unique, hard-to-imitate resources in sustaining competitive advantage. By applying both theories, this project will provide a more comprehensive comparison of Orbisk and Choco.
+
+The purpose of this research project is to compare Orbisk and Choco using both the business and revenue model framework as well as the resource-based view. First, each company will be individually analyzed based on these two theories. Then, a comparative analysis will be conducted to highlight the similarities and differences in their strategic approaches. By comparing the companies rather than analyzing them in isolation, this research aims to generate deeper insights into the strategies that have driven their success and their potential for future growth.
+
+# Analysis of Orbisk <!-- 1,000-1,200 words -->
+
+<!-- %Apply two strategic theories to Company A. For each theory, identify key components and analyze their impact on the company’s strategic position. -->
+
+In this section, Orbisk will be analyze using the two chosen entrepreneurial theories. The business model will be identified first. After this, the resources we have identified during the business model section will be further explored.
+
+## Business Model of Orbisk {#sec-BM-Orbisk}
+
+The business model of Orbisk revolves around several key components. These factors enable it to effectively address food waste in commercial kitchens.
+
+Key Partners include manufacturers for the Orbi device and hospitality industry associations, such as hotels, restaurants, and caterers.
+
+Key Activities consists of the development and maintenance of machine learning algorithms for tracking food waste, as well as the manufacturing and distribution of the Orbi device. This data is also analyzed, and shown to the customer in a personalized dashboard. On top of this, they also offer a personal food waste coach to provide advice.
+
+In terms of Key Resources, the Orbi device is the main hardware component. This is paired with the proprietary algorithm that registers the food waste, and analyzes it. Although data is collected through the device, Orbisk does not actually own this data. This data is considered personal information, and is therefore protected by the GDPR [@gdpr2016], as pointed out in Orbisk's Privacy Statement [@orbisk_privacy]. The data is therefore not a resource; the insights that can be leveraged from this data are. Aside from the hardware, AI algorithm, and data insights, other important resources are the technical team as well as their network of partnerships with companies such as foodwaste NGOs and catering corporations.
+
+Orbisk's Value Proposition is centered on helping commercial kitchens reduce food waste, which leads to both cost savings and improved sustainability practices. The ease at which this is done—through an integrated device and clear-cut dashboard—is an integral part of the value proposition.
+
+To foster strong Customer Relationships, Orbisk offers a personal food waste coach. This coaching is included with the Orbi device for no extra costs, encouraging users to make use of this service and allowing for a better user experience.
+
+Channels for reaching customers include direct sales via their website and sales teams. They can also reach new customers well as strategic partnerships with different organizations focussed on food waste and catering. Orbisk was also featured in prolific news outlets such as Forbes [@forbes_restaurant_tech], which helps spread they business to new customer segments.
+
+The target Customer Segments consist of hotels, restaurants, and catering companies, as well as large commercial kitchens in settings like hospitals, universities, and corporate offices. Businesses focused on sustainability and reducing operational waste are also key targets for Orbisk's solutions.
+
+In terms of Cost Structure, one of the primary expenses is manufacturing and distribution costs for the Orbi devices. The other big expense is the machine learning algorithm and dashboard. This software has to be developed up-front, but is also continuously improved, as is demonstrated by the sheer amount of data scientists on the team. Other costs include the hosting of the site, storing the data, marketing, and services such as installation, customer service and food waste advice.
+
+Finally, the Revenue streams of Orbisk must be considered. According to their site, they work with an "all-in-one" revenue model; the customer only pays a price up-front. All other services Orbisk provides, such as monitoring of the dashboard to trouble-shoot during the first 100 days as well as the food waste coach, is all included in this price. With this business model, Orbisk is said to have had a 2-5% margin in 2019 [@EUStartups2021].
+
+In short, Orbisk’s business model effectively targets food waste in commercial kitchens through its innovative Orbi device and proprietary analytics. However, its lack of ownership over collected data, which limits exclusive insights, poses a significant competitive risk. To maintain its competitive edge, Orbisk must focus on continuous innovation and strategic data management while ensuring reliable customer support.
+
+## Resource-Based View of Orbisk
+
+Orbisk’s resource base consists of various key assets and capabilities that support its competitive edge in the food waste management space.
+
+### Resources
+
+Firstly, the resources shall be considered. The Orbi device represents the primary hardware component, which can easily be integrated commercial kitchens to automatically capture and track food waste. This device is paired with proprietary AI algorithms and a intuitive dashboard, which allows the user to understand their waste. However, as pointed out in section @sec-BM-Orbisk, it is crucial to note that Orbisk does not own the food waste data generated by its customers: it only owns the insights derived from this data. As other companies might be able to derive similar insights from the same data, this means this data is not exclusive to Orbisk.
+
+A skilled tech team—comprising software engineers, data scientists, and other technical experts—is essential to maintain, develop, and enhance Orbisk’s software. Orbisk is also supported by a robust customer base and partnerships with commercial kitchens (such as restaurants, hotels, and catering companies), food waste NGOs, and relevant stakeholders. Additionally, the company and its goal has been shared in major news outlets [@forbes_restaurant_tech], and the company has received B-Corp certification [@orbisk_bcorp], lending the company trust and appeal.
+
+### Capabilities
+
+Orbisk’s capabilities align closely with its resources, especially in areas of automated food waste monitoring. The Orbi device integrates into existing kitchen workflows, enabling real-time data tracking without extra effort. Orbisk also excels in customer support and integration, offering smooth onboarding, installation, and ongoing support for the first 100 days to ensure seamless client experiences.
+
+### VRIO Analysis
+
+In a VRIO analysis, these resources and capabilities show Orbisk’s combination of hardware, software, and data collection as a temporary competitive advantage.
+
+The Orbi device is valuable but not rare, with similar solutions available in the market [@winnow_solutions; @smart_kitchen_solutions_food_waste]. While replicable over time, the Orbi device is well-integrated within Orbisk’s operational structure.
+
+The proprietary ML algorithm provides a sustainable competitive advantage because of its value and rarity, It is also relatively challenging to imitate due to the required investment and expertise. In contrast, the actual food waste data does not belong to Orbisk, which is a competitive disadvantage. Although this data is somewhat rare, it grows in value as more kitchens adopt the Orbi device. However, its non-proprietary nature means that competitors could potentially collect similar data and insights, leading to less exclusivity for Orbisk.
+
+The tech team and customer base both offer temporary advantages, valuable for growth but accessible to other companies with sufficient resources. Lastly, Orbisk’s sustainability focus enhances its market differentiation, although this can be imitated, making it a temporary advantage.
+
+Ultimately, Orbisk’s greatest strength lies in its proprietary algorithm and the capacity to generate insights from the food waste data collected from its customers. However, the lack of ownership of this data could pose a competitive disadvantage, especially as competitors with similar offerings could leverage their own data to provide similar or even improved insights. This lack of data ownership combined with the existence of similar companies highlights the imporance of continuous innovation and customer base expansion are essential to maintain a competitive edge
+
+# Analysis of Choco <!-- 1,000-1,200 words -->
+
+In this section, Choco will also be analyze using the same entrepreneurial theories: the business model and the resource-based view.
+
+## Business Model of Choco
+
+The business model of Choco revolves addressing food waste and efficiency in the restaurant industry using a software solution.
+
+Key Partners for Choco include food suppliers, distributors, and a network of restaurants and food service businesses. Through these partnerships, Choco aligns its operations to streamline food supply chains and reduce food waste.
+
+In terms of Key Activities, Choco focuses on developing and maintaining its proprietary algorithm that enables efficient food ordering. This includes facilitating communication between restaurants and suppliers, with AI used to optimize ordering and minimize over-purchasing.
+
+The company’s Key Resources include the Choco app—which can be integrated with common ERP systems—powered by proprietary AI technology. This application collects data on food ordering patterns and supplier networks. Additionally, Choco relies on a skilled development team of software engineers and AI specialists to sustain and improve its technology.
+
+As discussed in the introduction, an important resource for a data-driven start-up is data. When analyzing the Data Processing Agreement on their site [@choco_privacy], it seems they are a “Service Provider” under the California Consumer Privacy Act (CCPA) [@ccpa_2018]. This means Choco does not own the data, but does leverage aggregated insights that it can use to improve services in general. Therefore, data is not a Key Resource, but the insights from this data are.
+
+Choco’s Value Proposition lies in preventing food waste by optimizing supply chains, leading to cost savings and a reduced environmental impact. More importantly, this is done through an application which is easy to use for both suppliers and restaurants. It also allows restaurant owners to compare food waste patterns across different locations to identify where waste is most prevalent.
+
+Customer Relationships are fostered through direct support and onboarding assistance for both restaurants and suppliers. Choco provides AI-driven insights and recommendations to help optimize orders and offers customer service through in-app chat, email, and phone support. Premium suppliers have access to a dedicated onboarding team.
+
+Channels for Choco include direct sales and sign-ups through their website, availability on mobile app platforms like the App Store and Google Play, and partnerships with food suppliers to promote the platform.
+
+Customer Segments served by Choco encompass restaurants of all sizes, from small establishments to large chains, that seek to reduce food waste and improve efficiency. Aside from restaurants, they also target food suppliers and distributors aiming to streamline operations.
+
+Choco’s Cost Structure includes expenses for app development, AI research, customer acquisition, marketing, customer support, data storage, and cloud infrastructure. Additional costs are associated with partnerships and integrations with suppliers.
+
+Revenue Streams for Choco come from monthly subscription fees, with different plans tailored to the needs of various customers, ensuring flexibility in service and pricing. This model enables Choco to drive value and impact in reducing food waste across the food service industry.
+
+## Resource-Based View of Choco
+
+Choco’s resource base is anchored by several critical assets and capabilities that bolster its competitive position in the food ordering and supply chain optimization sector.
+
+### Resources
+
+Choco's main selling point is its application, which allows for seamless communication between restaurants and suppliers, with the goal of minimizing inefficiencies in food ordering processes. This platform is powered by the proprietary AI algorithm, which improves the accuracy of orders and prevents over-ordering, ultimately reducing food waste. Additionally, Choco’s platform integrates orders directly into suppliers’ ERP systems, allowing restaurants to place orders through calls, emails, or the app with these requests automatically appended to the suppliers’ systems. Other AI tools, such as order suggestions, further streamline the ordering process, adding functionality that simplifies inventory management for both suppliers and restaurants. All in all, the AI algorithm is at the core of Choco's value proposition and should be considered the main resource.
+
+To improve this algorithm, Choco can use data from all restaurants and suppliers it has relations with. However, it is important to highlight that, while Choco benefits from the insights generated using this data, it does not belong to Choco.
+
+Complementing these resources is an extensive tech team, comprising software engineers and AI specialists dedicated to enhancing the platform's capabilities. On top of this tech team, Choco also has an established network of suppliers and restaurants it collaborates with.
+
+### Capabilities
+
+Choco's capabilities are closely aligned with its resources, particularly in optimizing the food ordering process. The AI-driven platform allows for real-time adjustments based on user input, promoting efficient inventory management and waste reduction. Choco also offers customer support, ensuring that both suppliers and restaurants have the guidance needed for smooth integration of the platform.
+
+### VRIO Analysis
+
+Choco’s resources and capabilities reveal a mix of temporary and sustainable competitive advantages.
+
+The Choco App is valuable as it effectively addresses inefficiencies in the food supply chain. By streamlining the ordering process and reducing food waste through AI optimization, Choco provides significant benefits to both restaurants and suppliers, enhancing operational efficiency and customer satisfaction.
+
+The functionalities of the Choco application are moderately rare: ERP systems to streamline ordering processes already exist. However, Choco’s integration of advanced AI for order optimization is a distinguishing feature. This capability is not widely available across all competitors, contributing to Choco’s unique market position. Furthermore, Choco’s proprietary AI technology represents a sustainable competitive advantage due to its value and relative rarity. Developing similar AI capabilities requires substantial investment in expertise and resources, making it difficult for competitors to replicate in the short term. However, as the shared data on ordering patterns is non-exclusive to Choco, this AI model can be replicated by competitors with sufficient expertise, potentially leading to a competitive disadvantage.
+
+Choco also demonstrates an organized structure to leverage its resources effectively. The skilled tech team, which includes software engineers and AI specialists, allows the company to constantly update and improve the platform’s capabilities. On top of this, Choco has established a robust network of suppliers and restaurants, fostering collaboration and integration across the food supply chain. This organizational strength enables Choco to utilize its resources efficiently and maintain a competitive edge.
+
+All in all, Choco’s strength lies in its innovative AI algorithms and its capacity to derive insights from platform usage. However, the shared nature of the data can dilute its exclusivity, particularly in a competitive market where rivals might gather similar insights. To sustain its competitive advantage, Choco must prioritize continuous innovation and network expansion, especially if well-funded competitors join the market.
+
+# Comparative Synthesis <!-- 800-1,000 words -->
+
+<!-- Compare and contrast the strategic insights gained from both companies and theories. Highlight complementarities and differences, and discuss how these insights contribute to a broader understanding of strategic management. -->
+
+Analyzing Orbisk and Choco through the lenses of their business models and the resource-based view (RBV) reveals both complementary insights and notable differences that contribute to a broader understanding of strategic management.
+
+## Business Models
+
+Although both Orbisk and Choco have the same ultimate goal of reducing food waste, they both tackle this in completely different fashions. Orbisk has created a hardware solution for restaurants to track and reduce their food waste, paired with a dashboard with analytics. In contrast, Choco focuses on enhancing the food ordering and supply chain processes through an AI-driven digital platform that connects restaurants and suppliers.
+
+While both models are effective, Orbisk faces significant competition from multiple players in the food waste management space. For example, Winnow Solutions [@winnow_solutions] also uses cameras to track food waste and gives users insight via a dashboard. This device from Winnow Solutions is already used by well-known players in the catering world, such as Hilton and Ikea. Therefore, Orbisk needs to show it not only performs better than competitors, but needs to keep improving to stay ahead of the curve.
+
+Choco operates in the supply chain market. While there are many ERP systems, that offer an ordering system for multiple restaurants and suppliers within one centralized app. However, the AI features Choco provides set it apart from any other product on the market. These features such as being able to add orders to your ERP from a voicemail or email, or advising suppliers on future orders and possible marketing strategies, makes this a highly unique product. Other companies may be able to replicate this, but its pre-existent network of suppliers and restaurants will make it to beat its first mover advantage [@Lieberman1988].
+
+Like stated in section @sec-intro_business_model, it is important to not overly rely on future predictions when assessing a business model. Both Orbisk and Choco are proven to be succesful in the current environment, and it can be difficult to predict what the market will do in the future. However, with the rise of AI within the corporate world [@hartmann2020rise], more companies are starting to shift their focus to data-driven solutions. Therefore, both companies most actively keep innovating to stay ahead of competitors.
+
+## Resource-Based View
+
+From a resource-based perspective, both companies possess temporary competitive advantages. For Choco, this advantage is clear: there are no other products on the market. For Orbisk, this advantage is more abstract: its customer base and network, the additional services provided with the product like a food waste coach, as well as the machine learning algorithm set it apart from competitors.
+
+The analysis also highlights differences in the sustainability of competitive advantages. Choco's proprietary AI technology provides a more sustainable edge due to its relative rarity and the difficulty competitors face in replicating it. In contrast, Orbisk has a similar AI technology to competitors. Both companies do not own their data, meaning they could lose their edge in the future.
+
+## General Comparison
+
+These insights contribute to a broader understanding of strategic management, by illustrating how strategies of firms are shaped by the competitve landscape they are in. Orbisk has clear direct competitors, while this is not the case for Choco, leading to different levels of pressure for innovation. The key take-away from both cases is the need to keep innovating, even if you might currently be ahead of your competition.
+
+# Conclusion <!--500-700 words -->
+
+<!-- Summarize the key findings and reflect on the value of using multiple theoretical perspectives. Discuss the practical implications for businesses and future research directions. -->
+
+The analysis of Orbisk and Choco through both business models and the resource-based view (RBV) reveals several key findings. Both companies have established robust business models tailored to their respective markets, with Orbisk facing significant competition in the food waste management sector and Choco benefiting from a unique position with no direct competitors. However, both companies possess temporary competitive advantages. Choco's advantage stems from its lack of direct competition, while Orbisk's relies on the effectiveness of its product amidst a crowded market.
+
+Both companies rely on data that they do not own. This could be a competitve disadvantage, should competitors try to develop a similar product.
+
+## Reflection on the Value of Using Multiple Theoretical Perspectives
+
+Utilizing multiple theoretical perspectives, such as business models and the resource-based view, provides a more comprehensive understanding of strategic management. Each theory offers distinct insights.
+
+The business model perspective focusses on all aspects related to the operation and market position of the firm. It assesses the overall idea behind the business, and all related factors such as resources, partners, and revenue streams. The business model also determines the value proposition: the reason a customer should buy your specific product. It is important to note the business model does not analyze others on the market.
+
+That is where the resource-based view comes in. This view emphasizes the importance of unique resources and capabilities, comparing them to competitors. The VRIO analysis is a tool to gauge whether resources are actually unique, by asking whether they are valuable, rare, imitable, and organized within the firm.
+
+Both theories have their advantages. The business model allows for a more general view of the company's inner workings, while the resource-based view allows us to assess whether the company has a unique advantage. By combining these insights, it allows for a more hollistic view of a firm.
+
+## Practical Implications for Businesses
+
+Orbisk and Choco are both situated in competitive markets. Therefore, the insights gained from analyzing these companies have practical implications for other businesses facing competition, and aiming to establish or maintain a competitive edge.
+
+The analysis has two key take-aways. Firstly, if you are in a market that is changing rapidly, such as a data-driven market, innovation is always crucial. Even if you might not have competitors currently, others could develop similar products if they have access to your data. Thus, the second key take-away is the importance of data ownership. If you own data, it is much more difficult for others to gain a competitive edge over you.
+
+## Future Research Directions
+
+Future research could explore the long-term sustainability of competitive advantages in rapidly changing markets. This is especially relevant with the rise of AI and data-driven solutions, which tend to evolve swiftly. Aside from that, examining how firms can cultivate and protect their unique resources, despite increasing competition and technological advancements could also be an interesting area for further study. This could provide useful insights for many companies in the current rapidly evolving market.
+
+# References
+
+::: {#refs}
+:::

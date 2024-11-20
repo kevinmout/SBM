@@ -1,0 +1,232 @@
+---
+title: "**The Economics of App Success: How Revenue Streams Influence Downloads and User Ratings**"
+subtitle: "Group Assignment - Strategy and Business Models"
+author: "Group 5"
+date: "November 28, 2024"
+date-format: DD/MM/YYYY # Set date format to long
+format: 
+  pdf: #Output pdf
+    documentclass: article
+    number-sections: true
+    toc: true #table of contents
+    toc-title: Contents #name table of contents
+    papersize: a4
+    fontsize: 12pt
+    fontfamily: mathptmx
+    geometry:
+      - top=25mm #top margin
+      - left=25mm #left margin
+    pdf-engine: pdflatex
+    cap-location: bottom # Set table caption location to bottom
+    include-in-header: 
+      - text: |
+          \usepackage{graphicx}
+    include-before-body:
+      - text: |
+          \vspace{2em}
+          \begin{center}
+            \includegraphics[width=0.3\textwidth]{figures/jads.png}
+          \end{center}
+          \vspace{3em}
+          \newpage
+bibliography: references.bib
+bibliographystyle: apa
+---
+
+<!-- horizontal line -->
+
+\newpage
+
+# Introduction <!-- 800-1,000 words -->
+
+```{=html}
+<!-- Content: Introduce the topic and explain its relevance in both academic and practical contexts. Justify the research gap and formulate a clear and insightful research question.
+
+Key Elements:
+Background of the topic.
+Identification of the research gap.
+Relevance to current business practices.
+Research question. -->
+```
+With the every-growing popularity of cellphones [@charted2023], the popularity of mobile applications is also steadily increasing. In 2024, mobile applications are estimated to generate over \$900 billion in revenue [@global2019]. Generally, mobile applications ('*apps*' from here on) tend to be categorized in three different categories [@roma2016]. Paid apps are the most transparent; they revenue is based on an up-front purchase by the user. Free apps, on the other hand, require no purchase by the user at any stage. According to @roma2016, these apps make their revenue from deals with third-parties, either through advertisement or other purposes such as market information.
+
+Finally, freemium apps are, as the name suggests, a middle-ground between free and premium. Users get access to a basic version of the application first and can unlock more features through an in-app payment [@kumar2014]. Of these three revenue models, freemium is the most commonly used and the most [@salehudin2021] and leads to more downloads as well as revenue [@liu2014].
+
+## Academic Background
+
+<!-- Kort samengevat: Wat is de wetenschappelijke consensus over dit topic? Dit wordt verder uitgediept in de Theory and Hypothesis sectie.-->
+
+Most research uses these three established categories—paid, freemium, and free—when discussing revenue models for apps. However, by limiting the discussion to these three terms, nuances within these categories might be missed.
+
+In a review paper from 2023 [@djaruma2023], different levels of monetization are suggested based on previous literature. These levels provide a clear framework for the revenue models of mobile apps.
+
+| Strategy                                           | Description                                                                                                                      |
+|-----------------------|-------------------------------------------------|
+| Level 5: Premium                                   | Pay to use the application. This either happens up-front, or after a trial period.                                               |
+| Level 4: Semi-premium                              | Use a limited number of features for free. Unlock the app with all features through an in-app purchase.                          |
+| Level 3: In-app advertisement and in-app purchases | Free application with ads, encouraging users to remove ads or to make in-app purchases.                                          |
+| Level 2: Sample and premium                        | Two different versions of the same app. One is a version with limit features and/or ads. The other version is a premium version. |
+| Level 1: In-app advertisement                      | Only one version of the app, with only ads and no in-app purchases.                                                              |
+| Level 0: Free                                      | The app has no monetization. However, money can still be made through selling user information.                                  |
+
+: Six levels of monetization for apps
+
+<!-- Ik heb dit expres kort gehouden, aangezien we ook nog een uitgebreidere literatuur review hebben. Maar, misschien moet dit toch nog iets langer? -Noa -->
+
+## Societal Background
+
+<!-- Is there any tie to practical contexts? How is this relevant to current business practices? -->
+
+Currently, most apps utilize the freemium revenue model [@salehudin2021]. However, as discussed in @djaruma2023, there are many revenue models between completely premium and completely free. A more fine-grained classification of app revenue models beyond the traditional "paid-freemium-free" framework holds significant societal and business implications.
+
+For society, such distinctions enhance transparency. Some monetization models, such as free or ad-filled apps, may rely on selling user information as a source of revenue [@bamberger2020]. Therefore, clearer distinctions regarding the revenue model will empower consumers to make informed choices. It may also enable policymakers to identify and regulate exploitative practices, such as manipulative microtransactions or intrusive ad models, ensuring all applications align with ethical and legal standards [@mileros2024].
+
+For businesses, this paper should unlock more insight into the effectiveness of different revenue streams. This will allow developers to tailor monetization strategies to specific audiences. Furthermore, both consumers and regulatory bodies are growing more concerned with the privacy concerns of apps, especially ones that rely on market information [@mileros2024]. A granular understanding helps businesses adapt, aligning profitability with sustainability and ethical considerations.
+
+<!-- Ik ben niet helemaal blij met de flow van dit stuk, ik mis een mooie conclusie. Maar, ik kan niet bedenken :(. Dit moet later toegevoegd worden -Noa. -->
+
+## Research Gap
+
+<!-- Kort samengevat: Wat is de relevantie? -->
+
+In short, apps play an increasingly important role in our techno-centric society. To improve the user experience and increase profits, consideration of revenue models is key. Despite the great depth of research on this topic, literature tends to be focussed on the three big categories of paid, freemium, and free. This lack of nuance prevents us from understanding the fine-grained details that may help improve future apps.
+
+<!-- Wat is de research gap? En wat is dus de onderzoekvraag? -->
+
+The levels of monetization as proposed by @djaruma2023 would allow for this nuance. However, their framework has never been used in an empirical setting, as the paper by @djaruma2023 was published only last year. Applying this framework to see how different revenue streams impact the popularity of an app may yield valuable insights into the preferences of consumers. Therefore, the question to answer within this paper will be: *How are the 5 different revenue models as proposed by @djaruma2023 correlate to the success of an app?*
+
+<!-- Wederom: kort maar krachtig, of té kort? -Noa -->
+
+# Theory and Hypotheses <!-- 1,000-1,200 words -->
+
+```{=html}
+<!-- 
+
+Comprehensive coverage of relevant literature, effectively building towards the research question.
+Development of up to three hypotheses, clearly grounded in the theoretical framework.
+
+Content: Review relevant literature to build a strong theoretical framework. Develop up to three hypotheses that directly connect to the theory and research question.
+
+Key Elements:
+Comprehensive literature review.
+Explanation of key theoretical concepts.
+Development of hypotheses. -->
+```
+In this section, prior research into the topic of revenue streams and its correlation to success in apps will be discussed. As mentioned in the Introduction section, this paper will apply the 5 levels of revenue as proposed by @djaruma2023 to app data. The following section will contain a holistic overview of the existing research, as well as hypotheses that arise from this theoretical framework.
+
+## Literature Review
+
+To answer the question "*How are the 5 different revenue models as proposed by @djaruma2023 correlate to the success of an app?*", we must first define what constitutes to success. In this paper, success will be defined by a couple of factors: popularity, rating, and estimated revenue.
+
+### Popularity
+
+The popularity of an app can be measured by the number of downloads. It is important to note the popularity of an app is complex, and is not solely dependent on the chosen revenue model. Other features, such as whether an app is featured on charts, whether it has frequent updates, and word-of-mouth awareness, will also impact the popularity of an app [@aydingokgoz2021]. However, despite these other variables, to versions of the same app will still have drastically different performances with different revenue streams [@liu2014].
+
+H1a: Apps that are allow the user to have free access to all features (level 0 and 1) will have the highest amount of downloads overall. However, the ratings may fluctuate, as quality can vary for free-to-access apps. (CITE!!!)
+
+H1b: The apps with the most downloads will be level 1. Most social media platforms, which dominate our culture, tend to have this revenue stream [@djaruma2023].
+
+H1c: For apps that utilize a sample and a premium version of the same app (level 2), the free versions of an app will have more downloads than their paid-for counterpart. Most, if not all, users will download the free version first, and then might upgrade. This means there should be a disparity between the number of downloads between the apps, as is also demonstrated by @liu2014.
+
+### Rating
+
+The downloads of an app are not everything. An app can be downloaded often, but may not be highly rated.
+
+H2a: Apps that require the user to pay to unlock features (level 2, 3, and 4) will tend to have lower ratings than the version that requires payment upfront (level 5). The main draw of a freemium model is to attract users, and have them update to a paid version [@kumar2014]. However, as @kumar2014 points out, this can be a double-edged sword. Too few features, and it may not be attractive to users. Too many features, and the users will not update.
+
+H2b: Fully premium apps will have less variance in their ratings, while all other levels will have more. (nog geen source, alleen gut-feeling...)
+
+H3: For apps that utilize a sample and a premium version of the same app (level 2), the rating of the paid-for version is positively associated with the rating of the free version of the same app. This was true for the study on the most popular apps in the Google Play Store by @liu2014, so it is expected a similar pattern should arise for this dataset.
+
+### Revenue Estimation
+
+<!-- Dit stuk kan later ook nog verschoven worden naar de discussie als dat beter is voor de flow. -Noa -->
+
+It is important to point out downloads and ratings likely do not directly correlate to the actual revenue of an app. The revenue of apps "premium" apps that require an upfront payment, the revenue is relatively simple to track and compare. However, for apps that rely on advertisement, in-app purchases and/or selling market information, this is harder to track.
+
+For apps that solely on advertisement, time retention can be a good measure of revenue [@ross2018]. However, this only works if the app solely relies on ads. An example of this given by @djaruma2023 is TikTok: this app relies not only on advertisement, but also on users purchasing products through its shop. Therefore, using solely the time retention would not accurately capture the revenue of an app with both revenue streams. Furthermore, the selling of user data is usually not publicized, meaning it is not possible to know the revenue from this.
+
+Unfortunately, our data only contains the price of "premium" app versions. The data does not include any details regarding in-app purchases nor time-retention. Because of this lack of sufficient data, solely downloads and ratings will be taken into account as indicators of success.
+
+<!-- Officieel mag je dus maar 3 hypothesen, maar ik heb ze onderverdeeld. Zou dit mogen? -Noa -->
+
+# Methods and Data <!-- 1,000-1,200 words -->
+
+```{=html}
+<!--
+
+Detailed description of the dataset, clear explanation of variable translation.
+Proper use of statistical methods, with careful consideration of assumptions and appropriate handling of violations.
+
+Content: Describe the dataset(s) used, explain variable selection and translation, and provide a detailed explanation of the statistical methods applied. Justify the methodological approach and handle assumptions rigorously.
+Key Elements:
+Dataset description.
+Explanation of variable selection.
+Statistical methods and justification.
+Handling of assumptions.
+-->
+```
+In this section, the data and methods used to test the hypotheses will be laid out.
+
+## Dataset Description
+
+Omschrijf de data: hoeveel instances, welke variables, waar gaat de data over?
+
+## Variable Selection
+
+Welke variabelen gebruiken wij? Welke hebben we eruit gehaald? (Hierover uitbreiden in Handeling of Assumptions).
+
+Hoe definiëren we de 5 levels?
+
+## Statistical Methods
+
+Omschrijf hoe we het daadwerkelijk hebben onderzocht.
+
+### Handeling of Assumptions
+
+Hoe zijn we omgegaan met missing values, covariance, etc etc.
+
+# Results <!-- 800-1,000 words -->
+
+```{=html}
+<!-- Clear presentation of results, including descriptive statistics and relevant tables/visualizations.
+Effective interpretation of results, linked to hypotheses and research question.
+
+Content: Present the results clearly, including descriptive statistics, tables, and visualizations. Interpret the results and link them back to the hypotheses and research question.
+
+Key Elements:
+Clear presentation of results.
+Descriptive statistics.
+Visualizations (e.g., graphs, charts).
+Interpretation of results.
+
+!! Voor volle punten, zorg dat je terug refereert naar de hypothesen !!
+-->
+```
+# Discussion <!--500-700 words -->
+
+```{=html}
+<!-- Insightful discussion of findings in relation to the research question and literature.
+Reflection on practical implications and contributions to the ongoing debate.
+
+Content: Provide a thoughtful discussion of the findings in relation to the research question and the literature. Reflect on the practical implications and contributions to the academic debate.
+
+Key Elements:
+Reflection on findings.
+Linkage to existing literature.
+Practical
+-->
+```
+## Reflection on the Findings
+
+Downloads do not necessarily indicate revenue for freemium models [@djaruma2023]. The time the user spends on an app and the purchases made within this app [@ross2018] are better measures of the revenue for freemium applications.
+
+## Practical Implications for Businesses
+
+## Future Research Directions
+
+# References
+
+::: {#refs}
+:::
+

@@ -1,0 +1,133 @@
+
+@misc{charted2023,
+  author = {Felix Richter},
+  title = {Charted: There are more mobile phones than people in the world},
+  year = {2023},
+  month = {April},
+  organization = {World Economic Forum},
+  url = {https://www.weforum.org/stories/2023/04/charted-there-are-more-phones-than-people-in-the-world/},
+  note = {Accessed: 2024-11-18},
+}
+
+@misc{global2019,
+  title = {Mobile App Revenue Worldwide by Segment (2019-2027)},
+  year = {2023},
+  organization = {Statista},
+  url = {https://www.statista.com/forecasts/1262892/mobile-app-revenue-worldwide-by-segment},
+  note = {Accessed: 2024-11-18},
+}
+
+@article{roma2016,
+	title = {Revenue models, in-app purchase, and the app performance: Evidence from Apple{\textquoteright}s App Store and Google Play},
+	author = {Roma, Paolo and Ragaglia, Daniele},
+	year = {2016},
+	month = {05},
+	date = {2016-05-01},
+	journal = {Electronic Commerce Research and Applications},
+	pages = {173--190},
+	volume = {17},
+	doi = {10.1016/j.elerap.2016.04.007},
+	url = {https://www.sciencedirect.com/science/article/pii/S1567422316300266}
+}
+
+@article{kumar2014,
+	title = {Making {\textquotedblleft}Freemium{\textquotedblright} Work},
+	author = {Kumar, Vineet},
+	year = {2014},
+	month = {05},
+	date = {2014-05-01},
+	journal = {Harvard Business Review},
+	url = {https://hbr.org/2014/05/making-freemium-work},
+	note = {Section: Pricing strategy}
+}
+
+@inproceedings{djaruma2023,
+	title = {2023 IEEE International Conference on Communication, Networks and Satellite (COMNETSAT)},
+	author = {Djaruma, Heryan and Wirawan, Zaki Widyadhana and Gunawan, Alexander Agung Santoso and Saputra, Karen Etania},
+	year = {2023},
+	month = {11},
+	date = {2023-11},
+	pages = {577--583},
+	doi = {10.1109/COMNETSAT59769.2023.10420748},
+	url = {http://ieeexplore-ieee-org/document/10420748}
+}
+
+@article{ross2018,
+	title = {Customer retention in freemium applications},
+	author = {Ross, Nicholas},
+	year = {2018},
+	month = {12},
+	date = {2018-12-01},
+	journal = {Journal of Marketing Analytics},
+	pages = {127--137},
+	volume = {6},
+	number = {4},
+	doi = {10.1057/s41270-018-0042-x},
+	url = {https://doi.org/10.1057/s41270-018-0042-x},
+	langid = {en}
+}
+
+@article{liu2014,
+	title = {Effects of Freemium Strategy in the Mobile App Market: An Empirical Study of Google Play},
+	author = {Liu, Charles Zhechao and Au, Yoris A. and Choi, Hoon Seok},
+	year = {2014},
+	month = {07},
+	date = {2014-07-03},
+	journal = {Journal of Management Information Systems},
+	pages = {326--354},
+	volume = {31},
+	number = {3},
+	doi = {10.1080/07421222.2014.995564},
+	url = {https://doi.org/10.1080/07421222.2014.995564},
+	note = {Publisher: Routledge
+{\_}eprint: https://doi.org/10.1080/07421222.2014.995564}
+}
+
+@article{salehudin2021,
+	title = {No Such Thing As A Free App: A Taxonomy of Freemium Business Models and User Archetypes in the Mobile Games Market},
+	author = {Salehudin, Imam and Alpert, Frank},
+	year = {2021},
+	month = {12},
+	date = {2021-12-28},
+	url = {https://papers.ssrn.com/abstract=4001100},
+	langid = {en}
+}
+
+@article{bamberger2020,
+	title = {Can You Pay for Privacy? Consumer Expectations and the Behavior of Free and Paid Apps},
+	author = {Bamberger, Kenneth A. and Egelman, Serge and Han, Catherine and Bar On, Amit Elazari and Reyes, Irwin},
+	year = {2020},
+	date = {2020},
+	journal = {Berkeley Technology Law Journal},
+	pages = {327},
+	volume = {35},
+	url = {https://heinonline.org/HOL/Page?handle=hein.journals/berktech35&id=339&div=&collection=}
+}
+
+@article{aydingokgoz2021,
+	title = {There{\textquoteright}s an app for that! understanding the drivers of mobile application downloads},
+	author = {Aydin Gokgoz, Zeynep and Ataman, M. Berk and van Bruggen, Gerrit H.},
+	year = {2021},
+	month = {02},
+	date = {2021-02-01},
+	journal = {Journal of Business Research},
+	pages = {423--437},
+	volume = {123},
+	doi = {10.1016/j.jbusres.2020.10.006},
+	url = {https://www.sciencedirect.com/science/article/pii/S0148296320306536}
+}
+
+@article{mileros2024,
+	title = {Free for you and me? Exploring the value users gain from their seemingly free apps},
+	author = {Mileros, Martin D. and Forchheimer, Robert},
+	year = {2024},
+	month = {08},
+	date = {2024-08-27},
+	journal = {Digital Policy, Regulation and Governance},
+	volume = {ahead-of-print},
+	number = {ahead-of-print},
+	doi = {10.1108/DPRG-01-2024-0009},
+	url = {https://www.emerald.com/insight/content/doi/10.1108/dprg-01-2024-0009/full/html},
+	note = {Publisher: Emerald Publishing Limited},
+	langid = {en}
+}

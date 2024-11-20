@@ -1,0 +1,322 @@
+{
+    "sources": [
+        {
+            "URL": "https://www.weforum.org/stories/2023/04/charted-there-are-more-phones-than-people-in-the-world/",
+            "author": [
+                {
+                    "family": "Richter",
+                    "given": "Felix"
+                }
+            ],
+            "id": "charted2023",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023
+                    ]
+                ]
+            },
+            "note": "Accessed: 2024-11-18",
+            "publisher": "World Economic Forum",
+            "title": "Charted: There are more mobile phones than people in the world",
+            "title-short": "Charted",
+            "type": ""
+        },
+        {
+            "URL": "https://www.statista.com/forecasts/1262892/mobile-app-revenue-worldwide-by-segment",
+            "id": "global2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023
+                    ]
+                ]
+            },
+            "note": "Accessed: 2024-11-18",
+            "publisher": "Statista",
+            "title": "Mobile app revenue worldwide by segment (2019-2027)",
+            "type": ""
+        },
+        {
+            "DOI": "10.1016/j.elerap.2016.04.007",
+            "URL": "https://www.sciencedirect.com/science/article/pii/S1567422316300266",
+            "author": [
+                {
+                    "family": "Roma",
+                    "given": "Paolo"
+                },
+                {
+                    "family": "Ragaglia",
+                    "given": "Daniele"
+                }
+            ],
+            "container-title": "Electronic Commerce Research and Applications",
+            "id": "roma2016",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016,
+                        5,
+                        1
+                    ]
+                ]
+            },
+            "page": "173-190",
+            "title": "Revenue models, in-app purchase, and the app performance: Evidence from apple’s app store and google play",
+            "title-short": "Revenue models, in-app purchase, and the app performance",
+            "type": "article-journal",
+            "volume": "17"
+        },
+        {
+            "URL": "https://hbr.org/2014/05/making-freemium-work",
+            "author": [
+                {
+                    "family": "Kumar",
+                    "given": "Vineet"
+                }
+            ],
+            "container-title": "Harvard Business Review",
+            "id": "kumar2014",
+            "issued": {
+                "date-parts": [
+                    [
+                        2014,
+                        5,
+                        1
+                    ]
+                ]
+            },
+            "note": "Section: Pricing strategy",
+            "title": "Making “freemium” work",
+            "type": "article-journal"
+        },
+        {
+            "DOI": "10.1109/COMNETSAT59769.2023.10420748",
+            "URL": "http://ieeexplore-ieee-org/document/10420748",
+            "author": [
+                {
+                    "family": "Djaruma",
+                    "given": "Heryan"
+                },
+                {
+                    "family": "Wirawan",
+                    "given": "Zaki Widyadhana"
+                },
+                {
+                    "family": "Gunawan",
+                    "given": "Alexander Agung Santoso"
+                },
+                {
+                    "family": "Saputra",
+                    "given": "Karen Etania"
+                }
+            ],
+            "id": "djaruma2023",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023,
+                        11
+                    ]
+                ]
+            },
+            "page": "577-583",
+            "title": "2023 IEEE international conference on communication, networks and satellite (COMNETSAT)",
+            "type": "paper-conference"
+        },
+        {
+            "DOI": "10.1057/s41270-018-0042-x",
+            "URL": "https://doi.org/10.1057/s41270-018-0042-x",
+            "author": [
+                {
+                    "family": "Ross",
+                    "given": "Nicholas"
+                }
+            ],
+            "container-title": "Journal of Marketing Analytics",
+            "id": "ross2018",
+            "issue": "4",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018,
+                        12,
+                        1
+                    ]
+                ]
+            },
+            "language": "en",
+            "page": "127-137",
+            "title": "Customer retention in freemium applications",
+            "type": "article-journal",
+            "volume": "6"
+        },
+        {
+            "DOI": "10.1080/07421222.2014.995564",
+            "URL": "https://doi.org/10.1080/07421222.2014.995564",
+            "author": [
+                {
+                    "family": "Liu",
+                    "given": "Charles Zhechao"
+                },
+                {
+                    "family": "Au",
+                    "given": "Yoris A."
+                },
+                {
+                    "family": "Choi",
+                    "given": "Hoon Seok"
+                }
+            ],
+            "container-title": "Journal of Management Information Systems",
+            "id": "liu2014",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2014,
+                        7,
+                        3
+                    ]
+                ]
+            },
+            "note": "Publisher: Routledge _eprint: https://doi.org/10.1080/07421222.2014.995564",
+            "page": "326-354",
+            "title": "Effects of freemium strategy in the mobile app market: An empirical study of google play",
+            "title-short": "Effects of freemium strategy in the mobile app market",
+            "type": "article-journal",
+            "volume": "31"
+        },
+        {
+            "URL": "https://papers.ssrn.com/abstract=4001100",
+            "author": [
+                {
+                    "family": "Salehudin",
+                    "given": "Imam"
+                },
+                {
+                    "family": "Alpert",
+                    "given": "Frank"
+                }
+            ],
+            "id": "salehudin2021",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021,
+                        12,
+                        28
+                    ]
+                ]
+            },
+            "language": "en",
+            "title": "No Such Thing As A Free App: A Taxonomy of Freemium Business Models and User Archetypes in the Mobile Games Market",
+            "title-short": "No Such Thing As A Free App",
+            "type": "article-journal"
+        },
+        {
+            "URL": "https://heinonline.org/HOL/Page?handle=hein.journals/berktech35&id=339&div=&collection=",
+            "author": [
+                {
+                    "family": "Bamberger",
+                    "given": "Kenneth A."
+                },
+                {
+                    "family": "Egelman",
+                    "given": "Serge"
+                },
+                {
+                    "family": "Han",
+                    "given": "Catherine"
+                },
+                {
+                    "family": "Bar On",
+                    "given": "Amit Elazari"
+                },
+                {
+                    "family": "Reyes",
+                    "given": "Irwin"
+                }
+            ],
+            "container-title": "Berkeley Technology Law Journal",
+            "id": "bamberger2020",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "page": "327",
+            "title": "Can you pay for privacy? Consumer expectations and the behavior of free and paid apps",
+            "type": "article-journal",
+            "volume": "35"
+        },
+        {
+            "DOI": "10.1016/j.jbusres.2020.10.006",
+            "URL": "https://www.sciencedirect.com/science/article/pii/S0148296320306536",
+            "author": [
+                {
+                    "family": "Aydin Gokgoz",
+                    "given": "Zeynep"
+                },
+                {
+                    "family": "Ataman",
+                    "given": "M. Berk"
+                },
+                {
+                    "dropping-particle": "van",
+                    "family": "Bruggen",
+                    "given": "Gerrit H."
+                }
+            ],
+            "container-title": "Journal of Business Research",
+            "id": "aydingokgoz2021",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021,
+                        2,
+                        1
+                    ]
+                ]
+            },
+            "page": "423-437",
+            "title": "There’s an app for that! Understanding the drivers of mobile application downloads",
+            "type": "article-journal",
+            "volume": "123"
+        },
+        {
+            "DOI": "10.1108/DPRG-01-2024-0009",
+            "URL": "https://www.emerald.com/insight/content/doi/10.1108/dprg-01-2024-0009/full/html",
+            "author": [
+                {
+                    "family": "Mileros",
+                    "given": "Martin D."
+                },
+                {
+                    "family": "Forchheimer",
+                    "given": "Robert"
+                }
+            ],
+            "container-title": "Digital Policy, Regulation and Governance",
+            "id": "mileros2024",
+            "issue": "ahead-of-print",
+            "issued": {
+                "date-parts": [
+                    [
+                        2024,
+                        8,
+                        27
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "Publisher: Emerald Publishing Limited",
+            "title": "Free for you and me? Exploring the value users gain from their seemingly free apps",
+            "type": "article-journal",
+            "volume": "ahead-of-print"
+        }
+    ],
+    "project_biblios": []
+}
