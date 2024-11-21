@@ -316,6 +316,58 @@
             "title": "Free for you and me? Exploring the value users gain from their seemingly free apps",
             "type": "article-journal",
             "volume": "ahead-of-print"
+        },
+        {
+            "URL": "http://aisel.aisnet.org:80/cgi/viewcontent.cgi?article=1050&context=icis2012",
+            "author": [
+                {
+                    "family": "Liu",
+                    "given": "Charles Zhechao"
+                },
+                {
+                    "family": "Au",
+                    "given": "Yoris A."
+                },
+                {
+                    "family": "Choi",
+                    "given": "Hoon Seok"
+                }
+            ],
+            "container-title": "Proceedings of the 2012 international conference on information systems (ICIS)",
+            "id": "liu2012freemium",
+            "issued": {
+                "date-parts": [
+                    [
+                        2012
+                    ]
+                ]
+            },
+            "note": "Accessed: 2024-11-21",
+            "page": "1-19",
+            "title": "An empirical study of the freemium strategy for mobile apps: Evidence from the google play market",
+            "title-short": "An empirical study of the freemium strategy for mobile apps",
+            "type": "paper-conference"
+        },
+        {
+            "author": [
+                {
+                    "family": "NIEBORG",
+                    "given": "DAVID B."
+                }
+            ],
+            "id": "nieborg2016",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "note": "Num Pages: 14",
+            "publisher": "Routledge",
+            "title": "Free-to-play games and app advertising: The rise of the player commodity",
+            "title-short": "Free-to-play games and app advertising",
+            "type": "chapter"
         }
     ],
     "project_biblios": []
