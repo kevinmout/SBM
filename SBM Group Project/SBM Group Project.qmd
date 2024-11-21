@@ -128,7 +128,7 @@ H1b: The apps with the most downloads will be level 1. Most social media platfor
 
 H1c: For apps that utilize a sample and a premium version of the same app (level 2), the free versions of an app will have more downloads than their paid-for counterpart. Most, if not all, users will download the free version first, and then might upgrade. This means there should be a disparity between the number of downloads between the apps, as is also demonstrated by @liu2012freemium.
 
-H1d: The most downloaded apps in the gaming category will likely fall under level 3. Many popular games use this type of mechanism [@nieborg2016]. Therefore, it would be expected this same pattern would arise from our data.
+H1d: The most downloaded apps in the gaming category will likely fall under level 4. Many popular games use this type of "pay-to-win" mechanism [@nieborg2016]. Therefore, it would be expected this same pattern would arise from our data.
 
 ### Rating
 
