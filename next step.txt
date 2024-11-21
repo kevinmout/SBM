@@ -1,0 +1,18 @@
+Topic 2: Freemium vs Paid-For Apps
+1. Classify apps into “freemium,” “free,” and “paid”. --> Use in_app and price_gplay
+2. Examine their impact on num_downloads, rating_app, and nb_rating to assess engagement. 
+3. Further analyze SDK usage (sdk_type, sdk_name) across these categories to see if there are specific SDKs (e.g., analytics or ad SDKs) that are more common in freemium vs. paid apps.
+
+
+Topic 3: SDK Evolution and App LifeCycle
+1. How many downloads before and after sdk activation?
+
+
+
+
+
+Outliers
+Distribution of free, freemium, paid. Average downloads per category
+Opzoek gaan naar candy crush
+Duplicates op my_app_id
+Clean notebook
