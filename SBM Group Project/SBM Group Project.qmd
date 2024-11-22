@@ -48,6 +48,7 @@ Identification of the research gap.
 Relevance to current business practices.
 Research question. -->
 ```
+
 With the every-growing popularity of cellphones [@charted2023], the popularity of mobile applications is also steadily increasing. In 2024, mobile applications are estimated to generate over \$900 billion in revenue [@global2019]. Generally, mobile applications ('*apps*' from here on) tend to be categorized in three different categories [@roma2016]. Paid apps are the most transparent; they revenue is based on an up-front purchase by the user. Free apps, on the other hand, require no purchase by the user at any stage. According to @roma2016, these apps make their revenue from deals with third-parties, either through advertisement or other purposes such as market information.
 
 Finally, freemium apps are, as the name suggests, a middle-ground between free and premium. Users get access to a basic version of the application first and can unlock more features through an in-app payment [@kumar2014]. Of these three revenue models, freemium is the most commonly used and the most [@salehudin2021] and leads to more downloads as well as revenue [@liu2014].
@@ -60,14 +61,14 @@ Most research uses these three established categories—paid, freemium, and free
 
 In a review paper from 2023 [@djaruma2023], different levels of monetization are suggested based on previous literature. These levels provide a clear framework for the revenue models of mobile apps.
 
-| Strategy                                           | Description                                                                                                                      |
-|------------------------|------------------------------------------------|
-| Level 5: Premium                                   | Pay to use the application. This either happens up-front, or after a trial period.                                               |
-| Level 4: Semi-premium                              | Use a limited number of features for free. Unlock the app with all features through an in-app purchase.                          |
-| Level 3: In-app advertisement and in-app purchases | Free application with ads, encouraging users to remove ads or to make in-app purchases.                                          |
-| Level 2: Sample and premium                        | Two different versions of the same app. One is a version with limit features and/or ads. The other version is a premium version. |
-| Level 1: In-app advertisement                      | Only one version of the app, with only ads and no in-app purchases.                                                              |
-| Level 0: Free                                      | The app has no monetization. However, money can still be made through selling user information.                                  |
+| Strategy | Description |
+|------------------------------------|------------------------------------|
+| Level 5: Premium | Pay to use the application. This either happens up-front, or after a trial period. |
+| Level 4: Semi-premium | Use a limited number of features for free. Unlock the app with all features through an in-app purchase. |
+| Level 3: In-app advertisement and in-app purchases | Free application with ads, encouraging users to remove ads or to make in-app purchases. |
+| Level 2: Sample and premium | Two different versions of the same app. One is a version with limit features and/or ads. The other version is a premium version. |
+| Level 1: In-app advertisement | Only one version of the app, with only ads and no in-app purchases. |
+| Level 0: Free | The app has no monetization. However, money can still be made through selling user information. |
 
 : Six levels of monetization for apps
 
@@ -112,6 +113,7 @@ Comprehensive literature review.
 Explanation of key theoretical concepts.
 Development of hypotheses. -->
 ```
+
 In this section, prior research into the topic of revenue streams and its correlation to success in apps will be discussed. As mentioned in the Introduction section, this paper will apply the 5 levels of revenue as proposed by @djaruma2023 to app data. The following section will contain a holistic overview of the existing research, as well as hypotheses that arise from this theoretical framework.
 
 ## Literature Review
@@ -168,25 +170,70 @@ Statistical methods and justification.
 Handling of assumptions.
 -->
 ```
-In this section, the data and methods used to test the hypotheses will be laid out.
+
+In this section, we will discuss the dataset and methods used to test the hypotheses outlined in the previous section. The focus lies on providing a comprehensive description of the dataset, including its structure and the variables it contains, followed by an explanation of the variable selection process. Additionally, we outline the statistical methods applied and discuss how assumptions, such as missing values and potential biases, were addressed to ensure the robustness of our analysis.
 
 ## Dataset Description
 
-Omschrijf de data: hoeveel instances, welke variables, waar gaat de data over?
+<!--Omschrijf de data: hoeveel instances, welke variables, waar gaat de data over?-->
+
+The dataset used for this research consists of 1,016,666 instances and 27 variables, representing a detailed overview of mobile applications across various revenue models. Each instance corresponds to an app, and the variables capture key attributes such as app downloads, user ratings, and monetization strategies. Below is an overview of some of variables:
+
+| Variable | Description |
+|------------------------------------|------------------------------------|
+| my_app_id (object) | Unique identifier for each app. |
+| date_published (object) | The publication date of the app. Only three missing values (0.000295% null). |
+| privacy_policy (object) | Information about the app's privacy policy, missing in 28.57% of cases. |
+| rating_app (float64) | The average rating of the app, with 8.76% missing values. |
+| nb_rating (object) | Number of ratings received by the app, missing in 8.76% of cases. |
+| num_downloads (object) | The number of downloads for the app, nearly complete with only 15 missing values (0.001475% null). |
+| price_gplay (object) | The price of the app as listed on Google Play, missing in 0.43% of cases. |
+| in_app (bool) | Indicates whether the app has in-app purchases (no missing values). |
+| has_ads (bool) | Indicates whether the app contains advertisements (no missing values). |
+| content_rating_app (object) | The app's content rating, with three missing values (0.000295% null). |
+| developer_name (object) | The name of the app developer, missing in only 16 instances (0.001574% null). |
+
+The dataset includes several additional variables related to app features, developer information, and user engagement metrics such as visit_website, more_from_developer, and family_library. However, some variables, such as whats_new (100% null) and in_app_product (89.57% null), were deemed unsuitable for analysis due to their high proportion of missing data.
+
+The primary purpose of this dataset in this study, is to analyze app monetization strategies by categorizing apps into distinct revenue levels and evaluating their performance based on key metrics like downloads and user ratings.
 
 ## Variable Selection
 
-Welke variabelen gebruiken wij? Welke hebben we eruit gehaald? (Hierover uitbreiden in Handeling of Assumptions).
+```{=html}
+<!-- Welke variabelen gebruiken wij? Welke hebben we eruit gehaald? (Hierover uitbreiden in Handeling of Assumptions).
 
-Hoe definiëren we de 5 levels?
+Hoe definiëren we de 5 levels?-->
+```
+
+The dataset utilized in this study consists of 1,016,666 entries, encompassing a broad range of attributes related to mobile applications. For the purpose of our analysis, 13 variables were selected, capturing critical information about app characteristics, user engagement, monetization strategies, and developer details. These variables include the app's unique identifier (my_app_id), the total number of downloads (num_downloads), average user ratings (rating_app), and the number of ratings (nb_rating). Additionally, the dataset provides information on app pricing (price_gplay), the presence of in-app purchases (in_app), and whether the app includes advertisements (has_ads). Other variables, such as content ratings (content_rating_app), app categories (categ_app), and developer information (developer_name and developer_info), further enhance the richness of the dataset. This subset of variables allows us to comprehensively examine the interplay between monetization strategies and app success.
+
+To systematically explore monetization strategies, we classified the apps into six distinct levels based on their monetization models. These levels reflect varying approaches to generating revenue, ranging from completely free apps to fully premium paid apps.
+
+Level 0 represents apps with no monetization, offering free services without ads or in-app purchases. At the opposite end, Level 5 includes premium apps requiring upfront payment, free from ads or in-app purchases, delivering a premium experience.
+
+In between, Level 1 consists of free apps monetized solely through ads, while Level 3 combines ads and in-app purchases, offering additional features for users willing to pay. Level 4 refines the freemium model by removing ads and relying entirely on in-app purchases to monetize.
+
+Level 2 employs a dual-version strategy, featuring both free sample apps with limited functionality (and potentially ads) and paid premium apps with comprehensive features and no ads or in-app purchases.
+
+This classification is grounded in theoretical frameworks, such as the monetization levels proposed by Djaruma et al. (2023) and the App business models of (CITE), and allows for a nuanced analysis of how different revenue models impact app success metrics like user ratings and downloads. Our systematic categorization facilitates a deeper understanding of the relationship between monetization strategies and app performance.
 
 ## Statistical Methods
 
-Omschrijf hoe we het daadwerkelijk hebben onderzocht.
+To test our hypotheses, we employed a combination of descriptive statistics, text processing, and machine learning techniques. Descriptive statistics were utilized to analyze distributions and trends in metrics such as num_downloads, rating_app, and price_gplay. We categorized applications into six monetization levels based on binary indicators: is_free, in_app, and has_ads. Price values were processed to distinguish between free and paid applications.
+
+To identify paired sample and premium applications within level 2, we applied Term Frequency-Inverse Document Frequency (TF-IDF) vectorization combined with cosine similarity on application names. This approach is effective for measuring textual similarity between documents (CITE Source 2). Subsequent filtering involved prefix matching and the identification of indicative terms (e.g., "Free," "Pro") to ensure logical pairing based on naming conventions and shared developers.
+
+To adjust ratings for applications with few reviews, we calculated a Bayesian average. This method provides a more robust measure of user satisfaction by accounting for the number of ratings and the overall average rating across all applications (CITE Source 3). Visualizations, including scatter plots and box plots, were employed to explore relationships between monetization levels and user engagement metrics which will be displayed in the results section.
 
 ### Handeling of Assumptions
 
-Hoe zijn we omgegaan met missing values, covariance, etc etc.
+We addressed missing values by removing rows with critical nulls, such as those in num_downloads, to maintain data integrity. Text-based variables like content_rating_app were standardized to ensure consistency. For price_gplay, currency symbols were removed to facilitate the classification of applications into free or paid categories.
+
+Outliers in metrics like num_downloads were retained if they represented industry-leading applications, as their exclusion could skew the analysis. The use of Bayesian averages mitigated bias in rating_app due to low review counts, providing a more accurate reflection of user satisfaction. Covariance checks were conducted to ensure the absence of multicollinearity among numerical variables, thereby enhancing the reliability of correlation and regression analyses.
+
+Some applications exhibited rare combinations of is_free, in_app, and has_ads that did not fit within the predefined monetization levels. These applications were excluded from the analysis but documented as a limitation. Edge cases in level 2 application pairing were flagged for potential mismatches due to naming ambiguities, ensuring transparency in the classification process.
+
+These methodologies facilitated a systematic and accurate exploration of monetization models and their impact on application performance.
 
 # Results <!-- 800-1,000 words -->
 
@@ -205,7 +252,8 @@ Interpretation of results.
 !! Voor volle punten, zorg dat je terug refereert naar de hypothesen !!
 -->
 ```
-## Number of Downloads 
+
+## Number of Downloads
 
 ### Across Levels
 
@@ -235,6 +283,7 @@ Linkage to existing literature.
 Practical
 -->
 ```
+
 ## Reflection on the Findings
 
 Downloads do not necessarily indicate revenue for freemium models [@djaruma2023]. The time the user spends on an app and the purchases made within this app [@ross2018] are better measures of the revenue for freemium applications.
