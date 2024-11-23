@@ -1,0 +1,40 @@
+1. 
+
+H2b: Fully premium apps (level 5) will have less variance in their ratings, while all other
+levels will have more. In the same vein as H2a, users have more realistic expectations of
+paid apps compared to apps that require you to unlock features (Kumar 2014). Therefore,
+5
+more users downloading premium apps will be satisfied with their purchase, leading to less
+variance.
+
+Moet dat ook niet Level 2 (premium apps) zijn?
+
+
+2. 
+
+H1d: The most downloaded apps in the gaming category will likely fall under level 4.
+Many popular games use this type of “pay-to-win” mechanism (Nieborg 2016). Therefore,
+it would be expected this same pattern would arise from our data.
+
+Aanpassing: ook level 3. 
+
+Omdat level 3 ads en in-app aankopen heeft. Wat ook onder pay-to-win kan vallen.
+
+
+3.
+
+
+In revenue estimation staat iets over TikTok. BELANGRIJK: TikTok staat niet in de dataset.
+
+
+4.
+
+
+Waarom H3 en niet H2c?
+
+
+
+5. 
+
+
+Future kan ook zijn op basis van age content?
