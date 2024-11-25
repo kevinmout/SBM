@@ -38,3 +38,8 @@ Waarom H3 en niet H2c?
 
 
 Future kan ook zijn op basis van age content?
+
+
+6.
+
+Assumption van downloads. Wij converten 500.000+ downloads naar 500.000 downloads.

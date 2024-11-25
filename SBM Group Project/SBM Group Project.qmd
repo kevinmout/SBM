@@ -31,6 +31,9 @@ format:
           \newpage
 bibliography: references.bib
 bibliographystyle: apa
+execute: 
+  enabled: true
+jupyter: python3
 ---
 
 <!-- horizontal line -->
@@ -253,21 +256,739 @@ Interpretation of results.
 -->
 ```
 
-## Number of Downloads
+In this section, we will visualize the data through tables and visualizations. These plots largely explore the data around the hypotheses and research question, we discussed in the previous sections. The aim of this section is to present possible evidence in supporting a hypothesis. This will be discussed and concluded upon in the next section.
 
-### Across Levels
+Before we look at the results, let's revisit the research question: "*How are the 5 different revenue models as proposed by @djaruma2023 correlate to the success of an app?*". Where we identify 6 different revenue models, described in this section as (revenue) levels.
 
-### Paid vs Free Version
+| Strategy | Description |
+|------------------------------------|------------------------------------|
+| Level 5: Premium | Pay to use the application. This either happens up-front, or after a trial period. |
+| Level 4: Semi-premium | Use a limited number of features for free. Unlock the app with all features through an in-app purchase. |
+| Level 3: In-app advertisement and in-app purchases | Free application with ads, encouraging users to remove ads or to make in-app purchases. |
+| Level 2: Sample and premium | Two different versions of the same app. One is a version with limit features and/or ads. The other version is a premium version. |
+| Level 1: In-app advertisement | Only one version of the app, with only ads and no in-app purchases. |
+| Level 0: Free | The app has no monetization. However, money can still be made through selling user information. |
 
-### Gaming
+We have established in the "Literature Review" subsection, that the success of an app can be measured by:
+
+1.  Popularity: which can be measured by the number of downloads.
+2.  The rating of an application.
+3.  ~~Revenue estimation~~ (cannot be used, due to lack of data).
+4.  
+
+Before we go into the descriptive statistics, let's look at the distribution of the apps across the revenue levels.
+
+```{python}
+#| echo: false
+#| warning: false
+#| error: false
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+
+df_level_combined = pd.read_csv('./data/google_data_levels_combined.csv', dtype={16: 'string'})
+df_mapping_level_2 = pd.read_csv('./data/mapping_level_2.csv', dtype={16: 'string'})
+```
+
+```{python}
+#| echo: false
+#| warning: false
+#| error: false
+
+# Assuming df_level_combined['level'] exists
+level_counts = df_level_combined['level'].value_counts()
+level_counts = level_counts.reindex(["0", "1", "2 (Sample)", "2 (Premium)", "3", "4", "5"])  # Specify the order
+
+# Creating labels for the legend with counts and percentages
+total = level_counts.sum()
+labels = [f"{level} - {count} ({count / total:.1%})" for level, count in level_counts.items()]
+
+# Plotting the pie chart
+plt.figure(figsize=(6, 6))
+wedges, texts = plt.pie(
+    level_counts, 
+    labels=None,  # Hide labels on the pie chart itself
+    startangle=90, 
+    colors=plt.cm.Paired.colors
+)
+
+# Adding the custom legend
+plt.legend(wedges, labels, title="Levels", loc="center left", bbox_to_anchor=(1, 0, 0.5, 1))
+
+plt.title('Distribution of Levels')
+plt.show()
+
+
+```
+
+From this pie chart, we can make up that more than 75% of all the apps belong to level 0 and 1. With the smallest population being level 2 with two different version of the same app.
+
+## Number of Downloads.
+
+The graphs below provides insights into the number of app downloads categorized by revenue levels. The left graph displays the total amount of downloads, while the right graph displays the average amount of downloads. In the next following three subsections, we will look into the key takeaways from these two graphs:
+
+-   Distribution of app downloads: how the downloads are distributed among the revenue levels.
+
+-   Gaming apps: analyzing the importance of gaming apps.
+
+-   Free vs Paid: comparing free and paid apps.
+
+```{python, echo=FALSE}
+#| echo: false
+#| warning: false
+#| error: false
+df_h1b = df_level_combined.copy()
+# Calculate the sum of downloads for each level
+total_downloads_h1b = df_h1b.groupby('level')['num_downloads'].sum().reset_index()
+
+# Define the order of the levels
+level_order = ["0", "1", "2 (Sample)", "2 (Premium)", "3", "4", "5"]
+
+fig, axes = plt.subplots(1, 2, figsize=(15, 6))  # Create two subplots side by side
+
+# First bar chart: Total Number of Downloads
+sns.barplot(data=total_downloads_h1b, x='level', y='num_downloads', hue='level', palette='viridis', dodge=False, ax=axes[0], order=level_order)
+axes[0].set_title('Total Number of Downloads by Level')
+axes[0].set_xlabel('Level')
+axes[0].set_ylabel('Total Number of Downloads')
+axes[0].tick_params(axis='x', rotation=90)  # Make x-axis labels vertical
+
+# Second bar chart: Average Number of Downloads
+sns.barplot(data=df_h1b, x='level', y='num_downloads', hue='level', palette='viridis', dodge=False, ax=axes[1], order=level_order)
+axes[1].set_title('Average Number of Downloads by Level')
+axes[1].set_xlabel('Level')
+axes[1].set_ylabel('Average Number of Downloads')
+axes[1].tick_params(axis='x', rotation=90)  # Make x-axis labels vertical
+
+plt.tight_layout()  # Adjust layout to avoid overlap
+plt.show()
+```
+
+### Distribution of app downloads
+
+**Important takeaway:** Revenue levels 0 and 1 have a significant drop-off in terms of average number of downloads.
+
+Hypothesis H1b serves as a guideline to explore the data, in particular on revenue level 1:
+
+*The apps with the most downloads will be level 1. Most social media platforms, which dominate our culture, tend to have this revenue stream [@djaruma2023].*
+
+#### h1b
+
+It's interesting to investigate the drop-off in average number of downloads.
+
+```{python}
+#| echo: false
+#| warning: false
+#| error: false
+
+df_h1b = df_level_combined.copy()
+
+# convert float to int for num_downloads
+df_h1b['num_downloads'] = df_h1b['num_downloads'].astype(int)
+
+# relevant columns
+relevant_columns_h1b = ['my_app_id', 'num_downloads', 'categ_app', 'level', 'developer_name']
+
+# filter the relevant columns
+df_h1b = df_h1b[relevant_columns_h1b]
+
+# Sort the dataframe by 'num_downloads' in descending order
+df_sorted = df_h1b.sort_values(by='num_downloads', ascending=False)
+
+# Calculate the cumulative percentage of downloads
+df_sorted['cumulative_percentage_downloads'] = df_sorted['num_downloads'].cumsum() / df_sorted['num_downloads'].sum() * 100
+
+# Create a Lorenz curve-style plot
+plt.figure(figsize=(10, 6))
+plt.plot(range(1, len(df_sorted) + 1), df_sorted['cumulative_percentage_downloads'], label='Cumulative Downloads')
+plt.plot([1, len(df_sorted)], [0, 100], linestyle='--', color='gray', label='Equality Line')
+
+# Add labels and title
+plt.title('Distribution of App Downloads (Top-Heavy Analysis)')
+plt.xlabel('Apps (sorted by downloads)')
+plt.ylabel('Cumulative Percentage of Downloads')
+plt.legend()
+plt.grid(True)
+plt.show()
+```
+
+For instance, we see that the apps are top-heavy. So, a small proportion of the apps make up for almost all the app downloads.
+
+We also look at the download bins per level:
+
+```{python}
+#| echo: false
+#| warning: false
+#| error: false
+
+
+downloads_across_level = df_level_combined.copy()
+
+# Define the bins and labels
+bins = [0, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, np.inf]
+labels = ['0-100', '101-1k', '1k-10k', '10k-100k', '100k-1M', '1M-10M', '10M-100M', '100M-1B', '1B+']
+
+# Create a new column 'downloads_bin' based on the number of downloads
+downloads_across_level['downloads_bin'] = pd.cut(downloads_across_level['num_downloads'], bins=bins, labels=labels)
+
+# Group by 'level' and 'downloads_bin' to get the count of apps per download bin for each level
+grouped = downloads_across_level.groupby(['level', 'downloads_bin']).size().unstack(fill_value=0)
+
+# Plotting the bar chart with log scale
+ax = grouped.plot(kind='bar', stacked=False, figsize=(12, 8), logy=True)
+ax.set_title('Number of Downloads by Level (Log Scale)')
+ax.set_xlabel('Level')
+ax.set_ylabel('Number of Apps (Log Scale)')
+ax.set_xticklabels(ax.get_xticklabels(), rotation=0)
+plt.legend(title='Download Range', bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.tight_layout()
+
+plt.show()
+```
+
+It can be seen that level 0 and level 1 have the most by far 1 billion+ downloaded apps.
+
+```{python}
+#| echo: false
+#| warning: false
+#| error: false
+
+downloads_across_level = df_level_combined.copy()
+# Add '1B Downloads' column
+downloads_across_level['1B Downloads'] = downloads_across_level['num_downloads'] >= 1_000_000_000
+
+# Filter for apps with 1 billion or more downloads
+billion_downloads = downloads_across_level[downloads_across_level['1B Downloads'] == True]
+
+# Count the number of apps per category
+billion_downloads_summary = billion_downloads['categ_app'].value_counts().reset_index()
+billion_downloads_summary.columns = ['Category', 'Number of Apps']
+
+# Visualize the data
+plt.figure(figsize=(10, 6))
+sns.barplot(data=billion_downloads_summary, x='Category', y='Number of Apps', palette='viridis')
+plt.title('Number of Apps with Over 1 Billion Downloads by Category')
+plt.xlabel('Category')
+plt.ylabel('Number of Apps')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+```
+
+The social media platform mentioned in the paper by [@djaruma2023]. (TikTok didn't exist up until 2019)
+
+```{python}
+#| echo: false
+#| warning: false
+#| error: false
+
+
+df_h1b = df_h1b[df_h1b['my_app_id'].isin(['com.amazon.mShop.android.shopping', 'com.instagram.android', 'com.facebook.lite', 'com.netflix.mediaclient', 'com.snapchat.android', 'com.spotify.music', 'com.whatsapp', 'com.facebook.orca'])]
+
+df_h1b = df_h1b[['my_app_id', 'num_downloads', 'categ_app', 'level']]
+
+df_h1b['num_downloads'] = df_h1b['num_downloads'] / 1_000_000_000
+
+app_mapping = {
+    'com.amazon.mShop.android.shopping': 'Amazon Shopping',
+    'com.instagram.android': 'Instagram',
+    'com.facebook.lite': 'Facebook Lite',
+    'com.netflix.mediaclient': 'Netflix',
+    'com.snapchat.android': 'Snapchat',
+    'com.spotify.music': 'Spotify',
+    'com.whatsapp': 'WhatsApp',
+    'com.facebook.orca': 'Facebook Messenger'
+}
+
+# Map app names to the 'my_app_id' column
+df_h1b['app_name'] = df_h1b['my_app_id'].map(app_mapping)
+
+# Reorder columns for better readability
+df_h1b = df_h1b[['app_name', 'num_downloads', 'categ_app', 'level']]
+
+
+# Rename columns as per requirement
+df_h1b = df_h1b.rename(columns={
+    'app_name': 'App Name',
+    'num_downloads': 'Downloads (in B)',
+    'level': 'Level',
+    'categ_app': 'Category'
+})
+
+df_h1b.sort_values(by='Downloads (in B)', ascending=False, inplace=True)
+df_h1b.reset_index(drop=True, inplace=True)
+df_h1b
+```
+
+### Gaming apps
+
+**Important takeaway:** Revenue level 3 and 4 stands out with high average app downloads. Suggesting these revenue levels can be considered as the most popular revenue level. Important to note is that they have two things in common, they are free and contain in-app purchases. The only difference is that level 3 contain ads.
+
+Hypothesis H1d takes a closer look into these 2 revenue levels:
+
+*The most downloaded apps in the gaming category will likely fall under level 4. Many popular games use this type of "pay-to-win" mechanism [@nieborg2016]. Therefore, it would be expected this same pattern would arise from our data.*
+
+#### h1d
+
+Games are hugely popular on the Google Playstore. In the graphs below, you'll find that they are responsible for more than 25% of the total downloads, while only populating 15% of the total apps.
+
+```{python}
+#| echo: false
+#| warning: false
+#| error: false
+
+all_apps = df_level_combined.copy()
+
+gaming_categories = [
+    "Puzzle", "Casual", "Arcade", "Simulation", "Action", "Adventure", 
+    "Trivia", "Racing", "Educational", "Card", "Word", "Board", 
+    "Casino", "Role Playing", "Strategy", "Brain Games", 
+    "Action & Adventure", "Pretend Play"
+]
+
+# Filter other than gaming apps
+other_apps = all_apps[~all_apps['categ_app'].isin(gaming_categories)]
+
+
+df_level_combined_h1d = df_level_combined.copy()
+
+# relevant columns
+relevant_columns_h1d = ['my_app_id', 'num_downloads', 'level', 'categ_app']
+
+# filter the relevant columns
+df_level_combined_h1d = df_level_combined_h1d[relevant_columns_h1d]
+
+# Creating a list of categories that can be considered as part of the gaming category
+gaming_categories = [
+    "Puzzle", "Casual", "Arcade", "Simulation", "Action", "Adventure", 
+    "Trivia", "Racing", "Educational", "Card", "Word", "Board", 
+    "Casino", "Role Playing", "Strategy", "Brain Games", 
+    "Action & Adventure", "Pretend Play"
+]
+
+# Filter on games category
+df_level_combined_h1d = df_level_combined_h1d[df_level_combined_h1d['categ_app'].isin(gaming_categories)]
+
+gaming_apps = df_level_combined_h1d.copy()
+
+# relevant columns
+relevant_columns_other_apps = ['my_app_id', 'num_downloads', 'level', 'categ_app']
+
+# filter the relevant columns
+other_apps = other_apps[relevant_columns_other_apps]
+
+# Calculate the sum of downloads for each category
+total_downloads_gaming_apps = gaming_apps['num_downloads'].sum()
+total_downloads_other_apps = other_apps['num_downloads'].sum()
+avg_downloads_gaming_apps = gaming_apps['num_downloads'].mean()
+avg_downloads_other_apps = other_apps['num_downloads'].mean()
+total_amount_gaming_apps = len(gaming_apps)
+total_amount_other_apps = len(other_apps)
+
+# Creating a new dataframe to represent the totals
+summary_data = {
+    "Category": ["Gaming Apps", "Other Apps"],
+    "Total Downloads": [total_downloads_gaming_apps, total_downloads_other_apps],
+    "Total Amount": [total_amount_gaming_apps, total_amount_other_apps],
+    "Average Downloads": [avg_downloads_gaming_apps, avg_downloads_other_apps]
+
+}
+df_summary = pd.DataFrame(summary_data)
+
+# Creating pie charts with a legend next to each other
+fig, axs = plt.subplots(1, 2, figsize=(16, 8))
+
+# Pie chart for Total Downloads
+wedges1, texts1, autotexts1 = axs[0].pie(
+    df_summary['Total Downloads'], labels=df_summary['Category'], autopct='%1.1f%%', startangle=140
+)
+axs[0].set_title('Proportion of Total Downloads: Gaming vs Other Apps', fontsize=14)
+
+# Pie chart for Total Amount
+wedges2, texts2, autotexts2 = axs[1].pie(
+    df_summary['Total Amount'], labels=df_summary['Category'], autopct='%1.1f%%', startangle=140
+)
+axs[1].set_title('Proportion of Total Amount: Gaming vs Other Apps', fontsize=14)
+
+# Adding legends
+axs[0].legend(wedges1, df_summary['Category'], title="Categories", loc="upper right", bbox_to_anchor=(1.2, 1))
+axs[1].legend(wedges2, df_summary['Category'], title="Categories", loc="upper right", bbox_to_anchor=(1.2, 1))
+
+# Adjust layout
+plt.tight_layout()
+plt.show()
+```
+
+The gaming apps are therefore downloaded more on average than the other apps, by nearly 100%. Making gaming apps hugely popular on the Google Playstore.
+
+```{python}
+#| echo: false
+#| warning: false
+#| error: false
+
+# Combine both datasets
+all_apps = pd.concat([gaming_apps, other_apps])
+
+# Calculate averages
+gaming_avg = gaming_apps['num_downloads'].mean()
+other_avg = other_apps['num_downloads'].mean()
+overall_avg = all_apps['num_downloads'].mean()
+
+# Percentage difference between gaming apps and overall average
+gaming_vs_baseline_difference = ((gaming_avg - overall_avg) / overall_avg) * 100
+
+# Percentage difference between other apps and overall average
+other_vs_baseline_difference = ((other_avg - overall_avg) / overall_avg) * 100
+
+# Percentage difference between gaming apps and other apps
+gaming_vs_other_difference = ((gaming_avg - other_avg) / other_avg) * 100
+
+# Create a summary table with shorter column names
+summary_table = pd.DataFrame({
+    'Category': ['Gaming', 'Other', 'Baseline'],
+    'Avg Downloads': [gaming_avg, other_avg, overall_avg],
+    '% Diff vs Baseline': [
+        gaming_vs_baseline_difference, 
+        other_vs_baseline_difference, 
+        0  # Baseline itself, so difference is 0%
+    ],
+    '% Diff Gaming vs Other': [
+        gaming_vs_other_difference, 
+        gaming_vs_other_difference * -1, 
+        None  # No comparison for the baseline
+    ]
+})
+
+# Round the values for better readability
+summary_table = summary_table.round(2)
+
+summary_table
+
+
+```
+
+```{python}
+#| echo: false
+#| warning: false
+#| error: false
+
+df_level_combined_h1d = df_level_combined.copy()
+
+# relevant columns
+relevant_columns_h1d = ['my_app_id', 'num_downloads', 'level', 'categ_app']
+
+# filter the relevant columns
+df_level_combined_h1d = df_level_combined_h1d[relevant_columns_h1d]
+
+# Creating a list of categories that can be considered as part of the gaming category
+gaming_categories = [
+    "Puzzle", "Casual", "Arcade", "Simulation", "Action", "Adventure", 
+    "Trivia", "Racing", "Educational", "Card", "Word", "Board", 
+    "Casino", "Role Playing", "Strategy", "Brain Games", 
+    "Action & Adventure", "Pretend Play"
+]
+
+# Filter on games category
+df_level_combined_h1d = df_level_combined_h1d[df_level_combined_h1d['categ_app'].isin(gaming_categories)]
+
+# barplot the number of downloads for each level
+plt.figure(figsize=(5, 3))
+sns.barplot(data=df_level_combined_h1d, x='level', y='num_downloads')
+plt.title('Average amount of Downloads for Gaming Apps by Level')
+plt.xlabel('Level')
+plt.ylabel('Number of Downloads')
+plt.xticks(rotation=90)  # Rotate x-axis labels
+plt.show()
+```
+
+By filtering on the gaming categories we can see that the average downloads is also significantly higher in level 3 and 4. With level 4 having a higher variance than level 3 and 4. To further explore this we have the top 5 most downloaded games are from each revenue level:
+
+```{python}
+#| echo: false
+#| warning: false
+#| error: false
+
+# Filter for level 3, sort by downloads, and pick top 5
+top_apps_level_3 = df_level_combined_h1d[df_level_combined_h1d['level'] == '3'] \
+    .sort_values(by='num_downloads', ascending=False) \
+    .head(5)
+
+app_name_mapping = {
+    "com.kiloo.subwaysurf": "Subway Surfers",
+    "com.fingersoft.hillclimb": "Hill Climb Racing",
+    "com.imangi.templerun2": "Temple Run 2",
+    "com.outfit7.mytalkingtomfree": "My Talking Tom",
+    "me.pou.app": "Pou"
+}
+
+# Convert num_downloads to per billion
+top_apps_level_3['num_downloads'] = top_apps_level_3['num_downloads'] / 1_000_000_000
+
+# Mapping the app column to their normal names
+top_apps_level_3['App Name'] = top_apps_level_3['my_app_id'].map(app_name_mapping)
+
+# Rename columns as per requirement
+top_apps_level_3 = top_apps_level_3.rename(columns={
+    'num_downloads': 'Downloads (in Billions)',
+    'categ_app': 'Gaming Category'
+})
+
+top_apps_level_3.reset_index(drop=True, inplace=True)
+top_apps_level_3 = top_apps_level_3[['App Name', 'Downloads (in Billions)', 'level']]
+
+# Filter for level 4, sort by downloads, and pick top 5
+top_apps_level_4 = df_level_combined_h1d[df_level_combined_h1d['level'] == '4'] \
+    .sort_values(by='num_downloads', ascending=False) \
+    .head(5)
+
+additional_app_name_mapping = {
+    "com.king.candycrushsaga": "Candy Crush Saga",
+    "com.supercell.clashofclans": "Clash of Clans",
+    "com.king.petrescuesaga": "Pet Rescue Saga",
+    "com.king.farmheroessaga": "Farm Heroes Saga",
+    "com.king.candycrushsodasaga": "Candy Crush Soda Saga"
+}
+
+# Convert num_downloads to per billion
+top_apps_level_4['num_downloads'] = top_apps_level_4['num_downloads'] / 1_000_000_000
+
+# Mapping the app column to their normal names
+top_apps_level_4['App Name'] = top_apps_level_4['my_app_id'].map(additional_app_name_mapping)
+
+# Rename columns as per requirement
+top_apps_level_4 = top_apps_level_4.rename(columns={
+    'num_downloads': 'Downloads (in Billions)',
+    'categ_app': 'Gaming Category'
+})
+
+top_apps_level_4.reset_index(drop=True, inplace=True)
+top_apps_level_4 = top_apps_level_4[['App Name', 'Downloads (in Billions)','level']]
+
+# Combine the tables
+combined_tables = pd.concat([top_apps_level_3, top_apps_level_4])
+combined_tables.sort_values(by='Downloads (in Billions)', ascending=False, inplace=True)
+combined_tables.reset_index(drop=True, inplace=True)
+combined_tables
+```
+
+Here, you can already clearly see the variance in level 4 is much larger than in level 3. With the Downloads going from 0.5 to 0.1 for level 4 and 1.0 to 0.5 for level 3.
+
+### Free vs Paid
+
+**Key takeaways:**
+
+-   Revenue level 2 premium and 5 have the least amount of total and average app downloads. These apps cost money upon downloading the app.
+
+-   Revenue level 2 sample and premium have a high download offset in both average and total amounts.
+
+We see high disparity in downloads between free (-mium) and paid apps. To further investigate this we follow the guideline of hypotheses: H1a and H1c.
+
+*H1a: Apps that allow the user to have free access to all features (level 0 and 1) will have the highest amount of downloads overall. However, the ratings may fluctuate, as quality can vary for free-to-access apps.* <!-- Is citation hier nodig? -->
+
+*H1c: For apps that utilize a sample and a premium version of the same app (level 2), the free versions of an app will have more downloads than their paid-for counterpart. Most, if not all, users will download the free version first, and then might upgrade. This means there should be a disparity between the number of downloads between the apps, as is also demonstrated by @liu2012freemium.*
+
+Now that we have seen the download metrics per revenue model, we cannot definitely determine that level 0 and 1 has the highest overall downloads.
+
+#### h1a
+
+```{python}
+#| echo: false
+#| warning: false
+#| error: false
+
+df_h1a = df_level_combined.copy()
+
+# if level is 0 or 1 then new column category is 'Free apps'
+df_h1a['category'] = ['Free all feature apps' if level in ['0', '1'] else 'Free/Paid not all feature apps' for level in df_h1a['level']]
+
+# Calculate the sum of downloads for each category
+total_downloads_h1a = df_h1a.groupby('category')['num_downloads'].sum().reset_index()
+
+
+# Make a bar chart 
+plt.figure(figsize=(10, 6))
+sns.barplot(data=total_downloads_h1a, x='category', y='num_downloads', hue='category', palette='viridis', dodge=False)
+plt.title('Total Number of Downloads by Category')
+plt.xlabel('Category')
+plt.ylabel('Total Number of Downloads')
+plt.show()
+```
+
+TODO: explanation.
+
+#### h1c
+
+H1c the proportion of total downloads between sample and premium app versions.
+
+```{python}
+#| echo: false
+#| warning: false
+#| error: false
+
+df_sample_h1c = df_level_combined[df_level_combined['level'] == '2 (Sample)']
+df_premium_h1c = df_level_combined[df_level_combined['level'] == '2 (Premium)']
+df_mapping_h1c = df_mapping_level_2.copy()
+
+# relevant columns
+relevant_columns_h1c = ['my_app_id', 'num_downloads', 'level', 'rating_app']
+relevant_columns_mapping_h1c =  ['Sample app name',	'Premium app name']
+
+# filter the relevant columns
+df_sample_h1c = df_sample_h1c[relevant_columns_h1c]
+df_premium_h1c = df_premium_h1c[relevant_columns_h1c]
+df_mapping_h1c = df_mapping_h1c[relevant_columns_mapping_h1c]
+
+
+# Merge mapping dataframe with sample dataframe and premium dataframe
+df_mapped_h1c = (
+    df_mapping_h1c
+    .merge(df_sample_h1c[['my_app_id', 'num_downloads', 'rating_app']], left_on='Sample app name', right_on='my_app_id', how='left')
+    .drop(columns=['my_app_id'])
+    .rename(columns={'num_downloads': 'Sample Downloads', 'rating_app': 'Sample Rating'})
+    .merge(df_premium_h1c[['my_app_id', 'num_downloads', 'rating_app']], left_on='Premium app name', right_on='my_app_id', how='left')
+    .drop(columns=['my_app_id'])
+    .rename(columns={'num_downloads': 'Premium Downloads', 'rating_app': 'Premium Rating'})
+)
+
+# Calculate metrics
+df_mapped_h1c['Download Difference'] = df_mapped_h1c['Premium Downloads'] - df_mapped_h1c['Sample Downloads']
+df_mapped_h1c['Download Ratio'] = df_mapped_h1c['Premium Downloads'] / df_mapped_h1c['Sample Downloads']
+
+# Calculating total sample and premium downloads
+total_sample_downloads = df_mapped_h1c['Sample Downloads'].sum()
+total_premium_downloads = df_mapped_h1c['Premium Downloads'].sum()
+
+# Creating a new dataframe to represent the totals
+summary_data_h1c = {
+    "Version Type": ["Sample Downloads", "Premium Downloads"],
+    "Total Downloads": [total_sample_downloads, total_premium_downloads]
+}
+df_summary_h1c = pd.DataFrame(summary_data_h1c)
+
+df_summary_h1c
+```
+
+```{python}
+#| echo: false
+#| warning: false
+#| error: false
+# Creating a pie chart to show the proportion of sample vs premium downloads
+fig, ax = plt.subplots(figsize=(8, 8))
+ax.pie(df_summary_h1c['Total Downloads'], labels=df_summary_h1c['Version Type'], autopct='%1.1f%%', startangle=140)
+ax.set_title('Proportion of Total Downloads: Sample vs Premium', fontsize=14)
+
+plt.show()
+```
+
+```{python}
+#| echo: false
+#| warning: false
+#| error: false
+
+# Plot 4: Boxplot for Sample and Premium Downloads
+plt.figure(figsize=(10, 6))
+plt.boxplot([df_mapped_h1c['Sample Downloads'], df_mapped_h1c['Premium Downloads']], labels=['Sample Downloads', 'Premium Downloads'])
+plt.ylabel('Number of Downloads')
+plt.title('Boxplot of Sample vs Premium Downloads')
+plt.grid(axis='y', linestyle='--')
+plt.show()
+
+```
+
+```{python}
+#| echo: false
+#| warning: false
+#| error: false
+
+# Data for the new dataframe
+metric_data_h1c = {
+    "Metric": [
+        "Average Download Difference",
+        "Average Download Ratio"
+    ],
+    "Value": [
+        df_mapped_h1c['Download Difference'].mean(),
+        df_mapped_h1c['Download Ratio'].mean(),
+    ]
+}
+
+# Create the new dataframe
+df_metrics_h1c = pd.DataFrame(metric_data_h1c)
+df_metrics_h1c
+```
 
 ## Ratings
 
-### Across Levels
+Plotting the distribution of the ratings across all the different revenue models doesn't have the same effect as with the number of downloads. As can be seen below, the ratings in itself doesn't vary all that much within the revenue levels.
+
+```{python}
+#| echo: false
+#| warning: false
+#| error: false
+
+ratings_across_level = df_level_combined.copy()
+# Group by 'level' and calculate mean for 'rating_app' and 'bayesian_average'
+average_ratings = ratings_across_level.groupby('level')['rating_app'].mean()
+bayesian_ratings = ratings_across_level.groupby('level')['bayesian_average'].mean()
+# Plotting the ratings across levels
+plt.figure(figsize=(10, 6))
+
+# Bar plot for ratings and Bayesian ratings
+average_ratings.plot(kind='bar', width=0.4, position=1, label='Average Rating', color='blue', alpha=0.6)
+bayesian_ratings.plot(kind='bar', width=0.4, position=0, label='Bayesian Rating', color='green', alpha=0.6)
+
+# Adding labels and title
+plt.xlabel('Level')
+plt.ylabel('Rating')
+plt.title('Ratings Across Levels')
+plt.legend()
+plt.xticks(rotation=0)
+
+# Show plot
+plt.tight_layout()
+plt.show()
+```
+
+When plotting the variance of the ratings across the different levels, we do see a lot of variance. But when looking at the bayesian average, this is no longer the case.
+
+```{python}
+#| echo: false
+#| warning: false
+#| error: false
+
+variance_rating = df_level_combined.copy()
+
+# Assuming your dataframe is named df
+columns_to_calculate = ['rating_app', 'bayesian_average']
+variance_specific = variance_rating.groupby('level')[columns_to_calculate].var().reset_index()
+
+# Melting the dataframe to long format for easier plotting
+variance_melted = variance_specific.melt(id_vars='level', var_name='Attribute', value_name='Variance')
+
+plt.figure(figsize=(12, 6))
+sns.barplot(data=variance_melted, x='level', y='Variance', hue='Attribute', palette='viridis')
+plt.title('Variance of Different Attributes Grouped by Level')
+plt.xlabel('Level')
+plt.ylabel('Variance')
+plt.xticks(rotation=45)
+plt.legend(title='Attribute', loc='upper right')
+plt.tight_layout()
+plt.show()
+```
 
 ### Variance
 
+H1a: Apps that allow the user to have free access to all features (level 0 and 1) will have the highest amount of downloads overall. However, the ratings may fluctuate, as quality can vary for free-to-access apps. <!-- Is citation hier nodig? -->
+
+H2b: Fully premium apps (level 5) will have less variance in their ratings, while all other levels will have more. In the same vein as H2a, users have more realistic expectations of paid apps compared to apps that require you to unlock features [@kumar2014]. Therefore, more users downloading premium apps will be satisfied with their purchase, leading to less variance.
+
 ### Paid vs Free Version
+
+H2a: Apps that require the user to pay to unlock features (level 2, 3, and 4) will tend to have lower ratings than the version that requires payment upfront (level 5). The main draw of a freemium model is to attract users, and have them update to a paid version [@kumar2014]. However, as @kumar2014 points out, this can be a double-edged sword. Too few features, and it may not be attractive to users. Too many features, and the users will not update.
+
+H3: For apps that utilize a sample and a premium version of the same app (level 2), the rating of the paid-for version is positively associated with the rating of the free version of the same app. This was true for the study on the most popular apps in the Google Play Store by @liu2012freemium, so it is expected a similar pattern should arise for this dataset.
 
 # Discussion <!--500-700 words -->
 
