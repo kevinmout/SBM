@@ -4,9 +4,13 @@ subtitle: "Group Assignment - Strategy and Business Models"
 author: "Group 5"
 date: "November 28, 2024"
 date-format: DD/MM/YYYY # Set date format to long
+crossref:
+  fig-prefix: Figure   # (default is "Figure")
+  tbl-prefix: Table    # (default is "Table")
 format: 
   pdf: #Output pdf
     documentclass: article
+    fig-pos: "H"
     number-sections: true
     toc: true #table of contents
     toc-title: Contents #name table of contents
@@ -73,7 +77,7 @@ In a review paper from 2023 [@djaruma2023], different levels of monetization are
 | Level 1: In-app advertisement | Only one version of the app, with only ads and no in-app purchases. |
 | Level 0: Free | The app has no monetization. However, money can still be made through selling user information. |
 
-: Six levels of monetization for apps {#tbl:levels}
+: Six levels of monetization for apps {#tbl-levels}
 
 <!-- Ik heb dit expres kort gehouden, aangezien we ook nog een uitgebreidere literatuur review hebben. Maar, misschien moet dit toch nog iets langer? -Noa -->
 
@@ -119,11 +123,11 @@ Development of hypotheses. -->
 
 In this section, prior research into the topic of revenue streams and its correlation to success in apps will be discussed. As mentioned in the Introduction section, this paper will apply the 5 levels of revenue as proposed by @djaruma2023 to app data. The following section will contain a holistic overview of the existing research, as well as hypotheses that arise from this theoretical framework.
 
-## Literature Review
+## Literature Review {#sec-literature-review}
 
 To answer the question "*How are the 5 different revenue models as proposed by @djaruma2023 correlate to the success of an app?*", we must first define what constitutes to success. In this paper, success will be defined by a couple of factors: popularity, rating, and estimated revenue.
 
-### Popularity
+### Popularity {#sec-popularity}
 
 The popularity of an app can be measured by the number of downloads. It is important to note the popularity of an app is complex, and is not solely dependent on the chosen revenue model. Other features, such as whether an app is featured on charts, whether it has frequent updates, and word-of-mouth awareness, will also impact the popularity of an app [@aydingokgoz2021]. However, despite these other variables, to versions of the same app will still have drastically different performances with different revenue streams [@liu2014].
 
@@ -135,7 +139,7 @@ H1c: For apps that utilize a sample and a premium version of the same app (level
 
 H1d: The most downloaded apps in the gaming category will likely fall under level 4. Many popular games use this type of "pay-to-win" mechanism [@nieborg2016]. Therefore, it would be expected this same pattern would arise from our data.
 
-### Rating
+### Rating {#sec-rating}
 
 The downloads of an app are not everything. An app can be downloaded often, but may not be highly rated.
 
@@ -258,9 +262,9 @@ Interpretation of results.
 
 In this section, we will visualize the data through tables and visualizations. These plots largely explore the data around the hypotheses and research question, we discussed in the previous sections. The aim of this section is to present possible evidence in supporting a hypothesis. This will be discussed and concluded upon in the next section.
 
-Before we look at the results, let's revisit the research question: "*How are the 6 different revenue models as proposed by @djaruma2023 correlate to the success of an app?*". Where we identify 6 different revenue models, described in this section as (revenue) levels. For reference see table [@tbl-levels].
+Before we look at the results, let's revisit the research question: "*How are the 6 different revenue models as proposed by @djaruma2023 correlate to the success of an app?*". Where we identify 6 different revenue models, described in this section as (revenue) levels. For reference see @tbl-levels.
 
-The dataset is divided into these different levels. From this pie chart, we can make up that more than 75% of all the apps belong to level 0 and 1. With the smallest population being level 2 with two different version of the same app.
+The dataset is divided into these different levels. More than 75% of all the apps belong to level 0 and 1 (see @fig-distribution-amount-apps-levels). With the smallest population being level 2 with two different version of the same app.
 
 ```{python}
 #| echo: false
@@ -270,6 +274,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+from IPython.display import Markdown
+from tabulate import tabulate
 
 df_level_combined = pd.read_csv('./data/google_data_levels_combined.csv', dtype={16: 'string'})
 df_mapping_level_2 = pd.read_csv('./data/mapping_level_2.csv', dtype={16: 'string'})
@@ -279,6 +285,8 @@ df_mapping_level_2 = pd.read_csv('./data/mapping_level_2.csv', dtype={16: 'strin
 #| echo: false
 #| warning: false
 #| error: false
+#| label: fig-distribution-amount-apps-levels
+#| fig-cap: "Distribution of the amount of apps across the revenue levels"
 
 # Assuming df_level_combined['level'] exists
 level_counts = df_level_combined['level'].value_counts()
@@ -289,7 +297,7 @@ total = level_counts.sum()
 labels = [f"{level} - {count} ({count / total:.1%})" for level, count in level_counts.items()]
 
 # Plotting the pie chart
-plt.figure(figsize=(6, 6))
+plt.figure(figsize=(5, 5))
 wedges, texts = plt.pie(
     level_counts, 
     labels=None,  # Hide labels on the pie chart itself
@@ -300,23 +308,16 @@ wedges, texts = plt.pie(
 # Adding the custom legend
 plt.legend(wedges, labels, title="Levels", loc="center left", bbox_to_anchor=(1, 0, 0.5, 1))
 
-plt.title('Figure 1: Distribution of the amount of apps across the revenue levels', fontsize=14)
 plt.show()
 
 
 ```
 
-To find the success of an app, we have established in the "Literature Review" subsection **\[verwijzing\]**, that it can be measured by:
-
-**Geen opsomming maar lopend verhaal. De resultaten zijn op basis van deze succes factoren.**
-
-1.  Popularity: which can be measured by the number of downloads.
-2.  The rating of an application.
-3.  ~~Revenue estimation~~ (cannot be used, due to lack of data).
+To find the success of an app, as discussed in @sec-literature-review. Metrics like popularity, the rating and the revenue estimation of an application can be used. The popularity measured by the number of downloads and rating by the average rating given by users. (Note: Revenue estimation is exlcuded, because this is not measurable with the data.) These metrics are used to evaluate the hypotheses (see @sec-literature-review).
 
 ## Number of Downloads.
 
-The graphs below provides insights into the number of app downloads categorized by revenue levels. The left graph displays the total amount of downloads, while the right graph displays the average amount of downloads. In the next following three subsections, we will look into the key takeaways from these two graphs:
+@fig-total-average-downloads-by-level provides insights into the number of app downloads categorized by revenue levels. @fig-total-average-downloads-by-level-1 displays the total amount of downloads, while the @fig-total-average-downloads-by-level-2 displays the average amount of downloads. In the next following three subsections, we will look into the key takeaways from these two graphs:
 
 -   Distribution of app downloads: how the downloads are distributed among the revenue levels.
 
@@ -324,10 +325,17 @@ The graphs below provides insights into the number of app downloads categorized 
 
 -   Free vs Paid: comparing free and paid apps.
 
-```{python, echo=FALSE}
+```{python}
+#| label: fig-total-average-downloads-by-level
+#| fig-cap: "Comparison of Total and Average Downloads by Level"
+#| fig-subcap:
+#|   - "Total Number of Downloads by Level"
+#|   - "Average Number of Downloads by Level" 
+#| layout-ncol: 2
 #| echo: false
 #| warning: false
 #| error: false
+
 df_h1b = df_level_combined.copy()
 
 # Calculate the sum of downloads for each level
@@ -336,46 +344,53 @@ total_downloads_h1b = df_h1b.groupby('level')['num_downloads'].sum().reset_index
 # Define the order of the levels
 level_order = ["0", "1", "2 (Sample)", "2 (Premium)", "3", "4", "5"]
 
-fig, axes = plt.subplots(1, 2, figsize=(15, 6))  # Create two subplots side by side
-
-# Add a main title with a figure number
-fig.suptitle('Figure 2: Comparison of Total and Average Downloads by Level', fontsize=16)
-
 # First bar chart: Total Number of Downloads
-bar1 = sns.barplot(data=total_downloads_h1b, x='level', y='num_downloads', hue='level', palette='viridis', dodge=False, ax=axes[0], order=level_order)
-axes[0].set_title('Total Number of Downloads by Level')
-axes[0].set_xlabel('Level')
-axes[0].set_ylabel('Total Number of Downloads')
-axes[0].tick_params(axis='x', rotation=90)  # Make x-axis labels vertical
+sns.barplot(
+    data=total_downloads_h1b,
+    x='level',
+    y='num_downloads',
+    hue='level',
+    palette='viridis',
+    dodge=False,
+    order=level_order
+)
+plt.xlabel('Level')
+plt.ylabel('Total Number of Downloads')
+plt.xticks(rotation=90)  # Rotate x-axis labels
+plt.tight_layout()  # Adjust layout to avoid overlap
+plt.show()
 
 # Second bar chart: Average Number of Downloads
-bar2 = sns.barplot(data=df_h1b, x='level', y='num_downloads', hue='level', palette='viridis', dodge=False, ax=axes[1], order=level_order)
-axes[1].set_title('Average Number of Downloads by Level')
-axes[1].set_xlabel('Level')
-axes[1].set_ylabel('Average Number of Downloads')
-axes[1].tick_params(axis='x', rotation=90)  # Make x-axis labels vertical
-
-plt.tight_layout(rect=[0, 0, 1, 0.95])  # Adjust layout to avoid overlapping with the title
+sns.barplot(
+    data=df_h1b,
+    x='level',
+    y='num_downloads',
+    hue='level',
+    palette='viridis',
+    dodge=False,
+    order=level_order
+)
+plt.xlabel('Level')
+plt.ylabel('Average Number of Downloads')
+plt.xticks(rotation=90)  # Rotate x-axis labels
+plt.tight_layout()  # Adjust layout to avoid overlap
 plt.show()
 
 ```
 
 ### Distribution of app downloads.
 
-1.  **Figuur 2 verwijzen.**
-2.  **Gebeurt dit –\> leg uit waarom je het zo ziet.**
-3.  **Niet duidelijk waarom het gebeurt.**
-4.  **Hypothese introduceren.**
-5.  **Mogelijk heeft het te maken met dit (plots). (Testen van hypothese)**
-6.  **Dus conclusie.**
+There is a significant difference between the total and average number of downloads for level 0 and 1, in @fig-total-average-downloads-by-level-1 and @fig-total-average-downloads-by-level-2 respectively. This is largely a result of the fact that 75% of the total apps fall under these levels (see @fig-distribution-amount-apps-levels.) By testing the hypothesis 1b, in @sec-popularity, it claims that apps in level 1 are downloaded the most, like social media platforms that dominate our culture. At a first glance the claim that this level "dominates our culture" doesn't appear to be the case.
 
-**Important takeaway:** Revenue levels 0 and 1 have a significant drop-off in terms of average number of downloads.
-
-This aligns well with hypothesis 1b which focusses in particular on revenue level 1:
-
-*The apps with the most downloads will be level 1. Most social media platforms, which dominate our culture, tend to have this revenue stream [@djaruma2023].*
+@fig-distribution-app-downloads provides insights into distribution inequality. The distribution of the app downloads are highly concentrated, meaning a small proportion of the apps make up for the vast majority of the downloads. @fig-distribution-app-downloads-1 shows relatively the same inequality as @fig-distribution-app-downloads-2. Which indicates that a small amount of apps dominate the numbers, however this might also be present in other levels.
 
 ```{python}
+#| label: fig-distribution-app-downloads
+#| fig-cap: "Distribution of App Downloads (Top-Heavy Analysis)"
+#| fig-subcap:
+#|   - "All levels except 1"
+#|   - "Level 1 Only" 
+#| layout-ncol: 2
 #| echo: false
 #| warning: false
 #| error: false
@@ -391,19 +406,63 @@ relevant_columns_h1b = ['my_app_id', 'num_downloads', 'categ_app', 'level', 'dev
 # filter the relevant columns
 df_h1b = df_h1b[relevant_columns_h1b]
 
+# Filter the dataframe to exclude level '1'
+df_no_level_1 = df_h1b[df_h1b['level'] != '1'].copy()
+
 # Sort the dataframe by 'num_downloads' in descending order
-df_sorted = df_h1b.sort_values(by='num_downloads', ascending=False)
+df_no_level_1_sorted = df_no_level_1.sort_values(by='num_downloads', ascending=False)
 
 # Calculate the cumulative percentage of downloads
-df_sorted['cumulative_percentage_downloads'] = df_sorted['num_downloads'].cumsum() / df_sorted['num_downloads'].sum() * 100
+df_no_level_1_sorted['cumulative_percentage_downloads'] = (
+    df_no_level_1_sorted['num_downloads'].cumsum() / df_no_level_1_sorted['num_downloads'].sum() * 100
+)
 
-# Create a Lorenz curve-style plot
-plt.figure(figsize=(10, 6))
-plt.plot(range(1, len(df_sorted) + 1), df_sorted['cumulative_percentage_downloads'], label='Cumulative Downloads')
-plt.plot([1, len(df_sorted)], [0, 100], linestyle='--', color='gray', label='Equality Line')
+# Create a Lorenz curve-style plot for all levels except '1'
+plt.plot(
+    range(1, len(df_no_level_1_sorted) + 1),
+    df_no_level_1_sorted['cumulative_percentage_downloads'],
+    label='Cumulative Downloads (All Levels Except 1)'
+)
+plt.plot(
+    [1, len(df_no_level_1_sorted)],
+    [0, 100],
+    linestyle='--',
+    color='gray',
+    label='Equality Line'
+)
 
-# Add labels and title
-plt.title('Figure 3: Distribution of App Downloads (Top-Heavy Analysis)', fontsize=14)
+# Add labels and legend
+plt.xlabel('Apps (sorted by downloads)')
+plt.ylabel('Cumulative Percentage of Downloads')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+
+# Filter the dataframe for level '1'
+df_level_1 = df_h1b[df_h1b['level'] == '1'].copy()
+
+# Sort the dataframe by 'num_downloads' in descending order
+df_level_1_sorted = df_level_1.sort_values(by='num_downloads', ascending=False)
+
+# Calculate the cumulative percentage of downloads
+df_level_1_sorted['cumulative_percentage_downloads'] = df_level_1_sorted['num_downloads'].cumsum() / df_level_1_sorted['num_downloads'].sum() * 100
+
+# Create a Lorenz curve-style plot for level '1'
+plt.plot(
+    range(1, len(df_level_1_sorted) + 1),
+    df_level_1_sorted['cumulative_percentage_downloads'],
+    label='Cumulative Downloads (Level 1)'
+)
+plt.plot(
+    [1, len(df_level_1_sorted)],
+    [0, 100],
+    linestyle='--',
+    color='gray',
+    label='Equality Line'
+)
+
+# Add labels and legend
 plt.xlabel('Apps (sorted by downloads)')
 plt.ylabel('Cumulative Percentage of Downloads')
 plt.legend()
@@ -411,15 +470,14 @@ plt.grid(True)
 plt.show()
 ```
 
-For instance in the the graph above, we see that the apps are highly concentrated. So, a small proportion of the apps make up for the vast majority of the downloads.
-
-The graph below illustrates the distribution of app downloads per revenue level, with download ranges highlighted using distinct colors. The interesting takeaway is that level 0 and 1 have the most app with over 1 billion downloads.
+The download range of apps in @fig-num-downloads-by-level-log illustrates that level 1 dominates in terms of apps with over 1 billion+ downloads. Furthermore, level 0 also has a few apps with over 1 billion downloads.
 
 ```{python}
+#| label: fig-num-downloads-by-level-log
+#| fig-cap: "Number of Downloads by Level (Log Scale)"
 #| echo: false
 #| warning: false
 #| error: false
-
 
 downloads_across_level = df_level_combined.copy()
 
@@ -434,50 +492,83 @@ downloads_across_level['downloads_bin'] = pd.cut(downloads_across_level['num_dow
 grouped = downloads_across_level.groupby(['level', 'downloads_bin']).size().unstack(fill_value=0)
 
 # Plotting the bar chart with log scale
-ax = grouped.plot(kind='bar', stacked=False, figsize=(12, 8), logy=True)
-ax.set_xlabel('Level')
-ax.set_ylabel('Number of Apps (Log Scale)')
-ax.set_xticklabels(ax.get_xticklabels(), rotation=0)
+grouped.plot(kind='bar', stacked=False, figsize=(12, 8), logy=True)
+plt.xlabel('Level')
+plt.ylabel('Number of Apps (Log Scale)')
+plt.xticks(rotation=90)
 plt.legend(title='Download Range', bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.tight_layout()
-plt.title('Figure 4: Number of Downloads by Level (Log Scale)', fontsize=14)
-
 plt.show()
+
+
 ```
 
-The graph below shows the number of apps with over 1 billion downloads per category. The communication category stands out with the most apps with over 1 billion downloads.
+The apps categories Communication and Social classify as social platforms as shown in @fig-num-downloads-1-billion. Attributing to 40% of all the apps with more than 1 billion downloads.
 
 ```{python}
+#| label: fig-num-downloads-1-billion
+#| fig-cap: "1 Billion+ Downloads in Level 1"
 #| echo: false
 #| warning: false
 #| error: false
 
 downloads_across_level = df_level_combined.copy()
+downloads_across_level = downloads_across_level[downloads_across_level['level'] == '1'].copy()
+
 # Add '1B Downloads' column
 downloads_across_level['1B Downloads'] = downloads_across_level['num_downloads'] >= 1_000_000_000
 
 # Filter for apps with 1 billion or more downloads
 billion_downloads = downloads_across_level[downloads_across_level['1B Downloads'] == True]
 
-# Count the number of apps per category
+# Preparing data
 billion_downloads_summary = billion_downloads['categ_app'].value_counts().reset_index()
 billion_downloads_summary.columns = ['Category', 'Number of Apps']
 
-# Visualize the data
-plt.figure(figsize=(10, 6))
-sns.barplot(data=billion_downloads_summary, x='Category', y='Number of Apps', palette='viridis')
-plt.title('Figure 5: Number of Apps with Over 1 Billion Downloads by Category', fontsize=14)
-plt.xlabel('Category')
-plt.ylabel('Number of Apps')
-plt.xticks(rotation=45)
+# Sort and place "Social" next to "Communication"
+custom_order = ['Communication', 'Social'] + [
+    cat for cat in billion_downloads_summary['Category'] if cat not in ['Communication', 'Social']
+]
+billion_downloads_summary = billion_downloads_summary.set_index('Category').loc[custom_order].reset_index()
+
+# Data for the pie chart
+sizes = billion_downloads_summary['Number of Apps']
+labels = billion_downloads_summary['Category']
+
+# Plotting the pie chart
+plt.figure(figsize=(6, 6))  # Adjust the size of the pie chart
+wedges, texts, autotexts = plt.pie(
+    sizes, 
+    labels=None,  # Hide labels on the pie chart itself
+    autopct='%1.1f%%',  # Display percentages
+    startangle=90, 
+    colors=plt.cm.Paired(np.linspace(0, 1, len(labels)))  # Distinct colors
+)
+
+# Customize percentage text size and color
+for autotext in autotexts:
+    autotext.set_color('white')
+    autotext.set_fontsize(10)
+
+# Adding the custom legend
+plt.legend(
+    wedges, 
+    labels, 
+    title="Categories", 
+    loc="center left", 
+    bbox_to_anchor=(1, 0, 0.5, 1)  # Custom legend position
+)
+
+# Display the chart
 plt.tight_layout()
 plt.show()
-
 ```
 
-Taking a closer look at the apps provided by [@djaruma2023]. We do see that Facebook, Instagram, Spotify, Snapchat and Amazon Shopping fall under level 1. (Disclaimer: TikTok didn't exist up until 2019)
+Taking a closer look at the apps provided by [@djaruma2023] in @tbl-top-8-apps-paper. We do see that Facebook, Instagram, Spotify, Snapchat and Amazon Shopping fall under level 1. (Disclaimer: TikTok didn't exist up until 2019).
 
 ```{python}
+#| label: tbl-top-8-apps-paper
+#| tbl-cap: "Top 8 Apps by Downloads (in Billions)"
 #| echo: false
 #| warning: false
 #| error: false
@@ -517,10 +608,21 @@ df_h1b = df_h1b.rename(columns={
 
 df_h1b.sort_values(by='Downloads (in B)', ascending=False, inplace=True)
 df_h1b.reset_index(drop=True, inplace=True)
-df_h1b
+Markdown(tabulate(df_h1b, headers=df_h1b.columns))
 ```
 
+H1b: *The apps with the most downloads will be level 1. Most social media platforms, which dominate our culture, tend to have this revenue stream [@djaruma2023].*
+
+It can be concluded that indeed the most downloaded apps fall under level 1 (see @fig-total-average-downloads-by-level-1). But this requires a nuanced view, since 50% of the apps fall under level 1 (see @fig-distribution-amount-apps-levels) and it has a relatively low average among other levels (see @fig-total-average-downloads-by-level-2). So, it requires further analysis to understand the popularity of level 1. As seen from @fig-distribution-app-downloads it shows that there is high inequality, resulting in a small proportion of the apps accounting to a majority of the downloads. Furthermore, @fig-num-downloads-by-level-log shows that apps in level 1 are considered among the top downloaded apps. In particular, the categories under which social media platform fall (see @fig-num-downloads-1-billion). Looking at the apps provided by @djaruma2023, it can be concluded that there is enough evidence to support h1b (see @tbl-top-8-apps-paper).
+
 ### Gaming apps
+
+1.  **Figuur 2 verwijzen.**
+2.  **Gebeurt dit –\> leg uit waarom je het zo ziet.**
+3.  **Niet duidelijk waarom het gebeurt.**
+4.  **Hypothese introduceren.**
+5.  **Mogelijk heeft het te maken met dit (plots). (Testen van hypothese)**
+6.  **Dus conclusie.**
 
 **Important takeaway:** Revenue level 3 and 4 stands out with high average app downloads. Suggesting these revenue levels can be considered as the most popular revenue level. Important to note is that they have two things in common, they are free and contain in-app purchases. The only difference is that level 3 contain ads.
 
@@ -774,6 +876,13 @@ combined_tables
 ```
 
 ### Free vs Paid
+
+1.  **Figuur 2 verwijzen.**
+2.  **Gebeurt dit –\> leg uit waarom je het zo ziet.**
+3.  **Niet duidelijk waarom het gebeurt.**
+4.  **Hypothese introduceren.**
+5.  **Mogelijk heeft het te maken met dit (plots). (Testen van hypothese)**
+6.  **Dus conclusie.**
 
 **Key takeaways:**
 
