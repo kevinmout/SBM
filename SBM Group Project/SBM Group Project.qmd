@@ -958,7 +958,7 @@ bayesian_ratings.plot(kind='bar', width=0.4, position=0, label='Bayesian Rating'
 # Adding labels and title
 plt.xlabel('Level')
 plt.ylabel('Rating')
-plt.title('Ratings Across Levels')
+plt.title('Figure 11: Ratings Across Levels', fontsize=14)
 plt.legend()
 plt.xticks(rotation=0)
 
@@ -985,7 +985,7 @@ variance_melted = variance_specific.melt(id_vars='level', var_name='Attribute', 
 
 plt.figure(figsize=(12, 6))
 sns.barplot(data=variance_melted, x='level', y='Variance', hue='Attribute', palette='viridis')
-plt.title('Variance of Different Attributes Grouped by Level')
+plt.title('Figure 12: Variance of Different Attributes Grouped by Level', fontsize=14)
 plt.xlabel('Level')
 plt.ylabel('Variance')
 plt.xticks(rotation=45)
@@ -996,21 +996,225 @@ plt.show()
 
 In the next two subsections we investigate further on the variance and the difference in rating between paid and free apps.
 
-### Downloads and Quality of Apps
+### Quality of Apps
 
-H1a: Apps that allow the user to have free access to all features (level 0 and 1) will have the highest amount of downloads overall. However, the ratings may fluctuate, as quality can vary for free-to-access apps. <!-- Is citation hier nodig? -->
+Hypotheses 1a and 2a partially touch on the quality of apps being a reason for the fluctuations in ratings. While 1a looks at the free access to all feature apps, 2a looks more at the drawbacks of the freemium revenue model. Where the balance between free and paid features can result in lower ratings.
 
-H2a: Apps that require the user to pay to unlock features (level 2, 3, and 4) will tend to have lower ratings than the version that requires payment upfront (level 5). The main draw of a freemium model is to attract users, and have them update to a paid version [@kumar2014]. However, as @kumar2014 points out, this can be a double-edged sword. Too few features, and it may not be attractive to users. Too many features, and the users will not update.
+*H1a: Apps that allow the user to have free access to all features (level 0 and 1) will have the highest amount of downloads overall. However, the ratings may fluctuate, as quality can vary for free-to-access apps.* <!-- Is citation hier nodig? -->
+
+*H2a: Apps that require the user to pay to unlock features (level 2, 3, and 4) will tend to have lower ratings than the version that requires payment upfront (level 5). The main draw of a freemium model is to attract users, and have them update to a paid version [@kumar2014]. However, as @kumar2014 points out, this can be a double-edged sword. Too few features, and it may not be attractive to users. Too many features, and the users will not update.*
+
+The table below shows the variance and standard deviation between "free access to all feature apps" and "free access to not all features or paid apps". There is not a big statistical difference.
+
+```{python}
+#| echo: false
+#| warning: false
+#| error: false
+
+
+df_h1a = df_level_combined.copy()
+
+# if level is 0 or 1 then new column category is 'Free apps'
+df_h1a['category'] = ['Free all feature apps' if level in ['0', '1'] else 'Free/Paid not all feature apps' for level in df_h1a['level']]
+
+# Calculate variance and standard deviation for each category
+df_stats_h1a = df_h1a.groupby('category')['rating_app'].agg(['var', 'std']).reset_index()
+
+# Rename columns for clarity
+df_stats_h1a.rename(columns={'var': 'variance in rating', 'std': 'standard deviation in rating'}, inplace=True)
+
+df_stats_h1a
+```
+
+As can also be seen in the graph below, that shows the boxplot of the ratings.
+
+```{python}
+#| echo: false
+#| warning: false
+#| error: false
+
+plt.figure(figsize=(10, 6))
+sns.boxplot(data=df_h1a, x='category', y='rating_app')
+plt.title('Figure 13: App Ratings by Category', fontsize=14)
+plt.xlabel('Category')
+plt.ylabel('Ratings')
+plt.show()
+```
+
+Conversely, the mean rating and Bayesian average of apps where you need to unlock features versus paid apps with all features also doesn't see a big difference. The premium apps do tend to have a higher rating. As can be seen in the graph below.
+
+```{python}
+#| echo: false
+#| warning: false
+#| error: false
+
+df_level_combined_h2a = df_level_combined.copy()
+
+# Filter only levels 2, 3, 4, and 5
+df_h2a = df_level_combined_h2a[df_level_combined_h2a['level'].isin(['2 (Sample)', '2 (Premium)', '3', '4', '5'])].copy()
+
+# Filter on premium and free apps
+df_h2a['category'] = np.where((df_h2a['level'] == '5') | (df_h2a['level'] == '2 (Premium)'), 'Premium apps', 'Free apps')
+
+# relevant columns
+relevant_columns_h2a = ['category', 'rating_app', 'bayesian_average']
+
+# filter the relevant columns
+df_h2a = df_h2a[relevant_columns_h2a]
+
+# Calculating the mean rating for Free and Premium apps
+mean_rating_free = df_h2a[df_h2a['category'] == 'Free apps']['rating_app'].mean()
+mean_rating_premium = df_h2a[df_h2a['category'] == 'Premium apps']['rating_app'].mean()
+
+# Calculating the mean Bayesian average for Free and Premium apps
+mean_bayesian_free = df_h2a[df_h2a['category'] == 'Free apps']['bayesian_average'].mean()
+mean_bayesian_premium = df_h2a[df_h2a['category'] == 'Premium apps']['bayesian_average'].mean()
+
+# Creating a new DataFrame from these results
+mean_results = pd.DataFrame({
+    'Category': ['Free apps', 'Premium apps'],
+    'Mean Rating': [mean_rating_free, mean_rating_premium],
+    'Mean Bayesian Average': [mean_bayesian_free, mean_bayesian_premium]
+})
+
+# Combine ratings for boxplot
+categories = ['Free apps', 'Premium apps']
+ratings_data = [df_h2a[df_h2a['category'] == cat]['rating_app'] for cat in categories]
+
+plt.boxplot(ratings_data, labels=categories, patch_artist=True)
+plt.title('Figure 14: Boxplot of Ratings for Free and Premium Apps', fontsize=14)
+plt.ylabel('Ratings')
+plt.xlabel('App Category')
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+plt.show()
+```
 
 ### Variance in Ratings
 
-H2a: Apps that require the user to pay to unlock features (level 2, 3, and 4) will tend to have lower ratings than the version that requires payment upfront (level 5). The main draw of a freemium model is to attract users, and have them update to a paid version [@kumar2014]. However, as @kumar2014 points out, this can be a double-edged sword. Too few features, and it may not be attractive to users. Too many features, and the users will not update.
+Hypothesis 2b touches on the variance between premium and their counterpart freemium apps.
 
-H2b: Fully premium apps (level 5) will have less variance in their ratings, while all other levels will have more. In the same vein as H2a, users have more realistic expectations of paid apps compared to apps that require you to unlock features [@kumar2014]. Therefore, more users downloading premium apps will be satisfied with their purchase, leading to less variance.
+*H2b: Fully premium apps (level 5) will have less variance in their ratings, while all other levels will have more. In the same vein as H2a, users have more realistic expectations of paid apps compared to apps that require you to unlock features [@kumar2014]. Therefore, more users downloading premium apps will be satisfied with their purchase, leading to less variance.*
+
+In the graph below, we see a significant difference in the variance of ratings. Premium apps tend to have a higher variance, with more outliers.
+
+```{python}
+#| echo: false
+#| warning: false
+#| error: false
+
+
+df_level_combined_h2b = df_level_combined.copy()
+
+# Filter on level 5 and others
+df_level_combined_h2b['category'] = np.where(df_level_combined_h2b['level'] == '5', 'Premium apps', 'Other apps')
+
+# relevant columns
+relevant_columns_h2b = ['category', 'rating_app', 'bayesian_average']
+
+# filter the relevant columns
+df_level_combined_h2b = df_level_combined_h2b[relevant_columns_h2b]
+
+# Filtering data for Free and Premium apps
+other_apps = df_level_combined_h2b[df_level_combined_h2b['category'] == 'Other apps']
+premium_apps = df_level_combined_h2b[df_level_combined_h2b['category'] == 'Premium apps']
+
+# Calculating variances for ratings and bayesian averages
+other_variance_rating = other_apps['rating_app'].var()
+premium_variance_rating = premium_apps['rating_app'].var()
+
+# Creating a bar plot for variances in ratings
+fig, ax = plt.subplots(figsize=(10, 6))
+ax.bar(['Other apps', 'Premium apps'], [other_variance_rating, premium_variance_rating], color=['skyblue', 'orange'])
+ax.set_ylabel('Variance in Ratings', fontsize=12)
+ax.set_title('Figure 15: Variance in Ratings for Other vs Premium Apps', fontsize=14)
+ax.set_ylim(0, max(other_variance_rating, premium_variance_rating) * 1.2)
+
+plt.tight_layout()
+plt.show()
+```
+
+In the graph below, we once again see that level 5 has a high variance compared to the others. But when adjusted with the Bayesian average, the variance is one of the lowest. This difference may arise because users who are satisfied with the app tend to rate the app highly, while users who are not satisfied, tend to rate it much lower, having paid for the app.
+
+```{python}
+#| echo: false
+#| warning: false
+#| error: false
+
+variance_rating = df_level_combined.copy()
+
+# Assuming your dataframe is named df
+columns_to_calculate = ['rating_app', 'bayesian_average']
+variance_specific = variance_rating.groupby('level')[columns_to_calculate].var().reset_index()
+
+# Melting the dataframe to long format for easier plotting
+variance_melted = variance_specific.melt(id_vars='level', var_name='Attribute', value_name='Variance')
+
+# Melting the dataframe to long format
+variance_melted = variance_specific.melt(id_vars='level', var_name='Attribute', value_name='Variance')
+
+# Plotting line plot with seaborn
+plt.figure(figsize=(12, 6))
+sns.lineplot(data=variance_melted, x='level', y='Variance', hue='Attribute', marker='o', palette='Set1')
+plt.title('Figure 16: Variance of Attributes Across Different Levels', fontsize=14)
+plt.xlabel('Level')
+plt.ylabel('Variance')
+plt.xticks(rotation=45)
+plt.legend(title='Attribute')
+plt.tight_layout()
+plt.show()
+```
 
 ### Relationships between App Versions
 
-H3: For apps that utilize a sample and a premium version of the same app (level 2), the rating of the paid-for version is positively associated with the rating of the free version of the same app. This was true for the study on the most popular apps in the Google Play Store by @liu2012freemium, so it is expected a similar pattern should arise for this dataset.
+Level 2 has two version of the same app. A sample and a premium version. According to hypothesis 3, the rating of a paid version positively correlates with the rating of the sample version.
+
+*H3: For apps that utilize a sample and a premium version of the same app (level 2), the rating of the paid-for version is positively associated with the rating of the free version of the same app. This was true for the study on the most popular apps in the Google Play Store by @liu2012freemium, so it is expected a similar pattern should arise for this dataset.*
+
+In the table below the correlation between ratings of sample and premium apps is considered moderate positive with 0.35. The correlation between the Bayesian average rating of sample and premium apps is considered moderate to strong positive correlation with 0.5.
+
+```{python}
+#| echo: false
+#| warning: false
+#| error: false
+
+df_sample_h3 = df_level_combined[df_level_combined['level'] == '2 (Sample)']
+df_premium_h3 = df_level_combined[df_level_combined['level'] == '2 (Premium)']
+df_mapping_h3 = df_mapping_level_2.copy()
+
+# relevant columns
+relevant_columns_h3 = ['my_app_id', 'level', 'rating_app', 'bayesian_average']
+relevant_columns_mapping_h3 =  ['Sample app name',	'Premium app name']
+
+# filter the relevant columns
+df_sample_h3 = df_sample_h3[relevant_columns_h3]
+df_premium_h3 = df_premium_h3[relevant_columns_h3]
+df_mapping_h3 = df_mapping_h3[relevant_columns_mapping_h3]
+
+# Merge mapping dataframe with sample dataframe and premium dataframe
+df_mapped_h3 = (
+    df_mapping_h3
+    .merge(df_sample_h3[['my_app_id', 'bayesian_average', 'rating_app']], left_on='Sample app name', right_on='my_app_id', how='left')
+    .drop(columns=['my_app_id'])
+    .rename(columns={'num_downloads': 'Sample Downloads', 'rating_app': 'Sample Rating', 'bayesian_average': 'Sample Bayesian Average'})
+    .merge(df_premium_h3[['my_app_id', 'bayesian_average', 'rating_app']], left_on='Premium app name', right_on='my_app_id', how='left')
+    .drop(columns=['my_app_id'])
+    .rename(columns={'num_downloads': 'Premium Downloads', 'rating_app': 'Premium Rating', 'bayesian_average': 'Premium Bayesian Average'})
+)
+
+# Correlation Coefficient
+correlation_rating_h3 = df_mapped_h3["Sample Rating"].corr(df_mapped_h3["Premium Rating"])
+
+# Correlation Coefficient for Bayesian averages
+correlation_bayesian_rating_h3 = df_mapped_h3["Sample Bayesian Average"].corr(df_mapped_h3["Premium Bayesian Average"])
+
+correlation_data_h3 = {
+    "Metric": ["Sample Rating vs Premium Rating", "Sample Bayesian Average vs Premium Bayesian Average"],
+    "Correlation Coefficient": [correlation_rating_h3, correlation_bayesian_rating_h3]
+}
+pd.DataFrame(correlation_data_h3)
+
+```
 
 # Discussion <!--500-700 words -->
 
