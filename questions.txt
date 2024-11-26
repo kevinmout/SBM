@@ -1,11 +1,6 @@
 1. 
 
-H2b: Fully premium apps (level 5) will have less variance in their ratings, while all other
-levels will have more. In the same vein as H2a, users have more realistic expectations of
-paid apps compared to apps that require you to unlock features (Kumar 2014). Therefore,
-5
-more users downloading premium apps will be satisfied with their purchase, leading to less
-variance.
+H2b: Fully premium apps (level 5) will have less variance in their ratings, while all other levels will have more. In the same vein as H2a, users have more realistic expectations of paid apps compared to apps that require you to unlock features (Kumar 2014). Therefore, 5 more users downloading premium apps will be satisfied with their purchase, leading to less variance.
 
 Moet dat ook niet Level 2 (premium apps) zijn?
 
@@ -34,12 +29,6 @@ Waarom H3 en niet H2c?
 
 
 
-5. 
-
-
-Future kan ook zijn op basis van age content?
-
-
-6.
+5.
 
 Assumption van downloads. Wij converten 500.000+ downloads naar 500.000 downloads.

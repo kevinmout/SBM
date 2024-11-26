@@ -73,7 +73,7 @@ In a review paper from 2023 [@djaruma2023], different levels of monetization are
 | Level 1: In-app advertisement | Only one version of the app, with only ads and no in-app purchases. |
 | Level 0: Free | The app has no monetization. However, money can still be made through selling user information. |
 
-: Six levels of monetization for apps
+: Six levels of monetization for apps {#tbl:levels}
 
 <!-- Ik heb dit expres kort gehouden, aangezien we ook nog een uitgebreidere literatuur review hebben. Maar, misschien moet dit toch nog iets langer? -Noa -->
 
@@ -258,16 +258,7 @@ Interpretation of results.
 
 In this section, we will visualize the data through tables and visualizations. These plots largely explore the data around the hypotheses and research question, we discussed in the previous sections. The aim of this section is to present possible evidence in supporting a hypothesis. This will be discussed and concluded upon in the next section.
 
-Before we look at the results, let's revisit the research question: "*How are the 6 different revenue models as proposed by @djaruma2023 correlate to the success of an app?*". Where we identify 6 different revenue models, described in this section as (revenue) levels.
-
-| Strategy | Description |
-|------------------------------------|------------------------------------|
-| Level 5: Premium | Pay to use the application. This either happens up-front, or after a trial period. |
-| Level 4: Semi-premium | Use a limited number of features for free. Unlock the app with all features through an in-app purchase. |
-| Level 3: In-app advertisement and in-app purchases | Free application with ads, encouraging users to remove ads or to make in-app purchases. |
-| Level 2: Sample and premium | Two different versions of the same app. One is a version with limit features and/or ads. The other version is a premium version. |
-| Level 1: In-app advertisement | Only one version of the app, with only ads and no in-app purchases. |
-| Level 0: Free | The app has no monetization. However, money can still be made through selling user information. |
+Before we look at the results, let's revisit the research question: "*How are the 6 different revenue models as proposed by @djaruma2023 correlate to the success of an app?*". Where we identify 6 different revenue models, described in this section as (revenue) levels. For reference see table [@tbl-levels].
 
 The dataset is divided into these different levels. From this pie chart, we can make up that more than 75% of all the apps belong to level 0 and 1. With the smallest population being level 2 with two different version of the same app.
 
@@ -315,7 +306,9 @@ plt.show()
 
 ```
 
-To find the success of an app, we have established in the "Literature Review" subsection, that it can be measured by:
+To find the success of an app, we have established in the "Literature Review" subsection **\[verwijzing\]**, that it can be measured by:
+
+**Geen opsomming maar lopend verhaal. De resultaten zijn op basis van deze succes factoren.**
 
 1.  Popularity: which can be measured by the number of downloads.
 2.  The rating of an application.
@@ -367,7 +360,14 @@ plt.show()
 
 ```
 
-### Distribution of app downloads
+### Distribution of app downloads.
+
+1.  **Figuur 2 verwijzen.**
+2.  **Gebeurt dit –\> leg uit waarom je het zo ziet.**
+3.  **Niet duidelijk waarom het gebeurt.**
+4.  **Hypothese introduceren.**
+5.  **Mogelijk heeft het te maken met dit (plots). (Testen van hypothese)**
+6.  **Dus conclusie.**
 
 **Important takeaway:** Revenue levels 0 and 1 have a significant drop-off in terms of average number of downloads.
 
@@ -1215,6 +1215,16 @@ correlation_data_h3 = {
 pd.DataFrame(correlation_data_h3)
 
 ```
+
+### Conclusion
+
+**Opsommen van de resultaten. Antwoord geven op de research question.**
+
+Dit was onze onderzoeksvraag.
+
+Succes geformuleerd als 3 dingen. Pop, rating en revenue(niet meegenomen).
+
+Pop: a (wel/niet), b (wel/niet), c (wel/niet) etc.
 
 # Discussion <!--500-700 words -->
 
