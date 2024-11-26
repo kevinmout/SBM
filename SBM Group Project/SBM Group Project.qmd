@@ -177,25 +177,11 @@ In this section, we will discuss the dataset and methods used to test the hypoth
 
 <!--Omschrijf de data: hoeveel instances, welke variables, waar gaat de data over?-->
 
-The dataset used for this research consists of 1,016,666 instances and 27 variables, representing a detailed overview of mobile applications across various revenue models. Each instance corresponds to an app, and the variables capture key attributes such as app downloads, user ratings, and monetization strategies. Below is an overview of some of variables:
+The dataset used in this research comprises 1,016,666 instances and 27 variables, offering a comprehensive overview of mobile applications across various revenue models. Each instance corresponds to a single app, capturing details about its characteristics, user engagement, and monetization strategies. Key variables include the app's unique identifier (my_app_id), the number of downloads (num_downloads), the average rating (rating_app), and the number of ratings received (nb_rating). These variables provide critical insights into app performance metrics.
 
-| Variable | Description |
-|------------------------------------|------------------------------------|
-| my_app_id (object) | Unique identifier for each app. |
-| date_published (object) | The publication date of the app. Only three missing values (0.000295% null). |
-| privacy_policy (object) | Information about the app's privacy policy, missing in 28.57% of cases. |
-| rating_app (float64) | The average rating of the app, with 8.76% missing values. |
-| nb_rating (object) | Number of ratings received by the app, missing in 8.76% of cases. |
-| num_downloads (object) | The number of downloads for the app, nearly complete with only 15 missing values (0.001475% null). |
-| price_gplay (object) | The price of the app as listed on Google Play, missing in 0.43% of cases. |
-| in_app (bool) | Indicates whether the app has in-app purchases (no missing values). |
-| has_ads (bool) | Indicates whether the app contains advertisements (no missing values). |
-| content_rating_app (object) | The app's content rating, with three missing values (0.000295% null). |
-| developer_name (object) | The name of the app developer, missing in only 16 instances (0.001574% null). |
+Additional variables include pricing details (price_gplay), information about in-app purchases (in_app), and whether the app contains advertisements (has_ads). Other attributes, such as content ratings (content_rating_app) and metadata about the app developer (developer_name), further enhance the dataset’s richness by adding contextual information.
 
-The dataset includes several additional variables related to app features, developer information, and user engagement metrics such as visit_website, more_from_developer, and family_library. However, some variables, such as whats_new (100% null) and in_app_product (89.57% null), were deemed unsuitable for analysis due to their high proportion of missing data.
-
-The primary purpose of this dataset in this study, is to analyze app monetization strategies by categorizing apps into distinct revenue levels and evaluating their performance based on key metrics like downloads and user ratings.
+Several variables, such as whats_new (completely null) and in_app_product (89.57% null), were excluded from the analysis due to their high proportions of missing data. Conversely, variables with minor missingness (e.g., date_published, privacy_policy) were retained after appropriate preprocessing. This curated dataset is the foundation for examining monetization strategies and their relationship to app performance metrics like downloads and user ratings.
 
 ## Variable Selection
 
@@ -205,25 +191,42 @@ The primary purpose of this dataset in this study, is to analyze app monetizatio
 Hoe definiëren we de 5 levels?-->
 ```
 
-The dataset utilized in this study consists of 1,016,666 entries, encompassing a broad range of attributes related to mobile applications. For the purpose of our analysis, 13 variables were selected, capturing critical information about app characteristics, user engagement, monetization strategies, and developer details. These variables include the app's unique identifier (my_app_id), the total number of downloads (num_downloads), average user ratings (rating_app), and the number of ratings (nb_rating). Additionally, the dataset provides information on app pricing (price_gplay), the presence of in-app purchases (in_app), and whether the app includes advertisements (has_ads). Other variables, such as content ratings (content_rating_app), app categories (categ_app), and developer information (developer_name and developer_info), further enhance the richness of the dataset. This subset of variables allows us to comprehensively examine the interplay between monetization strategies and app success.
+The analysis focuses on a subset of 13 variables selected from the dataset, as shown in Table 2 below. These variables were chosen for their relevance to our research questions, capturing information about app characteristics, user engagement, and monetization strategies.
+
+<!-- Table 2: Selected Variables for Analysis -->
+
+| **Variable Name** | **Description** |
+|------------------------|------------------------------------------------|
+| `my_app_id` | Unique identifier for each app. |
+| `num_downloads` | Number of downloads for the app. Key indicator of app success. |
+| `rating_app` | Average user rating. Measures user satisfaction. |
+| `nb_rating` | Number of ratings received. Reflects user engagement. |
+| `price_gplay` | Price of the app. Used to differentiate free vs premium apps. |
+| `in_app` | Boolean indicating whether the app has in-app purchases. |
+| `has_ads` | Boolean indicating whether the app includes advertisements. |
+| `content_rating_app` | Content rating of the app (e.g., Everyone, Teen). |
+| `categ_app` | App category (e.g., Productivity, Games). Groups apps by functionality. |
+| `developer_name` | Name of the app developer. Provides context on developer reputation. |
+| `developer_info` | Additional metadata about the developer (e.g., location, website). |
 
 To systematically explore monetization strategies, we classified the apps into six distinct levels based on their monetization models. These levels reflect varying approaches to generating revenue, ranging from completely free apps to fully premium paid apps.
 
-Level 0 represents apps with no monetization, offering free services without ads or in-app purchases. At the opposite end, Level 5 includes premium apps requiring upfront payment, free from ads or in-app purchases, delivering a premium experience.
-
-In between, Level 1 consists of free apps monetized solely through ads, while Level 3 combines ads and in-app purchases, offering additional features for users willing to pay. Level 4 refines the freemium model by removing ads and relying entirely on in-app purchases to monetize.
-
-Level 2 employs a dual-version strategy, featuring both free sample apps with limited functionality (and potentially ads) and paid premium apps with comprehensive features and no ads or in-app purchases.
+-   **Level 0**: Apps with no monetization, offering free services without ads or in-app purchases.
+-   **Level 1**: Free apps monetized solely through ads.
+-   **Level 2**: Freemium model, employing both free sample apps with limited functionality (and potentially ads) and paid premium apps with full features.
+-   **Level 3**: Apps combining ads and in-app purchases, monetizing through both strategies.
+-   **Level 4**: Freemium apps monetized entirely through in-app purchases, removing ads for a seamless user experience.
+-   **Level 5**: Fully premium paid apps, with no ads or in-app purchases, delivering a premium experience.
 
 This classification is grounded in theoretical frameworks, such as the monetization levels proposed by Djaruma et al. (2023) and the App business models of (CITE), and allows for a nuanced analysis of how different revenue models impact app success metrics like user ratings and downloads. Our systematic categorization facilitates a deeper understanding of the relationship between monetization strategies and app performance.
 
 ## Statistical Methods
 
-To test our hypotheses, we employed a combination of descriptive statistics, text processing, and machine learning techniques. Descriptive statistics were utilized to analyze distributions and trends in metrics such as num_downloads, rating_app, and price_gplay. We categorized applications into six monetization levels based on binary indicators: is_free, in_app, and has_ads. Price values were processed to distinguish between free and paid applications.
+To test our hypotheses, we employed a combination of descriptive statistics, text processing, and machine learning techniques, ensuring a rigorous approach to analyzing the dataset. Descriptive statistics were used to explore distributions and trends in key metrics such as num_downloads, rating_app, and price_gplay. Applications were categorized into six monetization levels using binary indicators (is_free, in_app, and has_ads), while preprocessing of price data facilitated the distinction between free and paid applications. These steps established a structured foundation for investigating relationships between monetization strategies and app performance.
 
-To identify paired sample and premium applications within level 2, we applied Term Frequency-Inverse Document Frequency (TF-IDF) vectorization combined with cosine similarity on application names. This approach is effective for measuring textual similarity between documents (CITE Source 2). Subsequent filtering involved prefix matching and the identification of indicative terms (e.g., "Free," "Pro") to ensure logical pairing based on naming conventions and shared developers.
+For the paired application analysis within Level 2, we applied Term Frequency-Inverse Document Frequency (TF-IDF) vectorization combined with cosine similarity to app names, allowing us to measure textual similarity. Logical pairings were refined through prefix matching and the identification of indicative terms like "Free" or "Pro." This process was further validated by ensuring paired apps shared the same developer, using metadata from developer_name and developer_info. While effective, this approach acknowledged potential limitations, such as ambiguity in naming conventions, which were flagged as edge cases for transparency.
 
-To adjust ratings for applications with few reviews, we calculated a Bayesian average. This method provides a more robust measure of user satisfaction by accounting for the number of ratings and the overall average rating across all applications (CITE Source 3). Visualizations, including scatter plots and box plots, were employed to explore relationships between monetization levels and user engagement metrics which will be displayed in the results section.
+To address potential biases in app ratings caused by low review counts, we calculated a Bayesian average, adjusting raw ratings by combining the global average with individual app ratings weighted by review volume. This provided a more balanced measure of user satisfaction, reducing the influence of apps with disproportionately few reviews. Scatter plots and box plots were employed to visualize the relationships between monetization levels and user engagement metrics, offering valuable preliminary insights into patterns within the data. These visualizations, alongside the Bayesian adjustments, laid the groundwork for robust and interpretable results, which are elaborated in the results section.
 
 ### Handeling of Assumptions
 
