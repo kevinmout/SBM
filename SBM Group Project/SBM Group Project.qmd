@@ -262,7 +262,7 @@ Interpretation of results.
 
 In this section, we will visualize the data through tables and visualizations. These plots largely explore the data around the hypotheses and research question, we discussed in the previous sections. The aim of this section is to present possible evidence in supporting a hypothesis. This will be discussed and concluded upon in the next section.
 
-Before we look at the results, let's revisit the research question: "*How are the 6 different revenue models as proposed by @djaruma2023 correlate to the success of an app?*". Where we identify 6 different revenue models, described in this section as (revenue) levels. For reference see @tbl-levels.
+Before we look at the results, let's revisit the research question: "*How are the 6 different revenue models as proposed by @djaruma2023 correlate to the success of an app?*". Where we identify 6 different revenue models, described in this @sec-literature-review as (revenue) levels. For reference see @tbl-levels.
 
 The dataset is divided into these different levels. More than 75% of all the apps belong to level 0 and 1 (see @fig-distribution-amount-apps-levels). With the smallest population being level 2 with two different version of the same app.
 
@@ -313,7 +313,7 @@ plt.show()
 
 ```
 
-To find the success of an app, as discussed in @sec-literature-review. Metrics like popularity, the rating and the revenue estimation of an application can be used. The popularity measured by the number of downloads and rating by the average rating given by users. (Note: Revenue estimation is exlcuded, because this is not measurable with the data.) These metrics are used to evaluate the hypotheses (see @sec-literature-review).
+To find the success of an app, as discussed in @sec-literature-review. Metrics like popularity, the rating and the revenue estimation of an application can be used. The popularity measured by the number of downloads and rating by the average rating given by users. (Note: Revenue estimation is excluded, because this is not measurable with the data.) These metrics are used to evaluate the hypotheses (see @sec-literature-review).
 
 ## Number of Downloads.
 
@@ -628,7 +628,7 @@ It can be concluded that indeed the most downloaded apps fall under level 1 (see
 
 This takeaway aligns well with hypothesis 1d, which takes a closer look into these 2 revenue levels:
 
-*The most downloaded apps in the gaming category will likely fall under level 4. Many popular games use this type of "pay-to-win" mechanism [@nieborg2016]. Therefore, it would be expected this same pattern would arise from our data.*
+*The most downloaded apps in the gaming category will likely fall under level 3 and 4. Many popular games use this type of "pay-to-win" mechanism [@nieborg2016]. Therefore, it would be expected this same pattern would arise from our data.*
 
 Games are hugely popular on the Google Play Store. In the graphs below, you'll find that they are responsible for more than 25% of the total downloads, while only populating 15% of the total apps.
 
@@ -805,7 +805,7 @@ plt.show()
 
 By filtering on the gaming categories we can see that the average downloads is also significantly higher in level 3 and 4. With level 4 having a higher variance than level 3 and 4.
 
-To further explore this, the table below shows the top 5 most downloaded games from each revenue level. It reveals a noteable variance in downloads between the 2 revenue levels. The variance in level 4 is much larger than in level 3, even if it only displays the top 5. For instance, the downloads in level 4 varies from 0.5 to 0.1 billion. While the downloads in level 3 range from 1.0 to 0.5 billiom.
+To further explore this, the table below shows the top 5 most downloaded games from each revenue level. It reveals a noteable variance in downloads between the 2 revenue levels. The variance in level 4 is much larger than in level 3, even if it only displays the top 5. For instance, the downloads in level 4 varies from 0.5 to 0.1 billion. While the downloads in level 3 range from 1.0 to 0.5 billion.
 
 ```{python}
 #| echo: false
