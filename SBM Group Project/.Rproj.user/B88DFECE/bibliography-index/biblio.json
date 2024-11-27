@@ -351,8 +351,8 @@
         {
             "author": [
                 {
-                    "family": "NIEBORG",
-                    "given": "DAVID B."
+                    "family": "Nieborg",
+                    "given": "David B."
                 }
             ],
             "id": "nieborg2016",
@@ -368,6 +368,280 @@
             "title": "Free-to-play games and app advertising: The rise of the player commodity",
             "title-short": "Free-to-play games and app advertising",
             "type": "chapter"
+        },
+        {
+            "author": [
+                {
+                    "family": "Ceci",
+                    "given": "Laura"
+                }
+            ],
+            "id": "Ceci2024TikTokUsers",
+            "issued": {
+                "date-parts": [
+                    [
+                        2024
+                    ]
+                ]
+            },
+            "note": "Accessed: 2024-11-20",
+            "publisher": "https://www.statista.com/statistics/1327116/number-of-global-tiktok-users/; Statista",
+            "title": "TikTok: Number of global users 2020-2025",
+            "title-short": "TikTok",
+            "type": ""
+        },
+        {
+            "DOI": "10.3390/jtaer18040106",
+            "ISSN": "0718-1876",
+            "URL": "https://www.mdpi.com/0718-1876/18/4/106",
+            "abstract": "Adopting subscription models has become a popular trend in e-commerce. Digital content platforms often use free trials to attract potential subscribers. However, rigorous research on platforms’ free trial strategies is lacking. Our paper aims to fill this gap using a horizontal duopoly framework. We investigate both the scenario of market symmetry and of market asymmetry. We study the benchmark case with no free trial for each scenario and derive equilibrium results with free trial promotion. We find that the platform will not benefit from free trials unless consumers’ learning rate exceeds a threshold. When a free trial is introduced in market symmetry, a higher rate of consumers’ learning leads to a higher price of subscription and a shorter free trial length. In addition, when the network effect is incorporated, the platform will introduce a lower subscription price and a shorter free trial length. Under market asymmetry, our results show that the platform faces a higher threshold of consumers’ learning rate. Additionally, it will offer a higher price and a longer period of free trial compared with those under the market symmetry scenario. Overall, our study provides useful managerial insights for online content platforms when considering their subscription strategies.",
+            "author": [
+                {
+                    "family": "Chen",
+                    "given": "Li"
+                }
+            ],
+            "container-title": "Journal of Theoretical and Applied Electronic Commerce Research",
+            "id": "chen2023",
+            "issue": "4",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023
+                    ]
+                ]
+            },
+            "page": "2107-2124",
+            "title": "Analysis of online platforms’ free trial strategies for digital content subscription",
+            "type": "article-journal",
+            "volume": "18"
+        },
+        {
+            "DOI": "10.1016/j.clsr.2017.05.015",
+            "URL": "https://www.sciencedirect.com/science/article/pii/S0267364917301966",
+            "author": [
+                {
+                    "family": "Tikkinen-Piri",
+                    "given": "Christina"
+                },
+                {
+                    "family": "Rohunen",
+                    "given": "Anna"
+                },
+                {
+                    "family": "Markkula",
+                    "given": "Jouni"
+                }
+            ],
+            "container-title": "Computer Law & Security Review",
+            "id": "tikkinen-piri2018",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018,
+                        2,
+                        1
+                    ]
+                ]
+            },
+            "page": "134-153",
+            "title": "EU general data protection regulation: Changes and implications for personal data collecting companies",
+            "title-short": "EU general data protection regulation",
+            "type": "article-journal",
+            "volume": "34"
+        },
+        {
+            "URL": "https://sensortower.com/blog/sensor-tower-app-market-forecast-2026",
+            "author": [
+                {
+                    "family": "Tower",
+                    "given": "Sensor"
+                }
+            ],
+            "id": "sensortower2023forecast",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023
+                    ]
+                ]
+            },
+            "note": "Accessed: 2024-11-27",
+            "title": "App market forecast 2026",
+            "type": ""
+        },
+        {
+            "URL": "https://www.statista.com/statistics/263797/number-of-applications-for-mobile-phones/",
+            "author": [
+                {
+                    "family": "Statista"
+                }
+            ],
+            "id": "statista2023apps",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023
+                    ]
+                ]
+            },
+            "note": "Accessed: 2024-11-27",
+            "title": "Number of applications for mobile phones",
+            "type": ""
+        },
+        {
+            "DOI": "10.1016/j.infsof.2021.106741",
+            "URL": "https://www.sciencedirect.com/science/article/pii/S0950584921001919",
+            "author": [
+                {
+                    "family": "Gao",
+                    "given": "Cuiyun"
+                },
+                {
+                    "family": "Zeng",
+                    "given": "Jichuan"
+                },
+                {
+                    "family": "Lo",
+                    "given": "David"
+                },
+                {
+                    "family": "Xia",
+                    "given": "Xin"
+                },
+                {
+                    "family": "King",
+                    "given": "Irwin"
+                },
+                {
+                    "family": "Lyu",
+                    "given": "Michael R."
+                }
+            ],
+            "container-title": "Information and Software Technology",
+            "id": "gao2022",
+            "issued": {
+                "date-parts": [
+                    [
+                        2022,
+                        2,
+                        1
+                    ]
+                ]
+            },
+            "page": "106741",
+            "title": "Understanding in-app advertising issues based on large scale app review analysis",
+            "type": "article-journal",
+            "volume": "142"
+        },
+        {
+            "DOI": "10.1108/SJME-05-2022-0120",
+            "URL": "https://www.emerald.com/insight/content/doi/10.1108/sjme-05-2022-0120/full/html",
+            "author": [
+                {
+                    "family": "Maddodi",
+                    "given": "Chetana Balakrishna"
+                },
+                {
+                    "family": "Upadhyaya",
+                    "given": "Pallavi"
+                }
+            ],
+            "container-title": "Spanish Journal of Marketing - ESIC",
+            "id": "maddodi2023",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023,
+                        11,
+                        23
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "Publisher: Emerald Publishing Limited",
+            "page": "334-355",
+            "title": "In-app advertising: a systematic literature review and implications for future research",
+            "title-short": "In-app advertising",
+            "type": "article-journal",
+            "volume": "28"
+        },
+        {
+            "DOI": "10.1016/j.jisa.2019.102358",
+            "URL": "https://www.sciencedirect.com/science/article/pii/S2214212619301632",
+            "author": [
+                {
+                    "family": "Yang",
+                    "given": "Wenbo"
+                },
+                {
+                    "family": "Li",
+                    "given": "Juanru"
+                },
+                {
+                    "family": "Zhang",
+                    "given": "Yuanyuan"
+                },
+                {
+                    "family": "Gu",
+                    "given": "Dawu"
+                }
+            ],
+            "container-title": "Journal of Information Security and Applications",
+            "id": "yang2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019,
+                        10,
+                        1
+                    ]
+                ]
+            },
+            "page": "102358",
+            "title": "Security analysis of third-party in-app payment in mobile applications",
+            "type": "article-journal",
+            "volume": "48"
+        },
+        {
+            "DOI": "10.1016/j.ijresmar.2019.07.007",
+            "URL": "https://www.sciencedirect.com/science/article/pii/S0167811619300473",
+            "author": [
+                {
+                    "family": "Appel",
+                    "given": "Gil"
+                },
+                {
+                    "family": "Libai",
+                    "given": "Barak"
+                },
+                {
+                    "family": "Muller",
+                    "given": "Eitan"
+                },
+                {
+                    "family": "Shachar",
+                    "given": "Ron"
+                }
+            ],
+            "container-title": "International Journal of Research in Marketing",
+            "id": "appel2020",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020,
+                        3,
+                        1
+                    ]
+                ]
+            },
+            "page": "93-107",
+            "title": "On the monetization of mobile apps",
+            "type": "article-journal",
+            "volume": "37"
         }
     ],
     "project_biblios": []

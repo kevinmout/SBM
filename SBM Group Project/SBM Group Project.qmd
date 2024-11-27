@@ -51,7 +51,6 @@ Identification of the research gap.
 Relevance to current business practices.
 Research question. -->
 ```
-
 With the every-growing popularity of cellphones [@charted2023], the popularity of mobile applications is also steadily increasing. In 2024, mobile applications are estimated to generate over \$900 billion in revenue [@global2019]. Generally, mobile applications ('*apps*' from here on) tend to be categorized in three different categories [@roma2016]. Paid apps are the most transparent; they revenue is based on an up-front purchase by the user. Free apps, on the other hand, require no purchase by the user at any stage. According to @roma2016, these apps make their revenue from deals with third-parties, either through advertisement or other purposes such as market information.
 
 Finally, freemium apps are, as the name suggests, a middle-ground between free and premium. Users get access to a basic version of the application first and can unlock more features through an in-app payment [@kumar2014]. Of these three revenue models, freemium is the most commonly used and the most [@salehudin2021] and leads to more downloads as well as revenue [@liu2014].
@@ -62,18 +61,32 @@ Finally, freemium apps are, as the name suggests, a middle-ground between free a
 
 Most research uses these three established categories—paid, freemium, and free—when discussing revenue models for apps. However, by limiting the discussion to these three terms, nuances within these categories might be missed.
 
-In a review paper from 2023 [@djaruma2023], different levels of monetization are suggested based on previous literature. These levels provide a clear framework for the revenue models of mobile apps.
+In a review paper from 2023 [@djaruma2023], different levels of monetization are suggested based on previous literature. These levels provide a clear framework for the revenue models of mobile apps, and are briefly summarized in @tbl-levels.
 
-| Strategy | Description |
-|------------------------------------|------------------------------------|
-| Level 5: Premium | Pay to use the application. This either happens up-front, or after a trial period. |
-| Level 4: Semi-premium | Use a limited number of features for free. Unlock the app with all features through an in-app purchase. |
-| Level 3: In-app advertisement and in-app purchases | Free application with ads, encouraging users to remove ads or to make in-app purchases. |
-| Level 2: Sample and premium | Two different versions of the same app. One is a version with limit features and/or ads. The other version is a premium version. |
-| Level 1: In-app advertisement | Only one version of the app, with only ads and no in-app purchases. |
-| Level 0: Free | The app has no monetization. However, money can still be made through selling user information. |
+| Strategy                                           | Description                                                                                                                      |
+|---------------------|---------------------------------------------------|
+| Level 5: Premium                                   | Pay to use the application. This either happens up-front, or after a trial period.                                               |
+| Level 4: Semi-premium                              | Use a limited number of features for free. Unlock the app with all features through an in-app purchase.                          |
+| Level 3: In-app advertisement and in-app purchases | Free application with ads, encouraging users to remove ads or to make in-app purchases.                                          |
+| Level 2: Sample and premium                        | Two different versions of the same app. One is a version with limit features and/or ads. The other version is a premium version. |
+| Level 1: In-app advertisement                      | Only one version of the app, with only ads and no in-app purchases.                                                              |
+| Level 0: Free                                      | The app has no monetization. However, money can still be made through selling user information.                                  |
 
-: Six levels of monetization for apps {#tbl:levels}
+: Six levels of monetization for apps {#tbl-levels}
+
+The monetization levels as shown in @tbl-levels are not meant to illustrate the revenue a firm will earn. It is meant to show how much customers may engage in paying for features or services at different levels.
+
+Level 0 is an app that is completely free to use. This requires no payment nor ads, but may still make revenue through selling user data. This risks both ethical pitfalls, as well as scrutiny from customers [@djaruma2023].
+
+Level 1 is an app that requires no user payment, and only makes revenue through ads. These may also make revenue by selling user information. Large social media apps such as Facebook and Instagram fall in this category [@djaruma2023].
+
+Level 2 allows the user to purchase either a free or premium version. The free app has limit features; if the user wants to experience the app in full, they will have to purchase the premium version. However, this does run the risk of 'cannibalization', wherein users never upgrade to the premium version. Therefore, it is of the utmost importance to find the right amount of features to include in the free version [@djaruma2023].
+
+Level 3 combines advertisement and purchases. Many pay-to-win games use this strategy [@nieborg2016]: users can sit through ads and wait a long time for certain rewards, or they can pay for immediate rewards.
+
+Level 4 is similar to level 2: a user has a free trial version, and can upgrade to a premium version. This is often seen in subscription-style apps [@chen2023].
+
+Level 5 is a totally premium app, where a user has to pay up-front to access as features. This level requires a high-quality app, as users will not pay for an app that is not polished.
 
 <!-- Ik heb dit expres kort gehouden, aangezien we ook nog een uitgebreidere literatuur review hebben. Maar, misschien moet dit toch nog iets langer? -Noa -->
 
@@ -97,7 +110,7 @@ In short, apps play an increasingly important role in our techno-centric society
 
 <!-- Wat is de research gap? En wat is dus de onderzoekvraag? -->
 
-The levels of monetization as proposed by @djaruma2023 would allow for this nuance. However, their framework has never been used in an empirical setting, as the paper by @djaruma2023 was published only last year. Applying this framework to see how different revenue streams impact the popularity of an app may yield valuable insights into the preferences of consumers. Therefore, the question to answer within this paper will be: *How are the 5 different revenue models as proposed by @djaruma2023 correlated to the success of an app?*
+The levels of monetization proposed by @djaruma2023 offer an opportunity to capture this nuance. However, no empirical study has yet applied their framework, as their paper was published only last year. By using this framework to examine how different revenue streams impact app popularity, this study aims to provide valuable insights into consumer preferences. Therefore, this paper seeks to answer the question: *How are the six different revenue models proposed by @djaruma2023 correlated with app success?*
 
 <!-- Wederom: kort maar krachtig, of té kort? -Noa -->
 
@@ -116,36 +129,67 @@ Comprehensive literature review.
 Explanation of key theoretical concepts.
 Development of hypotheses. -->
 ```
-
-In this section, prior research into the topic of revenue streams and its correlation to success in apps will be discussed. As mentioned in the Introduction section, this paper will apply the 5 levels of revenue as proposed by @djaruma2023 to app data. The following section will contain a holistic overview of the existing research, as well as hypotheses that arise from this theoretical framework.
+In this section, prior research into the topic of revenue streams and its correlation to success in apps will be discussed. As mentioned in the Introduction section, this paper will apply the six levels of revenue as proposed by @djaruma2023 to app data. The following section will contain a holistic overview of the existing research, as well as hypotheses that arise from this theoretical framework.
 
 ## Literature Review
 
-To answer the question "*How are the 5 different revenue models as proposed by @djaruma2023 correlate to the success of an app?*", we must first define what constitutes to success. In this paper, success will be defined by a couple of factors: popularity, rating, and estimated revenue.
+According to @djaruma2023, there are six distinct revenue strategies for apps. However, it is important to point out they were not the inventors of these revenue strategies; these arose from the literature they analyzed. In the following section, we shall look at the previous research into these revenue strategies.
+
+Firstly, biggest portion of apps are free to download. In fact, this contributes over 95% of all apps in both the Google Play Store as well as the IOS App Store [@statista2023apps]. But, this does not mean the apps do not generate revenue; they might implement advertisements, in-app purchases or sample and premium versions to still make a profit.
+
+@sensortower2023forecast has predicted global spending on in-app advertisements will reach over 233 billion U.S. dollars in 2026. These funds are an important source of income for mobile app developers [@gao2022; @maddodi2023].
+
+Aside from advertisements, there are two different revenue strategies to consider: in-app purchases, and a trial and premium version of the same app. Both of these are considered "freemium" in recent literature. @kumar2014 describes freemium as apps for which users get basic features for free and can update it using a payment. This can be done both through in-app payments, as well as purchasing the premium version of an app.
+
+Another revenue strategy used in apps are in-app payments. This strategy is often used in games. More specifically, games that fall in the "pay-to-win" category [@nieborg2016]. These games often require the user to wait or watch advertisements, which they can circumvent by paying. Some games also allow users to buy special features, such as the look of their avatar or special powers. Nonetheless, while in-app purchases are a proven revenue strategy, it does come with risks. Notably, in-app payments are also prone to security risks, as it requires more complex interactions and involves more participants than traditional payment [@yang2019]. Therefore, developers need to make sure their payment methods are secure before launching an app with this revenue strategy.
+
+In-app purchases are not the only solution for offering freemium services. A different method is offering two different versions: a free one, and a paid one. The free version often has limit features combined with ads, meaning you make a profit by advertisements [@appel2020]. This is combined with the revenue of the premium version.
+
+To answer the question "*How are the six different revenue models as proposed by @djaruma2023 correlate to the success of an app?*", we must first define what constitutes to success. In this paper, success will be defined by a couple of factors: popularity, rating, and estimated revenue.
 
 ### Popularity
 
 The popularity of an app can be measured by the number of downloads. It is important to note the popularity of an app is complex, and is not solely dependent on the chosen revenue model. Other features, such as whether an app is featured on charts, whether it has frequent updates, and word-of-mouth awareness, will also impact the popularity of an app [@aydingokgoz2021]. However, despite these other variables, to versions of the same app will still have drastically different performances with different revenue streams [@liu2014].
 
-H1a: Apps that allow the user to have free access to all features (level 0 and 1) will have the highest amount of downloads overall. However, the ratings may fluctuate, as quality can vary for free-to-access apps. <!-- Is citation hier nodig? -->
+Building on this, we hypothesize that revenue models associated with fewer barriers to entry will drive higher downloads overall, but the impact of these models may vary by app type and market context.
 
-H1b: The apps with the most downloads will be level 1. Most social media platforms, which dominate our culture, tend to have this revenue stream [@djaruma2023].
+Users will likely download free apps, but they may not always be good. From this, we can derive the following hypotheses.
 
-H1c: For apps that utilize a sample and a premium version of the same app (level 2), the free versions of an app will have more downloads than their paid-for counterpart. Most, if not all, users will download the free version first, and then might upgrade. This means there should be a disparity between the number of downloads between the apps, as is also demonstrated by @liu2012freemium.
+*H1a: Apps that allow the user to have free access to all features (level 0 and 1) will have the highest amount of downloads overall.*
 
-H1d: The most downloaded apps in the gaming category will likely fall under level 4. Many popular games use this type of "pay-to-win" mechanism [@nieborg2016]. Therefore, it would be expected this same pattern would arise from our data.
+*H1b: Apps that allow the user to have free access to all features (level 0 and 1) will have more variance in their rating, as quality can vary for free-to-access apps.*
+
+As @djaruma2023 has shown, the most highly ranked apps are level 1. These apps are the big social media platforms such as Instagram and Facebook. Therefore, we expect this to be reflected within our data and the following to be true.
+
+*H1c: The apps with the most downloads will be level 1.*
+
+Freemium apps can be implemented with either in-app purchases or different versions. For the latter, we expect more downloads to be generated by the free app, than its premium counterpart. As demonstrated by @liu2012freemium, users tend to download the trial version before comitting to a premium version. Thus, the following is likely to be true.
+
+*H1d: For apps that utilize a sample and a premium version of the same app (level 2), the free versions of an app will have more downloads than their paid-for counterpart.*
+
+Finally, many games use a pay-to-win mechanism [@nieborg2016]. Therefore, we expect these in-app payment constructions to be used for most highly downloaded games.
+
+*H1e: The most downloaded apps in the gaming category will likely fall under level 3 and 4.*
 
 ### Rating
 
-The downloads of an app are not everything. An app can be downloaded often, but may not be highly rated.
+The downloads of an app are not everything. An app can be downloaded often, but may not be highly rated. Ratings provide valuable insights into user satisfaction, which often reflects the perceived quality and value of an app. Therefore, we hypothesize revenue models that prioritize short-term gains may achieve high download counts but could negatively affect ratings if users feel misled or dissatisfied.
 
-H2a: Apps that require the user to pay to unlock features (level 2, 3, and 4) will tend to have lower ratings than the version that requires payment upfront (level 5). The main draw of a freemium model is to attract users, and have them update to a paid version [@kumar2014]. However, as @kumar2014 points out, this can be a double-edged sword. Too few features, and it may not be attractive to users. Too many features, and the users will not update.
+The main draw of a freemium model is to attract users, and have them update to a paid version [@kumar2014]. However, as @kumar2014 points out, this can be a double-edged sword. Too few features, and it may not be attractive to users. Too many features, and the users will not update. This leads to the following hypothesis.
 
-H2b: Fully premium apps (level 5) will have less variance in their ratings, while all other levels will have more. In the same vein as H2a, users have more realistic expectations of paid apps compared to apps that require you to unlock features [@kumar2014]. Therefore, more users downloading premium apps will be satisfied with their purchase, leading to less variance.
+*H2a: Apps that require the user to pay to unlock features (level 2, 3, and 4) will tend to have lower ratings than the version that requires payment upfront (level 5).*
 
-H3: For apps that utilize a sample and a premium version of the same app (level 2), the rating of the paid-for version is positively associated with the rating of the free version of the same app. This was true for the study on the most popular apps in the Google Play Store by @liu2012freemium, so it is expected a similar pattern should arise for this dataset.
+In the same vein as H2a, users have more realistic expectations of paid apps compared to apps that require you to unlock features [@kumar2014]. Therefore, more users downloading premium apps will be satisfied with their purchase, leading to less variance. Thus, the following should follow from our data.
 
-### Revenue Estimation
+*H2b: Fully premium apps (level 5) and premium version of level 2 will have less variance in their ratings, while all other levels will have more.*
+
+As was shown by @liu2012freemium, apps with a high rating for the premium version of an app, tended to also have a higher rating for the free counterpart. The study done by @liu2012freemium only utilized the most popular apps in the Google Play Store, but a similar pattern should emerge from our dataset. Therefore, we postulate the following.
+
+*H2c: For apps that utilize a sample and a premium version of the same app (level 2), the rating of the paid-for version is positively associated with the rating of the free version of the same app.*
+
+While popularity and ratings are distinct measures of success, they are inherently connected. Revenue models that increase downloads can also shape user expectations, which in turn influence ratings. For example, level 1 apps may dominate in terms of downloads (H1b) but face fluctuating ratings (H1a) due to quality variation. Similarly, level 2 apps may achieve high download counts for their free versions (H1c), but the gap between free and paid features could drive dissatisfaction (H2a).
+
+### Revenue Estimation {#revenue-estimation}
 
 <!-- Dit stuk kan later ook nog verschoven worden naar de discussie als dat beter is voor de flow. -Noa -->
 
@@ -173,8 +217,7 @@ Statistical methods and justification.
 Handling of assumptions.
 -->
 ```
-
-In this section, we will discuss the dataset and methods used to test the hypotheses outlined in the previous section. The focus lies on providing a comprehensive description of the dataset, including its structure and the variables it contains, followed by an explanation of the variable selection process. Additionally, we outline the statistical methods applied and discuss how assumptions, such as missing values and potential biases, were addressed to ensure the robustness of our analysis.
+This section will further elaborate on the dataset and methods used to test the hypotheses outlined in the previous section. The focus lies on providing a comprehensive description of the dataset, including its structure and the variables it contains, followed by an explanation of the variable selection process. Additionally, the statistical methods applied are briefly explained, combined with a explanation of how assumptions, such as missing values and potential biases, were addressed to ensure the robustness of our analysis.
 
 ## Dataset Description
 
@@ -182,19 +225,19 @@ In this section, we will discuss the dataset and methods used to test the hypoth
 
 The dataset used for this research consists of 1,016,666 instances and 27 variables, representing a detailed overview of mobile applications across various revenue models. Each instance corresponds to an app, and the variables capture key attributes such as app downloads, user ratings, and monetization strategies. Below is an overview of some of variables:
 
-| Variable | Description |
-|------------------------------------|------------------------------------|
-| my_app_id (object) | Unique identifier for each app. |
-| date_published (object) | The publication date of the app. Only three missing values (0.000295% null). |
-| privacy_policy (object) | Information about the app's privacy policy, missing in 28.57% of cases. |
-| rating_app (float64) | The average rating of the app, with 8.76% missing values. |
-| nb_rating (object) | Number of ratings received by the app, missing in 8.76% of cases. |
-| num_downloads (object) | The number of downloads for the app, nearly complete with only 15 missing values (0.001475% null). |
-| price_gplay (object) | The price of the app as listed on Google Play, missing in 0.43% of cases. |
-| in_app (bool) | Indicates whether the app has in-app purchases (no missing values). |
-| has_ads (bool) | Indicates whether the app contains advertisements (no missing values). |
-| content_rating_app (object) | The app's content rating, with three missing values (0.000295% null). |
-| developer_name (object) | The name of the app developer, missing in only 16 instances (0.001574% null). |
+| Variable                    | Description                                                                                        |
+|------------------|------------------------------------------------------|
+| my_app_id (object)          | Unique identifier for each app.                                                                    |
+| date_published (object)     | The publication date of the app. Only three missing values (0.000295% null).                       |
+| privacy_policy (object)     | Information about the app's privacy policy, missing in 28.57% of cases.                            |
+| rating_app (float64)        | The average rating of the app, with 8.76% missing values.                                          |
+| nb_rating (object)          | Number of ratings received by the app, missing in 8.76% of cases.                                  |
+| num_downloads (object)      | The number of downloads for the app, nearly complete with only 15 missing values (0.001475% null). |
+| price_gplay (object)        | The price of the app as listed on Google Play, missing in 0.43% of cases.                          |
+| in_app (bool)               | Indicates whether the app has in-app purchases (no missing values).                                |
+| has_ads (bool)              | Indicates whether the app contains advertisements (no missing values).                             |
+| content_rating_app (object) | The app's content rating, with three missing values (0.000295% null).                              |
+| developer_name (object)     | The name of the app developer, missing in only 16 instances (0.001574% null).                      |
 
 The dataset includes several additional variables related to app features, developer information, and user engagement metrics such as visit_website, more_from_developer, and family_library. However, some variables, such as whats_new (100% null) and in_app_product (89.57% null), were deemed unsuitable for analysis due to their high proportion of missing data.
 
@@ -205,9 +248,8 @@ The primary purpose of this dataset in this study, is to analyze app monetizatio
 ```{=html}
 <!-- Welke variabelen gebruiken wij? Welke hebben we eruit gehaald? (Hierover uitbreiden in Handeling of Assumptions).
 
-Hoe definiëren we de 5 levels?-->
+Hoe definiëren we de 6 levels?-->
 ```
-
 The dataset utilized in this study consists of 1,016,666 entries, encompassing a broad range of attributes related to mobile applications. For the purpose of our analysis, 13 variables were selected, capturing critical information about app characteristics, user engagement, monetization strategies, and developer details. These variables include the app's unique identifier (my_app_id), the total number of downloads (num_downloads), average user ratings (rating_app), and the number of ratings (nb_rating). Additionally, the dataset provides information on app pricing (price_gplay), the presence of in-app purchases (in_app), and whether the app includes advertisements (has_ads). Other variables, such as content ratings (content_rating_app), app categories (categ_app), and developer information (developer_name and developer_info), further enhance the richness of the dataset. This subset of variables allows us to comprehensively examine the interplay between monetization strategies and app success.
 
 To systematically explore monetization strategies, we classified the apps into six distinct levels based on their monetization models. These levels reflect varying approaches to generating revenue, ranging from completely free apps to fully premium paid apps.
@@ -255,10 +297,18 @@ Interpretation of results.
 !! Voor volle punten, zorg dat je terug refereert naar de hypothesen !!
 -->
 ```
-
 In this section, we will visualize the data through tables and visualizations. These plots largely explore the data around the hypotheses and research question, we discussed in the previous sections. The aim of this section is to present possible evidence in supporting a hypothesis. This will be discussed and concluded upon in the next section.
 
-Before we look at the results, let's revisit the research question: "*How are the 6 different revenue models as proposed by @djaruma2023 correlate to the success of an app?*". Where we identify 6 different revenue models, described in this section as (revenue) levels. For reference see table [@tbl-levels].
+Before we look at the results, let's revisit the research question: "*How are the six different revenue models as proposed by @djaruma2023 correlate to the success of an app?*". Where we identify 6 different revenue models, described in this section as (revenue) levels.
+
+| Strategy                                           | Description                                                                                                                      |
+|---------------------|---------------------------------------------------|
+| Level 5: Premium                                   | Pay to use the application. This either happens up-front, or after a trial period.                                               |
+| Level 4: Semi-premium                              | Use a limited number of features for free. Unlock the app with all features through an in-app purchase.                          |
+| Level 3: In-app advertisement and in-app purchases | Free application with ads, encouraging users to remove ads or to make in-app purchases.                                          |
+| Level 2: Sample and premium                        | Two different versions of the same app. One is a version with limit features and/or ads. The other version is a premium version. |
+| Level 1: In-app advertisement                      | Only one version of the app, with only ads and no in-app purchases.                                                              |
+| Level 0: Free                                      | The app has no monetization. However, money can still be made through selling user information.                                  |
 
 The dataset is divided into these different levels. From this pie chart, we can make up that more than 75% of all the apps belong to level 0 and 1. With the smallest population being level 2 with two different version of the same app.
 
@@ -306,9 +356,7 @@ plt.show()
 
 ```
 
-To find the success of an app, we have established in the "Literature Review" subsection **\[verwijzing\]**, that it can be measured by:
-
-**Geen opsomming maar lopend verhaal. De resultaten zijn op basis van deze succes factoren.**
+To find the success of an app, we have established in the "Literature Review" subsection, that it can be measured by:
 
 1.  Popularity: which can be measured by the number of downloads.
 2.  The rating of an application.
@@ -360,14 +408,7 @@ plt.show()
 
 ```
 
-### Distribution of app downloads.
-
-1.  **Figuur 2 verwijzen.**
-2.  **Gebeurt dit –\> leg uit waarom je het zo ziet.**
-3.  **Niet duidelijk waarom het gebeurt.**
-4.  **Hypothese introduceren.**
-5.  **Mogelijk heeft het te maken met dit (plots). (Testen van hypothese)**
-6.  **Dus conclusie.**
+### Distribution of app downloads
 
 **Important takeaway:** Revenue levels 0 and 1 have a significant drop-off in terms of average number of downloads.
 
@@ -703,7 +744,7 @@ plt.show()
 
 By filtering on the gaming categories we can see that the average downloads is also significantly higher in level 3 and 4. With level 4 having a higher variance than level 3 and 4.
 
-To further explore this, the table below shows the top 5 most downloaded games from each revenue level. It reveals a noteable variance in downloads between the 2 revenue levels. The variance in level 4 is much larger than in level 3, even if it only displays the top 5. For instance, the downloads in level 4 varies from 0.5 to 0.1 billion. While the downloads in level 3 range from 1.0 to 0.5 billiom.
+To further explore this, the table below shows the top 5 most downloaded games from each revenue level. It reveals a noteable variance in downloads between the 2 revenue levels. The variance in level 4 is much larger than in level 3, even if it only displays the top 5. For instance, the downloads in level 4 varies from 0.5 to 0.1 billion. While the downloads in level 3 range from 1.0 to 0.5 billion.
 
 ```{python}
 #| echo: false
@@ -1216,15 +1257,20 @@ pd.DataFrame(correlation_data_h3)
 
 ```
 
-### Conclusion
+## Ethical Considerations
 
-**Opsommen van de resultaten. Antwoord geven op de research question.**
+```{=html}
+<!--
 
-Dit was onze onderzoeksvraag.
+-   No individual data is used, and research was based on publically available Google Play Store data.
+-   App data may include sensitive business information (e.g., competitive analysis implications). Sharing raw data or revealing proprietary metrics could inadvertently harm developers or companies.
+-   The findings could influence app developers, marketers, or policymakers. For example, conclusions about the profitability of certain monetization methods (e.g., ads, in-app purchases) might encourage exploitative practices.
 
-Succes geformuleerd als 3 dingen. Pop, rating en revenue(niet meegenomen).
+-->
+```
+This research relies on data that is mostly publically available in the Google Play Store. Within this data, no individual user data is involved at any stage, making sure we circumvent any possible privacy concerns [@tikkinen-piri2018]. However, there are still risks tied to the use of app data. Even publicly available information can reveal sensitive business insights. For example, metrics tied to competitive analysis might unintentionally expose proprietary strategies. Therefore, although the data is public, the patterns that emerge may still harm developers by giving competitors an advantage. Therefore, we make sure to not single out specific apps.
 
-Pop: a (wel/niet), b (wel/niet), c (wel/niet) etc.
+The potential implications of this research could directly influence app developers, marketers, and policymakers. For instance, insights into the profitability of specific monetization methods—such as ads or in-app purchases—might guide businesses in optimizing their revenue strategies. This connection between research and practical applications can be valuable. However, it also raises ethical concerns. If certain methods are shown to be highly effective, developers might adopt exploitative practices, prioritizing profits over user experience [@mileros2024]. This highlights our dual responsibility: we must provide actionable insights while ensuring they are not misused. We aim to inform through this research, but we also emphasize the need for careful and ethical application of our conclusions.
 
 # Discussion <!--500-700 words -->
 
@@ -1240,14 +1286,45 @@ Linkage to existing literature.
 Practical
 -->
 ```
-
 ## Reflection on the Findings
+
+<!-- Later checken of dit nog goed aansluit op results -->
+
+Total and average downloads do not always reflect further findings, emphasizing the result of more fine-grained analysis.
+
+H1a: Wel meer downloads, niet meer variance
+
+H1b: KLOPT / SUPPORTED (maar: Tiktok)
+
+H1c: KLOPT / SUPPORTED: Sample heeft veel meer downloads (premium maar 1%)
+
+H1d: KLOPT / SUPPORTED: Games met level 3/4 krijgen meer downloads
+
+H2a: KLOPT / SUPPORTED
+
+H2b: NOT SUPPORTED: Premium apps hebben juist meer variance, bij Baysian wel. Dus onduidelijk -\> misschien meer onderzoek nodig.
+
+H2c: KLOPT / SUPPORTED, maar de sterkte van correlation hangt af van normaal average vs Baysian average.
+
+## Limitations
 
 Downloads do not necessarily indicate revenue for freemium models [@djaruma2023]. The time the user spends on an app and the purchases made within this app [@ross2018] are better measures of the revenue for freemium applications.
 
+The data used for this project was collected before the launch of Tiktok, the social media platform with over 900 million users worldwide [@Ceci2024TikTokUsers]. As is mentioned in Section @revenue-estimation, Tiktok has a business model that relies more on user retention
+
+We have found certain factors () are correlated with higher downloads, and x, y, z are correlated with higher ratings. However, it is important to note this does not necessarily imply a causal relationship. Other confounding variables may be at play. Therefore, we cannot assume implementing these revenue strategies will definitely boost downloads and/or ratings.
+
 ## Practical Implications for Businesses
 
+As the results only show correlations and no causal relationships, it is important to not over-inflate the significance of these results. However, it may still be interesting to consider what revenue strategy best fits your specific app.
+
+Best revenue models.
+
 ## Future Research Directions
+
+On other datasets
+
+Further investigate hypotheses that were disproven.
 
 # References
 
