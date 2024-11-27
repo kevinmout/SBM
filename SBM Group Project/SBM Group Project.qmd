@@ -315,7 +315,7 @@ plt.show()
 
 To find the success of an app, as discussed in @sec-literature-review. Metrics like popularity, the rating and the revenue estimation of an application can be used. The popularity measured by the number of downloads and rating by the average rating given by users. (Note: Revenue estimation is excluded, because this is not measurable with the data.) These metrics are used to evaluate the hypotheses (see @sec-literature-review).
 
-## Number of Downloads.
+## Number of Downloads. {#sec-number-of-downloads}
 
 @fig-total-average-downloads-by-level provides insights into the number of app downloads categorized by revenue levels. @fig-total-average-downloads-by-level-1 displays the total amount of downloads, while the @fig-total-average-downloads-by-level-2 displays the average amount of downloads. In the next following three subsections, we will look into the key takeaways from these two graphs:
 
@@ -378,9 +378,35 @@ plt.show()
 
 ```
 
-### Distribution of app downloads.
+### Distribution of app downloads. {#sec-distribution-app-downloads}
 
 There is a significant difference between the total and average number of downloads for level 0 and 1, in @fig-total-average-downloads-by-level-1 and @fig-total-average-downloads-by-level-2 respectively. This is largely a result of the fact that 75% of the total apps fall under these levels (see @fig-distribution-amount-apps-levels.) By testing the hypothesis 1b, in @sec-popularity, it claims that apps in level 1 are downloaded the most, like social media platforms that dominate our culture. At a first glance the claim that this level "dominates our culture" doesn't appear to be the case.
+
+Level 0 and 1 seem to have the highest overall downloads, as shown in @fig-total-average-downloads-by-level-1. @fig-downloads-free-access illustrates just how big the difference between the total downloads is. With a difference of over 40 billion downloads (0.4e11).
+
+```{python}
+#| label: fig-downloads-free-access
+#| fig-cap: "Difference Total Number of Downloads"
+#| echo: false
+#| warning: false
+#| error: false
+
+df_h1a = df_level_combined.copy()
+
+# if level is 0 or 1 then new column category is 'Free apps'
+df_h1a['category'] = ['Free all feature apps' if level in ['0', '1'] else 'Free/Paid not all feature apps' for level in df_h1a['level']]
+
+# Calculate the sum of downloads for each category
+total_downloads_h1a = df_h1a.groupby('category')['num_downloads'].sum().reset_index()
+
+
+# Make a bar chart 
+plt.figure(figsize=(10, 6))
+sns.barplot(data=total_downloads_h1a, x='category', y='num_downloads', hue='category', palette='viridis', dodge=False)
+plt.xlabel('Category')
+plt.ylabel('Total Number of Downloads')
+plt.show()
+```
 
 @fig-distribution-app-downloads provides insights into distribution inequality. The distribution of the app downloads are highly concentrated, meaning a small proportion of the apps make up for the vast majority of the downloads. @fig-distribution-app-downloads-1 shows relatively the same inequality as @fig-distribution-app-downloads-2. Which indicates that a small amount of apps dominate the numbers, however this might also be present in other levels.
 
@@ -611,28 +637,21 @@ df_h1b.reset_index(drop=True, inplace=True)
 Markdown(tabulate(df_h1b, headers=df_h1b.columns))
 ```
 
-H1b: *The apps with the most downloads will be level 1. Most social media platforms, which dominate our culture, tend to have this revenue stream [@djaruma2023].*
+It can be concluded that the most downloaded apps fall under level 1 (see @fig-total-average-downloads-by-level-1). But this requires a nuanced view, since 50% of the apps fall under level 1 (see @fig-distribution-amount-apps-levels) and it has a relatively low average among other levels (see @fig-total-average-downloads-by-level-2). So, it requires further analysis to understand the popularity of level 1. As seen from @fig-distribution-app-downloads it shows that there is high inequality, resulting in a small proportion of the apps accounting to a majority of the downloads. Furthermore, @fig-num-downloads-by-level-log shows that apps in level 1 are considered among the top downloaded apps. In particular, the categories under which social media platform fall (see @fig-num-downloads-1-billion). Looking at the apps provided by @djaruma2023, most social network platforms indeed fall under level 1 (see @tbl-top-8-apps-paper). Given these observations, it can be concluded that there is enough evidence to support h1b (see @sec-popularity).
 
-It can be concluded that indeed the most downloaded apps fall under level 1 (see @fig-total-average-downloads-by-level-1). But this requires a nuanced view, since 50% of the apps fall under level 1 (see @fig-distribution-amount-apps-levels) and it has a relatively low average among other levels (see @fig-total-average-downloads-by-level-2). So, it requires further analysis to understand the popularity of level 1. As seen from @fig-distribution-app-downloads it shows that there is high inequality, resulting in a small proportion of the apps accounting to a majority of the downloads. Furthermore, @fig-num-downloads-by-level-log shows that apps in level 1 are considered among the top downloaded apps. In particular, the categories under which social media platform fall (see @fig-num-downloads-1-billion). Looking at the apps provided by @djaruma2023, it can be concluded that there is enough evidence to support h1b (see @tbl-top-8-apps-paper).
+### Games in the Google Play Store {#sec-gaming-apps}
 
-### Gaming apps
+The difference between total and average number of downloads in level 3 and 4 is not relatively significant as shown in @fig-total-average-downloads-by-level. Furthermore, it is relatively high in both instances. Hypothesis 1d, which takes a closer look into these 2 revenue levels, claims that many popular games fall under these 2.
 
-1.  **Figuur 2 verwijzen.**
-2.  **Gebeurt dit –\> leg uit waarom je het zo ziet.**
-3.  **Niet duidelijk waarom het gebeurt.**
-4.  **Hypothese introduceren.**
-5.  **Mogelijk heeft het te maken met dit (plots). (Testen van hypothese)**
-6.  **Dus conclusie.**
-
-**Important takeaway:** Revenue level 3 and 4 stands out with high average app downloads. Suggesting these revenue levels can be considered as the most popular revenue level. Important to note is that they have two things in common, they are free and contain in-app purchases. The only difference is that level 3 contain ads.
-
-This takeaway aligns well with hypothesis 1d, which takes a closer look into these 2 revenue levels:
-
-*The most downloaded apps in the gaming category will likely fall under level 3 and 4. Many popular games use this type of "pay-to-win" mechanism [@nieborg2016]. Therefore, it would be expected this same pattern would arise from our data.*
-
-Games are hugely popular on the Google Play Store. In the graphs below, you'll find that they are responsible for more than 25% of the total downloads, while only populating 15% of the total apps.
+According to @fig-proportion-games-total-downloads-2, 15.5% of the total apps are games. While these games attribute to 26.7% of the total app downloads, as shown in @fig-proportion-games-total-downloads-1.
 
 ```{python}
+#| label: fig-proportion-games-total-downloads
+#| fig-cap: "Proportion of Games compared to other apps"
+#| fig-subcap:
+#|   - "Total Downloads: Gaming vs Other Apps"
+#|   - "Total Amount: Gaming vs Other Apps"
+#| layout-ncol: 2
 #| echo: false
 #| warning: false
 #| error: false
@@ -695,35 +714,28 @@ summary_data = {
 }
 df_summary = pd.DataFrame(summary_data)
 
-# Creating pie charts with a legend next to each other
-fig, axs = plt.subplots(1, 2, figsize=(16, 8))
-
-fig.suptitle('Figure 6: Proportion of Total and Average Downloads between gaming and other categories', fontsize=16)
-
 # Pie chart for Total Downloads
-wedges1, texts1, autotexts1 = axs[0].pie(
+wedges1, texts1, autotexts1 = plt.pie(
     df_summary['Total Downloads'], labels=df_summary['Category'], autopct='%1.1f%%', startangle=140
 )
-axs[0].set_title('Proportion of Total Downloads: Gaming vs Other Apps', fontsize=14)
+plt.legend(wedges1, df_summary['Category'], title="Categories", loc="upper right", bbox_to_anchor=(1.3, 0.9))
+plt.tight_layout()
+plt.show()
 
 # Pie chart for Total Amount
-wedges2, texts2, autotexts2 = axs[1].pie(
+wedges2, texts2, autotexts2 = plt.pie(
     df_summary['Total Amount'], labels=df_summary['Category'], autopct='%1.1f%%', startangle=140
 )
-axs[1].set_title('Proportion of Total Amount: Gaming vs Other Apps', fontsize=14)
-
-# Adding legends
-axs[0].legend(wedges1, df_summary['Category'], title="Categories", loc="upper right", bbox_to_anchor=(1.2, 1))
-axs[1].legend(wedges2, df_summary['Category'], title="Categories", loc="upper right", bbox_to_anchor=(1.2, 1))
-
-# Adjust layout
+plt.legend(wedges2, df_summary['Category'], title="Categories", loc="upper right", bbox_to_anchor=(1.3, 0.9))
 plt.tight_layout()
 plt.show()
 ```
 
-The table below is a comparison between the average downloads of gaming apps and app with other categories. The gaming apps are therefore downloaded more on average than apps from other categories, with nearly 100% higher download average. This indicates that gaming apps are hugely popular on the Google Play Store.
+The average downloads of games is 98.6% higher than the average downloads of the other apps (see @tbl-avg-downloads-games).
 
 ```{python}
+#| label: tbl-avg-downloads-games
+#| tbl-cap: "Average Downloads Games vs Other Apps"
 #| echo: false
 #| warning: false
 #| error: false
@@ -747,29 +759,25 @@ gaming_vs_other_difference = ((gaming_avg - other_avg) / other_avg) * 100
 
 # Create a summary table with shorter column names
 summary_table = pd.DataFrame({
-    'Category': ['Gaming', 'Other', 'Baseline'],
+    'Category': ['Gaming', 'Other', 'All'],
     'Avg Downloads': [gaming_avg, other_avg, overall_avg],
-    '% Diff vs Baseline': [
-        gaming_vs_baseline_difference, 
-        other_vs_baseline_difference, 
-        0  # Baseline itself, so difference is 0%
-    ],
     '% Diff Gaming vs Other': [
-        gaming_vs_other_difference, 
-        gaming_vs_other_difference * -1, 
-        None  # No comparison for the baseline
+        gaming_vs_other_difference.round(2), 
+        (gaming_vs_other_difference * -1).round(2), 
+        "-"  # No comparison for the baseline
     ]
 })
 
 # Round the values for better readability
 summary_table = summary_table.round(2)
-
-summary_table
-
-
+Markdown(tabulate(summary_table, headers=summary_table.columns))
 ```
 
+Up until now, these findings conclude that games are hugely popular across all levels. @fig-avg-downloads-level-3-4 shows that games, especially in level 3 and 4, are even more popular. Averaging around 1 million downloads, compared to close to 0.5 million in @tbl-avg-downloads-games.
+
 ```{python}
+#| label: fig-avg-downloads-level-3-4
+#| fig-cap: "Average amount of Downloads for Gaming Apps by Level"
 #| echo: false
 #| warning: false
 #| error: false
@@ -794,20 +802,18 @@ gaming_categories = [
 df_level_combined_h1d = df_level_combined_h1d[df_level_combined_h1d['categ_app'].isin(gaming_categories)]
 
 # barplot the number of downloads for each level
-plt.figure(figsize=(5, 3))
-sns.barplot(data=df_level_combined_h1d, x='level', y='num_downloads')
-plt.title('Figure 7: Average amount of Downloads for Gaming Apps by Level', fontsize=14)
+sns.barplot(data=df_level_combined_h1d, x='level', y='num_downloads', palette='viridis', order=level_order)
 plt.xlabel('Level')
 plt.ylabel('Number of Downloads')
 plt.xticks(rotation=90)  # Rotate x-axis labels
 plt.show()
 ```
 
-By filtering on the gaming categories we can see that the average downloads is also significantly higher in level 3 and 4. With level 4 having a higher variance than level 3 and 4.
-
-To further explore this, the table below shows the top 5 most downloaded games from each revenue level. It reveals a noteable variance in downloads between the 2 revenue levels. The variance in level 4 is much larger than in level 3, even if it only displays the top 5. For instance, the downloads in level 4 varies from 0.5 to 0.1 billion. While the downloads in level 3 range from 1.0 to 0.5 billion.
+The variance of level 4 is higher than level 3 as shown in @tbl-avg-downloads-games. In @tbl-top-5-level-3-4-games, it reveals a notable variance in downloads between the 2 revenue levels. The variance in level 4 is much larger than in level 3, even if it only displays the top 5. For instance, the downloads in level 4 varies from 0.5 to 0.1 billion. While the downloads in level 3 range from 1.0 to 0.5 billion.
 
 ```{python}
+#| label: tbl-top-5-level-3-4-games
+#| tbl-cap: "Combined top 5 games of level 3 and 4"
 #| echo: false
 #| warning: false
 #| error: false
@@ -872,58 +878,20 @@ top_apps_level_4 = top_apps_level_4[['App Name', 'Downloads (in Billions)','leve
 combined_tables = pd.concat([top_apps_level_3, top_apps_level_4])
 combined_tables.sort_values(by='Downloads (in Billions)', ascending=False, inplace=True)
 combined_tables.reset_index(drop=True, inplace=True)
-combined_tables
+Markdown(tabulate(combined_tables, headers=combined_tables.columns))
 ```
 
-### Free vs Paid
+The games in the Google Play Store play a significant role. As shown in @fig-proportion-games-total-downloads-1, it attributes to 26.7% of the total downloads. Furthermore, the average downloads of games is 98.6% more than any other apps with an average close to 0.5 million downloads (see @tbl-avg-downloads-games). In level 3 and 4, the average downloads jumps to over 1 million average downloads (see @fig-avg-downloads-level-3-4). Given these observations, it can be concluded that there is enough evidence to support h1d (see @sec-popularity).
 
-1.  **Figuur 2 verwijzen.**
-2.  **Gebeurt dit –\> leg uit waarom je het zo ziet.**
-3.  **Niet duidelijk waarom het gebeurt.**
-4.  **Hypothese introduceren.**
-5.  **Mogelijk heeft het te maken met dit (plots). (Testen van hypothese)**
-6.  **Dus conclusie.**
+### Sample and premium Apps {#sec-sample-premium-apps}
 
-**Key takeaways:**
+Levels 2 (premium) and 5 have the least amount of total and average downloads, as shown in @fig-total-average-downloads-by-level. Furthermore, we also see a high disparity in average downloads between level 2 sample and premium, as shown in @fig-total-average-downloads-by-level-2.
 
--   Revenue level 2 premium and 5 have the least amount of total and average app downloads. These apps cost money upon downloading the app.
-
--   Revenue level 2 sample and premium have a high download offset in both average and total amounts.
-
-We see high disparity in downloads between free (-mium) and paid apps. To further investigate this we follow the guideline of hypotheses: 1a and 1c.
-
-*H1a: Apps that allow the user to have free access to all features (level 0 and 1) will have the highest amount of downloads overall. However, the ratings may fluctuate, as quality can vary for free-to-access apps.* <!-- Is citation hier nodig? -->
-
-*H1c: For apps that utilize a sample and a premium version of the same app (level 2), the free versions of an app will have more downloads than their paid-for counterpart. Most, if not all, users will download the free version first, and then might upgrade. This means there should be a disparity between the number of downloads between the apps, as is also demonstrated by @liu2012freemium.*
-
-The graph below illustrates that level 0 and 1 have indeed the highest overall downloads, compared to the other levels combined. (Apps that fall under level 0 and 1 have free access to all features.)
+As shown in @fig-proportion-sample-premium , just 1.1% of the downloads are attributed to premium apps within all apps in level 2. Illustrating in depth just how high this offset is.
 
 ```{python}
-#| echo: false
-#| warning: false
-#| error: false
-
-df_h1a = df_level_combined.copy()
-
-# if level is 0 or 1 then new column category is 'Free apps'
-df_h1a['category'] = ['Free all feature apps' if level in ['0', '1'] else 'Free/Paid not all feature apps' for level in df_h1a['level']]
-
-# Calculate the sum of downloads for each category
-total_downloads_h1a = df_h1a.groupby('category')['num_downloads'].sum().reset_index()
-
-
-# Make a bar chart 
-plt.figure(figsize=(10, 6))
-sns.barplot(data=total_downloads_h1a, x='category', y='num_downloads', hue='category', palette='viridis', dodge=False)
-plt.title('Figure 8: Total Number of Downloads by Category',fontsize=14)
-plt.xlabel('Category')
-plt.ylabel('Total Number of Downloads')
-plt.show()
-```
-
-As show in figure 2, level 2 sample and premium have a high download offset in both average and total amounts. Illustrating just how high this offset is, the graph below illustrates that out of all the downloaded apps in level 2, just 1.1% are premium apps.
-
-```{python}
+#| label: fig-proportion-sample-premium
+#| fig-cap: "Proportion of Total Downloads: Sample vs Premium"
 #| echo: false
 #| warning: false
 #| error: false
@@ -970,31 +938,15 @@ df_summary_h1c = pd.DataFrame(summary_data_h1c)
 # Creating a pie chart to show the proportion of sample vs premium downloads
 fig, ax = plt.subplots(figsize=(5, 5))
 ax.pie(df_summary_h1c['Total Downloads'], labels=df_summary_h1c['Version Type'], autopct='%1.1f%%', startangle=140)
-ax.set_title('Figure 9: Proportion of Total Downloads: Sample vs Premium', fontsize=14)
 
 plt.show()
 ```
 
-In terms of average downloads the disparity is also high. As can be seen by the graph below.
+High disparity is also evident in the average downloads, as shown in @tbl-premium-sample-diff. Where the average download difference is close to 500.000. With an average download ratio of nearly 27%. Meaning that about one in fourth users that download the sample app, also download the premium app.
 
 ```{python}
-#| echo: false
-#| warning: false
-#| error: false
-
-# Plot 4: Boxplot for Sample and Premium Downloads
-plt.figure(figsize=(10, 6))
-plt.boxplot([df_mapped_h1c['Sample Downloads'], df_mapped_h1c['Premium Downloads']], labels=['Sample Downloads', 'Premium Downloads'])
-plt.ylabel('Number of Downloads')
-plt.title('Figure 10: Boxplot of Sample vs Premium Downloads', fontsize=14)
-plt.grid(axis='y', linestyle='--')
-plt.show()
-
-```
-
-However, by looking at the average downloads in the graph below, we see that the average download difference is close to 500.000. With an average download ratio of nearly 27%. Meaning that about one in fourth users that download the sample app, also download the premium app.
-
-```{python}
+#| label: tbl-premium-sample-diff
+#| tbl-cap: "Sample and Premium download metrics"
 #| echo: false
 #| warning: false
 #| error: false
@@ -1027,28 +979,43 @@ df_mapped_h1c = (
 df_mapped_h1c['Download Difference'] = df_mapped_h1c['Premium Downloads'] - df_mapped_h1c['Sample Downloads']
 df_mapped_h1c['Download Ratio'] = df_mapped_h1c['Premium Downloads'] / df_mapped_h1c['Sample Downloads']
 
+
+# Average downloads and ratios
+avg_sample_downloads = df_mapped_h1c['Sample Downloads'].mean()
+avg_premium_downloads = df_mapped_h1c['Premium Downloads'].mean()
+avg_download_difference = df_mapped_h1c['Download Difference'].mean()
+avg_download_ratio = df_mapped_h1c['Download Ratio'].mean()
+
 # Data for the new dataframe
-metric_data_h1c = {
+summary_data_h1c = {
     "Metric": [
+        "Average Sample Downloads",
+        "Average Premium Downloads",
         "Average Download Difference",
         "Average Download Ratio"
     ],
     "Value": [
-        df_mapped_h1c['Download Difference'].mean(),
-        df_mapped_h1c['Download Ratio'].mean(),
+        avg_sample_downloads,
+        avg_premium_downloads,
+        avg_download_difference,
+        avg_download_ratio
     ]
 }
 
-# Create the new dataframe
-df_metrics_h1c = pd.DataFrame(metric_data_h1c)
-df_metrics_h1c
+# Create the summary dataframe
+df_summary_h1c = pd.DataFrame(summary_data_h1c)
+Markdown(tabulate(df_summary_h1c, headers=df_summary_h1c.columns))
 ```
+
+Hypothesis 1c claims that the sample version indeed has more downloads than their paid-for counterpart. This claim is supported by examining @fig-total-average-downloads-by-level and @fig-total-average-downloads-by-level-2. However, for a more detailed perspective like the proportion of the sample vs premium downloads (see @fig-proportion-sample-premium), this further strengthens this argument. Additionally, the high disparity across metrics in @tbl-premium-sample-diff is even more evidence to support h1c (see @sec-popularity).
 
 ## Ratings
 
-Plotting the distribution of the ratings across all the different revenue models doesn't have the same insight as with the number of downloads. As can be seen below, the ratings in itself doesn't vary all that much within the revenue levels.
+The average and Bayesian average (adjusting for total reviews) are relatively the same across all revenue levels, as shown in @fig-proportion-rating.
 
 ```{python}
+#| label: fig-proportion-rating
+#| fig-cap: "Proportion of Ratings Across Levels"
 #| echo: false
 #| warning: false
 #| error: false
@@ -1067,7 +1034,6 @@ bayesian_ratings.plot(kind='bar', width=0.4, position=0, label='Bayesian Rating'
 # Adding labels and title
 plt.xlabel('Level')
 plt.ylabel('Rating')
-plt.title('Figure 11: Ratings Across Levels', fontsize=14)
 plt.legend()
 plt.xticks(rotation=0)
 
@@ -1076,9 +1042,11 @@ plt.tight_layout()
 plt.show()
 ```
 
-When plotting the variance of the ratings across the different levels, we do see a lot of variance. However, this variance diminishes when considering the Bayesian average, which smooths out the fluctuations and provides a more consistent view of the ratings. Indicating that some levels have strong outliers.
+The variance of the ratings across the different levels is where we do see lot of variance, as illustrated in @fig-variance-rating. However, when adjusting for total reviews: the Bayesian average rating, the variance diminishes. This is logical, since it smooths out the fluctuations and provides a more consistent view of the ratings. This shows that levels especially the paid apps (level 2 premium and 5) have strong outliers.
 
 ```{python}
+#| label: fig-variance-rating
+#| fig-cap: "Variance of Different Attributes Grouped by Level"
 #| echo: false
 #| warning: false
 #| error: false
@@ -1094,7 +1062,6 @@ variance_melted = variance_specific.melt(id_vars='level', var_name='Attribute', 
 
 plt.figure(figsize=(12, 6))
 sns.barplot(data=variance_melted, x='level', y='Variance', hue='Attribute', palette='viridis')
-plt.title('Figure 12: Variance of Different Attributes Grouped by Level', fontsize=14)
 plt.xlabel('Level')
 plt.ylabel('Variance')
 plt.xticks(rotation=45)
@@ -1105,17 +1072,23 @@ plt.show()
 
 In the next two subsections we investigate further on the variance and the difference in rating between paid and free apps.
 
-### Quality of Apps
+In the next following three subsections, we will investigate further into:
 
-Hypotheses 1a and 2a partially touch on the quality of apps being a reason for the fluctuations in ratings. While 1a looks at the free access to all feature apps, 2a looks more at the drawbacks of the freemium revenue model. Where the balance between free and paid features can result in lower ratings.
+-   Quality of Free and Paid Apps: Fluctuations in ratings caused by the quality.
 
-*H1a: Apps that allow the user to have free access to all features (level 0 and 1) will have the highest amount of downloads overall. However, the ratings may fluctuate, as quality can vary for free-to-access apps.* <!-- Is citation hier nodig? -->
+-   Variance in Ratings: Less fluctuation in premium apps than their free counterpart.
 
-*H2a: Apps that require the user to pay to unlock features (level 2, 3, and 4) will tend to have lower ratings than the version that requires payment upfront (level 5). The main draw of a freemium model is to attract users, and have them update to a paid version [@kumar2014]. However, as @kumar2014 points out, this can be a double-edged sword. Too few features, and it may not be attractive to users. Too many features, and the users will not update.*
+-   Correlation between Sample and Premium Apps: Correlation in terms of rating between two app versions.
 
-The table below shows the variance and standard deviation between "free access to all feature apps" and "free access to not all features or paid apps". There is not a big statistical difference.
+### Quality of Free and Paid Apps {#sec-quality-free-paid-apps}
+
+Level 0 and 1 have the highest overall downloads, as shown in @fig-downloads-free-access by quite a margin (40 billion downloads (0.4e11)) compared to the other apps. These apps under level 0 and 1 have free access to all features. Hypothesis 1a (see @sec-popularity) suggests that the variance in rating between "free access to all feature apps" and "free access to not all features or paid apps" is a sign of quality disparity.
+
+@tbl-free-access shows the variance and standard deviation between "free access to all feature apps" and "free access to not all features or paid apps". From which we can conclude that there is not a big statistical difference. Roughly, 0.02 and 0.01 difference in variance and standard deviation rating respectively.
 
 ```{python}
+#| label: tbl-free-access
+#| tbl-cap: "Variance (and std) difference. Between free access to all feature apps and free access to not all features or paid apps"
 #| echo: false
 #| warning: false
 #| error: false
@@ -1132,27 +1105,50 @@ df_stats_h1a = df_h1a.groupby('category')['rating_app'].agg(['var', 'std']).rese
 # Rename columns for clarity
 df_stats_h1a.rename(columns={'var': 'variance in rating', 'std': 'standard deviation in rating'}, inplace=True)
 
-df_stats_h1a
+Markdown(tabulate(df_stats_h1a, headers=df_stats_h1a.columns))
 ```
 
-As can also be seen in the graph below, that shows the boxplot of the ratings.
+@fig-free-access visualizes variance with outliers. It shows that both categories have a similar median rating close to 4.5, with "Free/Paid not all feature apps" being slightly lower. Both categories seem to have a lot of outliers under 3, with 'free all feature apps' having more outliers in 2 and 1.
 
 ```{python}
+#| label: fig-free-access
+#| fig-cap: "Boxplot of Ratings by App Category"
 #| echo: false
 #| warning: false
 #| error: false
 
+# Step 1: Add 'category' column based on level
+df_h1a = df_level_combined.copy()
+df_h1a['category'] = [
+    'Free all feature apps' if level in ['0', '1'] else 'Free/Paid not all feature apps' 
+    for level in df_h1a['level']
+]
+
+# Step 3: Create a boxplot for ratings categorized by 'category'
+
+# Prepare data for custom boxplot
+categories = df_h1a['category'].unique()
+ratings_data = [df_h1a[df_h1a['category'] == category]['rating_app'] for category in categories]
+
+# Custom boxplot
 plt.figure(figsize=(10, 6))
-sns.boxplot(data=df_h1a, x='category', y='rating_app')
-plt.title('Figure 13: App Ratings by Category', fontsize=14)
-plt.xlabel('Category')
+plt.boxplot(ratings_data, labels=categories, patch_artist=True)
 plt.ylabel('Ratings')
+plt.xlabel('App Category')
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+
 plt.show()
 ```
 
-Conversely, the mean rating and Bayesian average of apps where you need to unlock features versus paid apps with all features also doesn't see a big difference. The premium apps do tend to have a higher rating. As can be seen in the graph below.
+The variance and standard deviation is minimal between the two categories, as shown in @tbl-free-access . @fig-free-access illustrates that both categories receive high ratings, with significant number of outliers. These outliers can be interpreted as variability in user satisfaction. The slighty higher median in 'Free all feature apps' may imply that users prefer this over 'Free/Paid not all feature apps'. However, this is marginal and would probably require statistical validation. Thus inconclusive as evidence to support h1a (see @sec-popularity).
+
+Conversely, hypothesis 2a (see @sec-rating) suggests that the apps where users need to pay to unlock features tend to have a lower rating than apps that require payment upfront.
+
+As shown in @fig-free-vs-paid, premium apps have a higher rating on average compared to free apps with users needing to pay to unlock features. The free apps show a greater spread in ratings.
 
 ```{python}
+#| label: fig-free-vs-paid
+#| fig-cap: "Boxplot of Ratings for Free and Premium Apps"
 #| echo: false
 #| warning: false
 #| error: false
@@ -1191,7 +1187,6 @@ categories = ['Free apps', 'Premium apps']
 ratings_data = [df_h2a[df_h2a['category'] == cat]['rating_app'] for cat in categories]
 
 plt.boxplot(ratings_data, labels=categories, patch_artist=True)
-plt.title('Figure 14: Boxplot of Ratings for Free and Premium Apps', fontsize=14)
 plt.ylabel('Ratings')
 plt.xlabel('App Category')
 plt.grid(axis='y', linestyle='--', alpha=0.7)
@@ -1199,15 +1194,15 @@ plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.show()
 ```
 
+The apps that require upfront payment receive a higher rating on average then free apps, shown in @fig-free-vs-paid. This can indicate that users perceive as being of higher quality. The greater spread of ratings for free apps, may indicate that the app quality varies more. This suffices as enough evidence to support h2a (see @sec-rating).
+
 ### Variance in Ratings
 
-Hypothesis 2b touches on the variance between premium and their counterpart freemium apps.
-
-*H2b: Fully premium apps (level 5) will have less variance in their ratings, while all other levels will have more. In the same vein as H2a, users have more realistic expectations of paid apps compared to apps that require you to unlock features [@kumar2014]. Therefore, more users downloading premium apps will be satisfied with their purchase, leading to less variance.*
-
-In the graph below, we see a significant difference in the variance of ratings. Premium apps tend to have a higher variance, with more outliers.
+@fig-var-rating-other-premium illustrates a significant difference in the variance of ratings. Premium apps tend to have a higher variance, with more outliers.
 
 ```{python}
+#| label: fig-var-rating-other-premium
+#| fig-cap: "Variance in Ratings for Other vs Premium Apps"
 #| echo: false
 #| warning: false
 #| error: false
@@ -1216,7 +1211,7 @@ In the graph below, we see a significant difference in the variance of ratings. 
 df_level_combined_h2b = df_level_combined.copy()
 
 # Filter on level 5 and others
-df_level_combined_h2b['category'] = np.where(df_level_combined_h2b['level'] == '5', 'Premium apps', 'Other apps')
+df_level_combined_h2b['category'] = np.where(df_level_combined_h2b['level'].isin(['2 (Premium)', '5']), 'Premium apps', 'Other apps')
 
 # relevant columns
 relevant_columns_h2b = ['category', 'rating_app', 'bayesian_average']
@@ -1236,16 +1231,17 @@ premium_variance_rating = premium_apps['rating_app'].var()
 fig, ax = plt.subplots(figsize=(10, 6))
 ax.bar(['Other apps', 'Premium apps'], [other_variance_rating, premium_variance_rating], color=['skyblue', 'orange'])
 ax.set_ylabel('Variance in Ratings', fontsize=12)
-ax.set_title('Figure 15: Variance in Ratings for Other vs Premium Apps', fontsize=14)
 ax.set_ylim(0, max(other_variance_rating, premium_variance_rating) * 1.2)
 
 plt.tight_layout()
 plt.show()
 ```
 
-In the graph below, we once again see that level 5 has a high variance compared to the others. But when adjusted with the Bayesian average, the variance is one of the lowest. This difference may arise because users who are satisfied with the app tend to rate the app highly, while users who are not satisfied, tend to rate it much lower, having paid for the app.
+@fig-var-bayesian-other-premium illustrates the variance of the ratings and bayesian variance. For level 5 we see that the variance is one of the lowest when adjusted by Bayesian average. This difference may arise because users who are satisfied with the app tend to rate the app highly, while users who are not satisfied, tend to rate it much lower, having paid for the app.
 
 ```{python}
+#| label: fig-var-bayesian-other-premium
+#| fig-cap: "Variance of Attributes Across Different Levels"
 #| echo: false
 #| warning: false
 #| error: false
@@ -1263,9 +1259,7 @@ variance_melted = variance_specific.melt(id_vars='level', var_name='Attribute', 
 variance_melted = variance_specific.melt(id_vars='level', var_name='Attribute', value_name='Variance')
 
 # Plotting line plot with seaborn
-plt.figure(figsize=(12, 6))
 sns.lineplot(data=variance_melted, x='level', y='Variance', hue='Attribute', marker='o', palette='Set1')
-plt.title('Figure 16: Variance of Attributes Across Different Levels', fontsize=14)
 plt.xlabel('Level')
 plt.ylabel('Variance')
 plt.xticks(rotation=45)
@@ -1274,15 +1268,17 @@ plt.tight_layout()
 plt.show()
 ```
 
-### Relationships between App Versions
+In conclusion, the variance across all levels show that level 5 has the highest variance for rating and the lowest variance for bayesian rating, as shown in @fig-var-bayesian-other-premium. The bayesian average seems more reliable regarding the overall app performance. The premium apps may have polarized feedback due to high user expectations. In that case it's enough evidence to support h2b (see @sec-rating).
 
-Level 2 has two version of the same app. A sample and a premium version. According to hypothesis 3, the rating of a paid version positively correlates with the rating of the sample version.
+### Correlation between Sample and Premium Apps {#sec-correlation}
 
-*H3: For apps that utilize a sample and a premium version of the same app (level 2), the rating of the paid-for version is positively associated with the rating of the free version of the same app. This was true for the study on the most popular apps in the Google Play Store by @liu2012freemium, so it is expected a similar pattern should arise for this dataset.*
+Revenue level 2 has two versions of the same app. A sample and a premium version.
 
-In the table below the correlation between ratings of sample and premium apps is considered moderate positive with 0.35. The correlation between the Bayesian average rating of sample and premium apps is considered moderate to strong positive correlation with 0.5.
+@tbl-correlation shows that the correlation between ratings of sample and premium apps is considered moderate positive with 0.35. The correlation between the Bayesian average rating of sample and premium apps is considered moderate to strong positive correlation with 0.5.
 
 ```{python}
+#| label: tbl-correlation
+#| tbl-cap: "Correlation ranking between sample and premium"
 #| echo: false
 #| warning: false
 #| error: false
@@ -1321,19 +1317,28 @@ correlation_data_h3 = {
     "Metric": ["Sample Rating vs Premium Rating", "Sample Bayesian Average vs Premium Bayesian Average"],
     "Correlation Coefficient": [correlation_rating_h3, correlation_bayesian_rating_h3]
 }
-pd.DataFrame(correlation_data_h3)
+correlation_data_h3= pd.DataFrame(correlation_data_h3)
 
+Markdown(tabulate(correlation_data_h3, headers=correlation_data_h3.columns))
 ```
 
-### Conclusion
+@tbl-correlation shows moderate to strong positive correlation when using the bayesian average rating. This provides evidence to support H2c (see @sec-rating).
 
-**Opsommen van de resultaten. Antwoord geven op de research question.**
+## Conclusion
 
-Dit was onze onderzoeksvraag.
+| Hypothesis | Support                         | Sufficient evidence? |
+|------------|---------------------------------|----------------------|
+| H1a        | @sec-quality-free-paid-apps     | Inconclusive         |
+| H1b        | @sec-distribution-app-downloads | Yes                  |
+| H1c        | @sec-sample-premium-apps        | Yes                  |
+| H1d        | @sec-gaming-apps                | Yes                  |
+| H2a        | @sec-quality-free-paid-apps     | Yes                  |
+| H2b        | @sec-rating                     | No                   |
+| H2c        | @sec-correlation                | Yes                  |
 
-Succes geformuleerd als 3 dingen. Pop, rating en revenue(niet meegenomen).
+The research question: "*How are the 6 different revenue models as proposed by @djaruma2023 correlate to the success of an app?*". This success was measured by popularity and rating.
 
-Pop: a (wel/niet), b (wel/niet), c (wel/niet) etc.
+HOE MOETEN WE DE RESEARCH QUESTION BEANTWOORDEN???
 
 # Discussion <!--500-700 words -->
 
