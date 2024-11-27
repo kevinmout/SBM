@@ -1,0 +1,1005 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  12pt,
+  a4paper,
+]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage[]{mathptmx}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[top=25mm,left=25mm]{geometry}
+\ifLuaTeX
+  \usepackage{luacolor}
+  \usepackage[soul]{lua-ul}
+\else
+  \usepackage{soul}
+  
+\fi
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\usepackage{graphicx}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={The Economics of App Success: How Revenue Streams Influence Downloads and User Ratings},
+  pdfauthor={Group 5},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{\textbf{The Economics of App Success: How Revenue Streams
+Influence Downloads and User Ratings}}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Group Assignment - Strategy and Business Models}
+\author{Group 5}
+\date{28/11/2024}
+
+\begin{document}
+\maketitle
+
+\vspace{2em}
+\begin{center}
+  \includegraphics[width=0.3\textwidth]{figures/jads.png}
+\end{center}
+\vspace{3em}
+\newpage
+
+\renewcommand*\contentsname{Contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+
+\newpage
+
+\section{\texorpdfstring{Introduction
+}{Introduction }}\label{introduction}
+
+With the every-growing popularity of cellphones (Richter 2023), the
+popularity of mobile applications is also steadily increasing. In 2024,
+mobile applications are estimated to generate over \$900 billion in
+revenue ({``Mobile App Revenue Worldwide by Segment (2019-2027)''}
+2023). Generally, mobile applications (`\emph{apps}' from here on) tend
+to be categorized in three different categories (Roma and Ragaglia
+2016). Paid apps are the most transparent; they revenue is based on an
+up-front purchase by the user. Free apps, on the other hand, require no
+purchase by the user at any stage. According to Roma and Ragaglia
+(2016), these apps make their revenue from deals with third-parties,
+either through advertisement or other purposes such as market
+information.
+
+Finally, freemium apps are, as the name suggests, a middle-ground
+between free and premium. Users get access to a basic version of the
+application first and can unlock more features through an in-app payment
+(Kumar 2014). Of these three revenue models, freemium is the most
+commonly used and the most (Salehudin and Alpert 2021) and leads to more
+downloads as well as revenue (Liu, Au, and Choi 2014).
+
+\subsection{Academic Background}\label{academic-background}
+
+Most research uses these three established categories---paid, freemium,
+and free---when discussing revenue models for apps. However, by limiting
+the discussion to these three terms, nuances within these categories
+might be missed.
+
+In a review paper from 2023 (Djaruma et al. 2023), different levels of
+monetization are suggested based on previous literature. These levels
+provide a clear framework for the revenue models of mobile apps.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2857}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7143}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Strategy
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Strategy
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Level 5: Premium & Pay to use the application. This either happens
+up-front, or after a trial period. \\
+Level 4: Semi-premium & Use a limited number of features for free.
+Unlock the app with all features through an in-app purchase. \\
+Level 3: In-app advertisement and in-app purchases & Free application
+with ads, encouraging users to remove ads or to make in-app
+purchases. \\
+Level 2: Sample and premium & Two different versions of the same app.
+One is a version with limit features and/or ads. The other version is a
+premium version. \\
+Level 1: In-app advertisement & Only one version of the app, with only
+ads and no in-app purchases. \\
+Level 0: Free & The app has no monetization. However, money can still be
+made through selling user information. \\
+\caption{Six levels of monetization for
+apps}\label{tbl-levels}\tabularnewline
+\end{longtable}
+
+Table~\ref{tbl-levels}
+
+\subsection{Societal Background}\label{societal-background}
+
+Currently, most apps utilize the freemium revenue model (Salehudin and
+Alpert 2021). However, as discussed in Djaruma et al. (2023), there are
+many revenue models between completely premium and completely free. A
+more fine-grained classification of app revenue models beyond the
+traditional ``paid-freemium-free'' framework holds significant societal
+and business implications.
+
+For society, such distinctions enhance transparency. Some monetization
+models, such as free or ad-filled apps, may rely on selling user
+information as a source of revenue (Bamberger et al. 2020). Therefore,
+clearer distinctions regarding the revenue model will empower consumers
+to make informed choices. It may also enable policymakers to identify
+and regulate exploitative practices, such as manipulative
+microtransactions or intrusive ad models, ensuring all applications
+align with ethical and legal standards (Mileros and Forchheimer 2024).
+
+For businesses, this paper should unlock more insight into the
+effectiveness of different revenue streams. This will allow developers
+to tailor monetization strategies to specific audiences. Furthermore,
+both consumers and regulatory bodies are growing more concerned with the
+privacy concerns of apps, especially ones that rely on market
+information (Mileros and Forchheimer 2024). A granular understanding
+helps businesses adapt, aligning profitability with sustainability and
+ethical considerations.
+
+\subsection{Research Gap}\label{research-gap}
+
+In short, apps play an increasingly important role in our techno-centric
+society. To improve the user experience and increase profits,
+consideration of revenue models is key. Despite the great depth of
+research on this topic, literature tends to be focussed on the three big
+categories of paid, freemium, and free. This lack of nuance prevents us
+from understanding the fine-grained details that may help improve future
+apps.
+
+The levels of monetization as proposed by Djaruma et al. (2023) would
+allow for this nuance. However, their framework has never been used in
+an empirical setting, as the paper by Djaruma et al. (2023) was
+published only last year. Applying this framework to see how different
+revenue streams impact the popularity of an app may yield valuable
+insights into the preferences of consumers. Therefore, the question to
+answer within this paper will be: \emph{How are the six different
+revenue models as proposed by Djaruma et al. (2023) correlated to the
+success of an app?}
+
+\section{\texorpdfstring{Theory and Hypotheses
+}{Theory and Hypotheses }}\label{theory-and-hypotheses}
+
+In this section, prior research into the topic of revenue streams and
+its correlation to success in apps will be discussed. As mentioned in
+the Introduction section, this paper will apply the six levels of
+revenue as proposed by Djaruma et al. (2023) to app data. The following
+section will contain a holistic overview of the existing research, as
+well as hypotheses that arise from this theoretical framework.
+
+\subsection{Literature Review}\label{literature-review}
+
+To answer the question ``\emph{How are the six different revenue models
+as proposed by Djaruma et al. (2023) correlate to the success of an
+app?}'', we must first define what constitutes to success. In this
+paper, success will be defined by a couple of factors: popularity,
+rating, and estimated revenue.
+
+\subsubsection{Popularity}\label{popularity}
+
+The popularity of an app can be measured by the number of downloads. It
+is important to note the popularity of an app is complex, and is not
+solely dependent on the chosen revenue model. Other features, such as
+whether an app is featured on charts, whether it has frequent updates,
+and word-of-mouth awareness, will also impact the popularity of an app
+(Aydin Gokgoz, Ataman, and Bruggen 2021). However, despite these other
+variables, to versions of the same app will still have drastically
+different performances with different revenue streams (Liu, Au, and Choi
+2014).
+
+H1a: Apps that allow the user to have free access to all features (level
+0 and 1) will have the highest amount of downloads overall. However, the
+ratings may fluctuate, as quality can vary for free-to-access apps.
+
+H1b: The apps with the most downloads will be level 1. Most social media
+platforms, which dominate our culture, tend to have this revenue stream
+(Djaruma et al. 2023).
+
+H1c: For apps that utilize a sample and a premium version of the same
+app (level 2), the free versions of an app will have more downloads than
+their paid-for counterpart. Most, if not all, users will download the
+free version first, and then might upgrade. This means there should be a
+disparity between the number of downloads between the apps, as is also
+demonstrated by Liu, Au, and Choi (2012).
+
+H1d: The most downloaded apps in the gaming category will likely fall
+under level 4. Many popular games use this type of ``pay-to-win''
+mechanism (Nieborg 2016). Therefore, it would be expected this same
+pattern would arise from our data.
+
+\subsubsection{Rating}\label{rating}
+
+The downloads of an app are not everything. An app can be downloaded
+often, but may not be highly rated.
+
+H2a: Apps that require the user to pay to unlock features (level 2, 3,
+and 4) will tend to have lower ratings than the version that requires
+payment upfront (level 5). The main draw of a freemium model is to
+attract users, and have them update to a paid version (Kumar 2014).
+However, as Kumar (2014) points out, this can be a double-edged sword.
+Too few features, and it may not be attractive to users. Too many
+features, and the users will not update.
+
+H2b: Fully premium apps (level 5) will have less variance in their
+ratings, while all other levels will have more. In the same vein as H2a,
+users have more realistic expectations of paid apps compared to apps
+that require you to unlock features (Kumar 2014). Therefore, more users
+downloading premium apps will be satisfied with their purchase, leading
+to less variance.
+
+H2c: For apps that utilize a sample and a premium version of the same
+app (level 2), the rating of the paid-for version is positively
+associated with the rating of the free version of the same app. This was
+true for the study on the most popular apps in the Google Play Store by
+Liu, Au, and Choi (2012), so it is expected a similar pattern should
+arise for this dataset.
+
+\subsubsection{Revenue Estimation}\label{revenue-estimation}
+
+It is important to point out downloads and ratings likely do not
+directly correlate to the actual revenue of an app. The revenue of apps
+``premium'' apps that require an upfront payment, the revenue is
+relatively simple to track and compare. However, for apps that rely on
+advertisement, in-app purchases and/or selling market information, this
+is harder to track.
+
+For apps that solely on advertisement, time retention can be a good
+measure of revenue (Ross 2018). However, this only works if the app
+solely relies on ads. An example of this given by Djaruma et al. (2023)
+is TikTok: this app relies not only on advertisement, but also on users
+purchasing products through its shop. Therefore, using solely the time
+retention would not accurately capture the revenue of an app with both
+revenue streams. Furthermore, the selling of user data is usually not
+publicized, meaning it is not possible to know the revenue from this.
+
+Unfortunately, our data only contains the price of ``premium'' app
+versions. The data does not include any details regarding in-app
+purchases nor time-retention. Because of this lack of sufficient data,
+solely downloads and ratings will be taken into account as indicators of
+success.
+
+\section{\texorpdfstring{Methods and Data
+}{Methods and Data }}\label{methods-and-data}
+
+This section will further elaborate on the dataset and methods used to
+test the hypotheses outlined in the previous section. The focus lies on
+providing a comprehensive description of the dataset, including its
+structure and the variables it contains, followed by an explanation of
+the variable selection process. Additionally, the statistical methods
+applied are briefly explained, combined with a explanation of how
+assumptions, such as missing values and potential biases, were addressed
+to ensure the robustness of our analysis.
+
+\subsection{Dataset Description}\label{dataset-description}
+
+The dataset used for this research consists of 1,016,666 instances and
+27 variables, representing a detailed overview of mobile applications
+across various revenue models. Each instance corresponds to an app, and
+the variables capture key attributes such as app downloads, user
+ratings, and monetization strategies. Below is an overview of some of
+variables:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2248}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7752}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+my\_app\_id (object) & Unique identifier for each app. \\
+date\_published (object) & The publication date of the app. Only three
+missing values (0.000295\% null). \\
+privacy\_policy (object) & Information about the app's privacy policy,
+missing in 28.57\% of cases. \\
+rating\_app (float64) & The average rating of the app, with 8.76\%
+missing values. \\
+nb\_rating (object) & Number of ratings received by the app, missing in
+8.76\% of cases. \\
+num\_downloads (object) & The number of downloads for the app, nearly
+complete with only 15 missing values (0.001475\% null). \\
+price\_gplay (object) & The price of the app as listed on Google Play,
+missing in 0.43\% of cases. \\
+in\_app (bool) & Indicates whether the app has in-app purchases (no
+missing values). \\
+has\_ads (bool) & Indicates whether the app contains advertisements (no
+missing values). \\
+content\_rating\_app (object) & The app's content rating, with three
+missing values (0.000295\% null). \\
+developer\_name (object) & The name of the app developer, missing in
+only 16 instances (0.001574\% null). \\
+\end{longtable}
+
+The dataset includes several additional variables related to app
+features, developer information, and user engagement metrics such as
+visit\_website, more\_from\_developer, and family\_library. However,
+some variables, such as whats\_new (100\% null) and in\_app\_product
+(89.57\% null), were deemed unsuitable for analysis due to their high
+proportion of missing data.
+
+The primary purpose of this dataset in this study, is to analyze app
+monetization strategies by categorizing apps into distinct revenue
+levels and evaluating their performance based on key metrics like
+downloads and user ratings.
+
+\subsection{Variable Selection}\label{variable-selection}
+
+The dataset utilized in this study consists of 1,016,666 entries,
+encompassing a broad range of attributes related to mobile applications.
+For the purpose of our analysis, 13 variables were selected, capturing
+critical information about app characteristics, user engagement,
+monetization strategies, and developer details. These variables include
+the app's unique identifier (my\_app\_id), the total number of downloads
+(num\_downloads), average user ratings (rating\_app), and the number of
+ratings (nb\_rating). Additionally, the dataset provides information on
+app pricing (price\_gplay), the presence of in-app purchases (in\_app),
+and whether the app includes advertisements (has\_ads). Other variables,
+such as content ratings (content\_rating\_app), app categories
+(categ\_app), and developer information (developer\_name and
+developer\_info), further enhance the richness of the dataset. This
+subset of variables allows us to comprehensively examine the interplay
+between monetization strategies and app success.
+
+To systematically explore monetization strategies, we classified the
+apps into six distinct levels based on their monetization models. These
+levels reflect varying approaches to generating revenue, ranging from
+completely free apps to fully premium paid apps.
+
+Level 0 represents apps with no monetization, offering free services
+without ads or in-app purchases. At the opposite end, Level 5 includes
+premium apps requiring upfront payment, free from ads or in-app
+purchases, delivering a premium experience.
+
+In between, Level 1 consists of free apps monetized solely through ads,
+while Level 3 combines ads and in-app purchases, offering additional
+features for users willing to pay. Level 4 refines the freemium model by
+removing ads and relying entirely on in-app purchases to monetize.
+
+Level 2 employs a dual-version strategy, featuring both free sample apps
+with limited functionality (and potentially ads) and paid premium apps
+with comprehensive features and no ads or in-app purchases.
+
+This classification is grounded in theoretical frameworks, such as the
+monetization levels proposed by Djaruma et al.~(2023) and the App
+business models of (CITE), and allows for a nuanced analysis of how
+different revenue models impact app success metrics like user ratings
+and downloads. Our systematic categorization facilitates a deeper
+understanding of the relationship between monetization strategies and
+app performance.
+
+\subsection{Statistical Methods}\label{statistical-methods}
+
+To test our hypotheses, we employed a combination of descriptive
+statistics, text processing, and machine learning techniques.
+Descriptive statistics were utilized to analyze distributions and trends
+in metrics such as num\_downloads, rating\_app, and price\_gplay. We
+categorized applications into six monetization levels based on binary
+indicators: is\_free, in\_app, and has\_ads. Price values were processed
+to distinguish between free and paid applications.
+
+To identify paired sample and premium applications within level 2, we
+applied Term Frequency-Inverse Document Frequency (TF-IDF) vectorization
+combined with cosine similarity on application names. This approach is
+effective for measuring textual similarity between documents (CITE
+Source 2). Subsequent filtering involved prefix matching and the
+identification of indicative terms (e.g., ``Free,'' ``Pro'') to ensure
+logical pairing based on naming conventions and shared developers.
+
+To adjust ratings for applications with few reviews, we calculated a
+Bayesian average. This method provides a more robust measure of user
+satisfaction by accounting for the number of ratings and the overall
+average rating across all applications (CITE Source 3). Visualizations,
+including scatter plots and box plots, were employed to explore
+relationships between monetization levels and user engagement metrics
+which will be displayed in the results section.
+
+\subsubsection{Handeling of Assumptions}\label{handeling-of-assumptions}
+
+We addressed missing values by removing rows with critical nulls, such
+as those in num\_downloads, to maintain data integrity. Text-based
+variables like content\_rating\_app were standardized to ensure
+consistency. For price\_gplay, currency symbols were removed to
+facilitate the classification of applications into free or paid
+categories.
+
+Outliers in metrics like num\_downloads were retained if they
+represented industry-leading applications, as their exclusion could skew
+the analysis. The use of Bayesian averages mitigated bias in rating\_app
+due to low review counts, providing a more accurate reflection of user
+satisfaction. Covariance checks were conducted to ensure the absence of
+multicollinearity among numerical variables, thereby enhancing the
+reliability of correlation and regression analyses.
+
+Some applications exhibited rare combinations of is\_free, in\_app, and
+has\_ads that did not fit within the predefined monetization levels.
+These applications were excluded from the analysis but documented as a
+limitation. Edge cases in level 2 application pairing were flagged for
+potential mismatches due to naming ambiguities, ensuring transparency in
+the classification process.
+
+These methodologies facilitated a systematic and accurate exploration of
+monetization models and their impact on application performance.
+
+\section{\texorpdfstring{Results }{Results }}\label{results}
+
+In this section, we will visualize the data through tables and
+visualizations. These plots largely explore the data around the
+hypotheses and research question, we discussed in the previous sections.
+The aim of this section is to present possible evidence in supporting a
+hypothesis. This will be discussed and concluded upon in the next
+section.
+
+Before we look at the results, let's revisit the research question:
+``\emph{How are the six different revenue models as proposed by Djaruma
+et al. (2023) correlate to the success of an app?}''. Where we identify
+6 different revenue models, described in this section as (revenue)
+levels.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2857}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7143}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Strategy
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Level 5: Premium & Pay to use the application. This either happens
+up-front, or after a trial period. \\
+Level 4: Semi-premium & Use a limited number of features for free.
+Unlock the app with all features through an in-app purchase. \\
+Level 3: In-app advertisement and in-app purchases & Free application
+with ads, encouraging users to remove ads or to make in-app
+purchases. \\
+Level 2: Sample and premium & Two different versions of the same app.
+One is a version with limit features and/or ads. The other version is a
+premium version. \\
+Level 1: In-app advertisement & Only one version of the app, with only
+ads and no in-app purchases. \\
+Level 0: Free & The app has no monetization. However, money can still be
+made through selling user information. \\
+\end{longtable}
+
+The dataset is divided into these different levels. From this pie chart,
+we can make up that more than 75\% of all the apps belong to level 0 and
+1. With the smallest population being level 2 with two different version
+of the same app.
+
+To find the success of an app, we have established in the ``Literature
+Review'' subsection, that it can be measured by:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Popularity: which can be measured by the number of downloads.
+\item
+  The rating of an application.
+\item
+  \st{Revenue estimation} (cannot be used, due to lack of data).
+\end{enumerate}
+
+\subsection{Number of Downloads.}\label{number-of-downloads.}
+
+The graphs below provides insights into the number of app downloads
+categorized by revenue levels. The left graph displays the total amount
+of downloads, while the right graph displays the average amount of
+downloads. In the next following three subsections, we will look into
+the key takeaways from these two graphs:
+
+\begin{itemize}
+\item
+  Distribution of app downloads: how the downloads are distributed among
+  the revenue levels.
+\item
+  Gaming apps: analyzing the importance of gaming apps.
+\item
+  Free vs Paid: comparing free and paid apps.
+\end{itemize}
+
+\subsubsection{Distribution of app
+downloads}\label{distribution-of-app-downloads}
+
+\textbf{Important takeaway:} Revenue levels 0 and 1 have a significant
+drop-off in terms of average number of downloads.
+
+This aligns well with hypothesis 1b which focusses in particular on
+revenue level 1:
+
+\emph{The apps with the most downloads will be level 1. Most social
+media platforms, which dominate our culture, tend to have this revenue
+stream (Djaruma et al. 2023).}
+
+For instance in the the graph above, we see that the apps are highly
+concentrated. So, a small proportion of the apps make up for the vast
+majority of the downloads.
+
+The graph below illustrates the distribution of app downloads per
+revenue level, with download ranges highlighted using distinct colors.
+The interesting takeaway is that level 0 and 1 have the most app with
+over 1 billion downloads.
+
+The graph below shows the number of apps with over 1 billion downloads
+per category. The communication category stands out with the most apps
+with over 1 billion downloads.
+
+Taking a closer look at the apps provided by (Djaruma et al. 2023). We
+do see that Facebook, Instagram, Spotify, Snapchat and Amazon Shopping
+fall under level 1. (Disclaimer: TikTok didn't exist up until 2019)
+
+\subsubsection{Gaming apps}\label{gaming-apps}
+
+\textbf{Important takeaway:} Revenue level 3 and 4 stands out with high
+average app downloads. Suggesting these revenue levels can be considered
+as the most popular revenue level. Important to note is that they have
+two things in common, they are free and contain in-app purchases. The
+only difference is that level 3 contain ads.
+
+This takeaway aligns well with hypothesis 1d, which takes a closer look
+into these 2 revenue levels:
+
+\emph{The most downloaded apps in the gaming category will likely fall
+under level 4. Many popular games use this type of ``pay-to-win''
+mechanism (Nieborg 2016). Therefore, it would be expected this same
+pattern would arise from our data.}
+
+Games are hugely popular on the Google Play Store. In the graphs below,
+you'll find that they are responsible for more than 25\% of the total
+downloads, while only populating 15\% of the total apps.
+
+The table below is a comparison between the average downloads of gaming
+apps and app with other categories. The gaming apps are therefore
+downloaded more on average than apps from other categories, with nearly
+100\% higher download average. This indicates that gaming apps are
+hugely popular on the Google Play Store.
+
+By filtering on the gaming categories we can see that the average
+downloads is also significantly higher in level 3 and 4. With level 4
+having a higher variance than level 3 and 4.
+
+To further explore this, the table below shows the top 5 most downloaded
+games from each revenue level. It reveals a noteable variance in
+downloads between the 2 revenue levels. The variance in level 4 is much
+larger than in level 3, even if it only displays the top 5. For
+instance, the downloads in level 4 varies from 0.5 to 0.1 billion. While
+the downloads in level 3 range from 1.0 to 0.5 billion.
+
+\subsubsection{Free vs Paid}\label{free-vs-paid}
+
+\textbf{Key takeaways:}
+
+\begin{itemize}
+\item
+  Revenue level 2 premium and 5 have the least amount of total and
+  average app downloads. These apps cost money upon downloading the app.
+\item
+  Revenue level 2 sample and premium have a high download offset in both
+  average and total amounts.
+\end{itemize}
+
+We see high disparity in downloads between free (-mium) and paid apps.
+To further investigate this we follow the guideline of hypotheses: 1a
+and 1c.
+
+\emph{H1a: Apps that allow the user to have free access to all features
+(level 0 and 1) will have the highest amount of downloads overall.
+However, the ratings may fluctuate, as quality can vary for
+free-to-access apps.}
+
+\emph{H1c: For apps that utilize a sample and a premium version of the
+same app (level 2), the free versions of an app will have more downloads
+than their paid-for counterpart. Most, if not all, users will download
+the free version first, and then might upgrade. This means there should
+be a disparity between the number of downloads between the apps, as is
+also demonstrated by Liu, Au, and Choi (2012).}
+
+The graph below illustrates that level 0 and 1 have indeed the highest
+overall downloads, compared to the other levels combined. (Apps that
+fall under level 0 and 1 have free access to all features.)
+
+As show in figure 2, level 2 sample and premium have a high download
+offset in both average and total amounts. Illustrating just how high
+this offset is, the graph below illustrates that out of all the
+downloaded apps in level 2, just 1.1\% are premium apps.
+
+In terms of average downloads the disparity is also high. As can be seen
+by the graph below.
+
+However, by looking at the average downloads in the graph below, we see
+that the average download difference is close to 500.000. With an
+average download ratio of nearly 27\%. Meaning that about one in fourth
+users that download the sample app, also download the premium app.
+
+\subsection{Ratings}\label{ratings}
+
+Plotting the distribution of the ratings across all the different
+revenue models doesn't have the same insight as with the number of
+downloads. As can be seen below, the ratings in itself doesn't vary all
+that much within the revenue levels.
+
+When plotting the variance of the ratings across the different levels,
+we do see a lot of variance. However, this variance diminishes when
+considering the Bayesian average, which smooths out the fluctuations and
+provides a more consistent view of the ratings. Indicating that some
+levels have strong outliers.
+
+In the next two subsections we investigate further on the variance and
+the difference in rating between paid and free apps.
+
+\subsubsection{Quality of Apps}\label{quality-of-apps}
+
+Hypotheses 1a and 2a partially touch on the quality of apps being a
+reason for the fluctuations in ratings. While 1a looks at the free
+access to all feature apps, 2a looks more at the drawbacks of the
+freemium revenue model. Where the balance between free and paid features
+can result in lower ratings.
+
+\emph{H1a: Apps that allow the user to have free access to all features
+(level 0 and 1) will have the highest amount of downloads overall.
+However, the ratings may fluctuate, as quality can vary for
+free-to-access apps.}
+
+\emph{H2a: Apps that require the user to pay to unlock features (level
+2, 3, and 4) will tend to have lower ratings than the version that
+requires payment upfront (level 5). The main draw of a freemium model is
+to attract users, and have them update to a paid version (Kumar 2014).
+However, as Kumar (2014) points out, this can be a double-edged sword.
+Too few features, and it may not be attractive to users. Too many
+features, and the users will not update.}
+
+The table below shows the variance and standard deviation between ``free
+access to all feature apps'' and ``free access to not all features or
+paid apps''. There is not a big statistical difference.
+
+As can also be seen in the graph below, that shows the boxplot of the
+ratings.
+
+Conversely, the mean rating and Bayesian average of apps where you need
+to unlock features versus paid apps with all features also doesn't see a
+big difference. The premium apps do tend to have a higher rating. As can
+be seen in the graph below.
+
+\subsubsection{Variance in Ratings}\label{variance-in-ratings}
+
+Hypothesis 2b touches on the variance between premium and their
+counterpart freemium apps.
+
+\emph{H2b: Fully premium apps (level 5) will have less variance in their
+ratings, while all other levels will have more. In the same vein as H2a,
+users have more realistic expectations of paid apps compared to apps
+that require you to unlock features (Kumar 2014). Therefore, more users
+downloading premium apps will be satisfied with their purchase, leading
+to less variance.}
+
+In the graph below, we see a significant difference in the variance of
+ratings. Premium apps tend to have a higher variance, with more
+outliers.
+
+In the graph below, we once again see that level 5 has a high variance
+compared to the others. But when adjusted with the Bayesian average, the
+variance is one of the lowest. This difference may arise because users
+who are satisfied with the app tend to rate the app highly, while users
+who are not satisfied, tend to rate it much lower, having paid for the
+app.
+
+\subsubsection{Relationships between App
+Versions}\label{relationships-between-app-versions}
+
+Level 2 has two version of the same app. A sample and a premium version.
+According to hypothesis 3, the rating of a paid version positively
+correlates with the rating of the sample version.
+
+\emph{H3: For apps that utilize a sample and a premium version of the
+same app (level 2), the rating of the paid-for version is positively
+associated with the rating of the free version of the same app. This was
+true for the study on the most popular apps in the Google Play Store by
+Liu, Au, and Choi (2012), so it is expected a similar pattern should
+arise for this dataset.}
+
+In the table below the correlation between ratings of sample and premium
+apps is considered moderate positive with 0.35. The correlation between
+the Bayesian average rating of sample and premium apps is considered
+moderate to strong positive correlation with 0.5.
+
+\subsection{Ethical Consideration}\label{ethical-consideration}
+
+\section{\texorpdfstring{Discussion }{Discussion }}\label{discussion}
+
+\subsection{Reflection on the
+Findings}\label{reflection-on-the-findings}
+
+Downloads do not necessarily indicate revenue for freemium models
+(Djaruma et al. 2023). The time the user spends on an app and the
+purchases made within this app (Ross 2018) are better measures of the
+revenue for freemium applications.
+
+\subsection{Practical Implications for
+Businesses}\label{practical-implications-for-businesses}
+
+\subsection{Future Research
+Directions}\label{future-research-directions}
+
+\section{References}\label{references}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-aydingokgoz2021}
+Aydin Gokgoz, Zeynep, M. Berk Ataman, and Gerrit H. van Bruggen. 2021.
+{``There{'}s an App for That! Understanding the Drivers of Mobile
+Application Downloads.''} \emph{Journal of Business Research} 123
+(February): 423--37.
+\url{https://doi.org/10.1016/j.jbusres.2020.10.006}.
+
+\bibitem[\citeproctext]{ref-bamberger2020}
+Bamberger, Kenneth A., Serge Egelman, Catherine Han, Amit Elazari Bar
+On, and Irwin Reyes. 2020. {``Can You Pay for Privacy? Consumer
+Expectations and the Behavior of Free and Paid Apps.''} \emph{Berkeley
+Technology Law Journal} 35: 327.
+\url{https://heinonline.org/HOL/Page?handle=hein.journals/berktech35&id=339&div=&collection=}.
+
+\bibitem[\citeproctext]{ref-djaruma2023}
+Djaruma, Heryan, Zaki Widyadhana Wirawan, Alexander Agung Santoso
+Gunawan, and Karen Etania Saputra. 2023. {``2023 IEEE International
+Conference on Communication, Networks and Satellite (COMNETSAT).''} In,
+577--83. \url{https://doi.org/10.1109/COMNETSAT59769.2023.10420748}.
+
+\bibitem[\citeproctext]{ref-kumar2014}
+Kumar, Vineet. 2014. {``Making {``}Freemium{''} Work.''} \emph{Harvard
+Business Review}, May.
+\url{https://hbr.org/2014/05/making-freemium-work}.
+
+\bibitem[\citeproctext]{ref-liu2012freemium}
+Liu, Charles Zhechao, Yoris A. Au, and Hoon Seok Choi. 2012. {``An
+Empirical Study of the Freemium Strategy for Mobile Apps: Evidence from
+the Google Play Market.''} In \emph{Proceedings of the 2012
+International Conference on Information Systems (ICIS)}, 1--19.
+\url{http://aisel.aisnet.org:80/cgi/viewcontent.cgi?article=1050&context=icis2012}.
+
+\bibitem[\citeproctext]{ref-liu2014}
+---------. 2014. {``Effects of Freemium Strategy in the Mobile App
+Market: An Empirical Study of Google Play.''} \emph{Journal of
+Management Information Systems} 31 (3): 326--54.
+\url{https://doi.org/10.1080/07421222.2014.995564}.
+
+\bibitem[\citeproctext]{ref-mileros2024}
+Mileros, Martin D., and Robert Forchheimer. 2024. {``Free for You and
+Me? Exploring the Value Users Gain from Their Seemingly Free Apps.''}
+\emph{Digital Policy, Regulation and Governance} ahead-of-print
+(ahead-of-print). \url{https://doi.org/10.1108/DPRG-01-2024-0009}.
+
+\bibitem[\citeproctext]{ref-global2019}
+{``Mobile App Revenue Worldwide by Segment (2019-2027).''} 2023.
+Statista.
+\url{https://www.statista.com/forecasts/1262892/mobile-app-revenue-worldwide-by-segment}.
+
+\bibitem[\citeproctext]{ref-nieborg2016}
+Nieborg, David B. 2016. {``Free-to-Play Games and App Advertising: The
+Rise of the Player Commodity.''} In. Routledge.
+
+\bibitem[\citeproctext]{ref-charted2023}
+Richter, Felix. 2023. {``Charted: There Are More Mobile Phones Than
+People in the World.''} World Economic Forum.
+\url{https://www.weforum.org/stories/2023/04/charted-there-are-more-phones-than-people-in-the-world/}.
+
+\bibitem[\citeproctext]{ref-roma2016}
+Roma, Paolo, and Daniele Ragaglia. 2016. {``Revenue Models, in-App
+Purchase, and the App Performance: Evidence from Apple{'}s App Store and
+Google Play.''} \emph{Electronic Commerce Research and Applications} 17
+(May): 173--90. \url{https://doi.org/10.1016/j.elerap.2016.04.007}.
+
+\bibitem[\citeproctext]{ref-ross2018}
+Ross, Nicholas. 2018. {``Customer Retention in Freemium Applications.''}
+\emph{Journal of Marketing Analytics} 6 (4): 127--37.
+\url{https://doi.org/10.1057/s41270-018-0042-x}.
+
+\bibitem[\citeproctext]{ref-salehudin2021}
+Salehudin, Imam, and Frank Alpert. 2021. {``No Such Thing As A Free App:
+A Taxonomy of Freemium Business Models and User Archetypes in the Mobile
+Games Market,''} December.
+\url{https://papers.ssrn.com/abstract=4001100}.
+
+\end{CSLReferences}
+
+
+
+
+\end{document}
