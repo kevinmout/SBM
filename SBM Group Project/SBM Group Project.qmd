@@ -297,7 +297,7 @@ total = level_counts.sum()
 labels = [f"{level} - {count} ({count / total:.1%})" for level, count in level_counts.items()]
 
 # Plotting the pie chart
-plt.figure(figsize=(5, 5))
+plt.figure(figsize=(3, 3))
 wedges, texts = plt.pie(
     level_counts, 
     labels=None,  # Hide labels on the pie chart itself
@@ -317,13 +317,7 @@ To find the success of an app, as discussed in @sec-literature-review. Metrics l
 
 ## Number of Downloads. {#sec-number-of-downloads}
 
-@fig-total-average-downloads-by-level provides insights into the number of app downloads categorized by revenue levels. @fig-total-average-downloads-by-level-1 displays the total amount of downloads, while the @fig-total-average-downloads-by-level-2 displays the average amount of downloads. In the next following three subsections, we will look into the key takeaways from these two graphs:
-
--   Distribution of app downloads: how the downloads are distributed among the revenue levels.
-
--   Gaming apps: analyzing the importance of gaming apps.
-
--   Free vs Paid: comparing free and paid apps.
+@fig-total-average-downloads-by-level provides insights into the number of app downloads categorized by revenue levels. @fig-total-average-downloads-by-level-1 displays the total amount of downloads, while the @fig-total-average-downloads-by-level-2 displays the average amount of downloads. In the next following three subsections, we will look into the key takeaways from these two graphs: distribution of app downloads, games in the Google Play Store and sample and premium apps.
 
 ```{python}
 #| label: fig-total-average-downloads-by-level
@@ -401,7 +395,7 @@ total_downloads_h1a = df_h1a.groupby('category')['num_downloads'].sum().reset_in
 
 
 # Make a bar chart 
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(5, 3))
 sns.barplot(data=total_downloads_h1a, x='category', y='num_downloads', hue='category', palette='viridis', dodge=False)
 plt.xlabel('Category')
 plt.ylabel('Total Number of Downloads')
@@ -561,31 +555,31 @@ billion_downloads_summary = billion_downloads_summary.set_index('Category').loc[
 sizes = billion_downloads_summary['Number of Apps']
 labels = billion_downloads_summary['Category']
 
-# Plotting the pie chart
-plt.figure(figsize=(6, 6))  # Adjust the size of the pie chart
-wedges, texts, autotexts = plt.pie(
+# Creating labels for the legend with counts and percentages
+total_count = sum(sizes)
+legend_labels_with_percentages = [
+    f"{category} - {count} ({count / total_count:.1%})"
+    for category, count in zip(labels, sizes)
+]
+
+# Plotting the pie chart without percentages on the chart
+plt.figure(figsize=(5, 5))  # Adjust the size of the pie chart
+wedges, texts = plt.pie(
     sizes, 
     labels=None,  # Hide labels on the pie chart itself
-    autopct='%1.1f%%',  # Display percentages
     startangle=90, 
     colors=plt.cm.Paired(np.linspace(0, 1, len(labels)))  # Distinct colors
 )
 
-# Customize percentage text size and color
-for autotext in autotexts:
-    autotext.set_color('white')
-    autotext.set_fontsize(10)
-
-# Adding the custom legend
+# Adding the custom legend with counts and percentages
 plt.legend(
     wedges, 
-    labels, 
+    legend_labels_with_percentages, 
     title="Categories", 
     loc="center left", 
     bbox_to_anchor=(1, 0, 0.5, 1)  # Custom legend position
 )
 
-# Display the chart
 plt.tight_layout()
 plt.show()
 ```
@@ -936,7 +930,7 @@ summary_data_h1c = {
 df_summary_h1c = pd.DataFrame(summary_data_h1c)
 
 # Creating a pie chart to show the proportion of sample vs premium downloads
-fig, ax = plt.subplots(figsize=(5, 5))
+fig, ax = plt.subplots(figsize=(3, 3))
 ax.pie(df_summary_h1c['Total Downloads'], labels=df_summary_h1c['Version Type'], autopct='%1.1f%%', startangle=140)
 
 plt.show()
@@ -1025,7 +1019,7 @@ ratings_across_level = df_level_combined.copy()
 average_ratings = ratings_across_level.groupby('level')['rating_app'].mean()
 bayesian_ratings = ratings_across_level.groupby('level')['bayesian_average'].mean()
 # Plotting the ratings across levels
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(5, 3))
 
 # Bar plot for ratings and Bayesian ratings
 average_ratings.plot(kind='bar', width=0.4, position=1, label='Average Rating', color='blue', alpha=0.6)
@@ -1131,7 +1125,7 @@ categories = df_h1a['category'].unique()
 ratings_data = [df_h1a[df_h1a['category'] == category]['rating_app'] for category in categories]
 
 # Custom boxplot
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(5, 3))
 plt.boxplot(ratings_data, labels=categories, patch_artist=True)
 plt.ylabel('Ratings')
 plt.xlabel('App Category')
@@ -1186,6 +1180,7 @@ mean_results = pd.DataFrame({
 categories = ['Free apps', 'Premium apps']
 ratings_data = [df_h2a[df_h2a['category'] == cat]['rating_app'] for cat in categories]
 
+plt.figure(figsize=(5, 3))
 plt.boxplot(ratings_data, labels=categories, patch_artist=True)
 plt.ylabel('Ratings')
 plt.xlabel('App Category')
@@ -1228,7 +1223,7 @@ other_variance_rating = other_apps['rating_app'].var()
 premium_variance_rating = premium_apps['rating_app'].var()
 
 # Creating a bar plot for variances in ratings
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(5, 3))
 ax.bar(['Other apps', 'Premium apps'], [other_variance_rating, premium_variance_rating], color=['skyblue', 'orange'])
 ax.set_ylabel('Variance in Ratings', fontsize=12)
 ax.set_ylim(0, max(other_variance_rating, premium_variance_rating) * 1.2)
@@ -1259,6 +1254,7 @@ variance_melted = variance_specific.melt(id_vars='level', var_name='Attribute', 
 variance_melted = variance_specific.melt(id_vars='level', var_name='Attribute', value_name='Variance')
 
 # Plotting line plot with seaborn
+plt.figure(figsize=(5, 3))
 sns.lineplot(data=variance_melted, x='level', y='Variance', hue='Attribute', marker='o', palette='Set1')
 plt.xlabel('Level')
 plt.ylabel('Variance')
