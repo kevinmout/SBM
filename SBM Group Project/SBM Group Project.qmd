@@ -61,7 +61,7 @@ Most research uses these three established categories—paid, freemium, and free
 In a review paper from 2023 [@djaruma2023], different levels of monetization are suggested based on previous literature. These levels provide a clear framework for the revenue models of mobile apps, and are briefly summarized in @tbl-levels.
 
 | Strategy | Description |
-|-------------------------|-----------------------------------------------|
+|--------------------------|----------------------------------------------|
 | Level 5: Premium | Pay to use the application. This either happens up-front, or after a trial period. |
 | Level 4: Semi-premium | Use a limited number of features for free. Unlock the app with all features through an in-app purchase. |
 | Level 3: In-app advertisement and in-app purchases | Free application with ads, encouraging users to remove ads or to make in-app purchases. |
@@ -225,7 +225,7 @@ The analysis focuses on a subset of 13 variables selected from the dataset, as s
 <!-- Table 2: Selected Variables for Analysis -->
 
 | **Variable Name** | **Description** |
-|-------------------------|-----------------------------------------------|
+|--------------------------|----------------------------------------------|
 | `my_app_id` | Unique identifier for each app. |
 | `num_downloads` | Number of downloads for the app. Key indicator of app success. |
 | `rating_app` | Average user rating. Measures user satisfaction. |
@@ -1106,31 +1106,29 @@ This study examined the relationship between six revenue strategies and app succ
 
 We found that free apps (Levels 0 and 1) dominate in terms of downloads. However, these apps also have higher variance in ratings, suggesting they struggle with consistent quality. While this aligns with existing literature suggesting that free apps attract a broad audience but often deliver inconsistent experiences [@mileros2024], it does raise the question of whether the amount of downloads should be the primary measure of success. Free apps may have more downloads, but without understanding the deeper dynamics of user engagement and satisfaction, these figures could be misleading. For example, apps with high ratings but fewer downloads could still represent significant success in specific niches.
 
-The finding that freemium models (Levels 2 and 3) strike a balance between accessibility and profitability is promising, as it suggests a flexible approach that could cater to both casual users and those willing to pay for premium features. As noted in previous research [@kumar2014], user retention and monetization are deeply interconnected in freemium models. This issue could explain why some freemium apps fail to reach their full potential despite high download numbers. Furthermore, we concluded the correlation between sample and premium ratings is likely due to the app quality both versions. But, this does on take into account the influence of other factors such as app category and external marketing efforts [@stocchi2022] on the ratings of the app.
+Freemium models (Levels 2 and 3) show promise as a balanced strategy, combining accessibility with opportunities for revenue generation. These models cater to both casual users and those willing to pay for premium features, reflecting their flexibility. Prior research supports this notion, emphasizing the interplay between user retention and monetization in freemium models \[@kumar2014\]. However, the disparity in downloads between sample and premium versions suggests that other factors, such as app quality or external influences like marketing, also play significant roles in shaping success [@stocchi2022].
 
-The strong correlation found between premium apps (Level 5) and higher ratings aligns with the assumption that users expect a higher level of quality from paid apps. However, the trade-off here is the limited reach of premium apps, as shown by their lower download numbers. This finding suggests that while premium apps may offer superior experiences, their market appeal is often restricted by their pricing structure. It raises the issue of how to balance quality with accessibility in a market where competition is fierce, and user expectations are high.
+Premium apps (Level 5) stand out for their high average ratings, reinforcing the perception of superior quality. This is consistent with user expectations: those who pay upfront often demand a polished product. However, premium apps trade reach for exclusivity, as shown by their lower download numbers. This dynamic aligns with theories of optimal distinctiveness, where firms strive to balance conformity to market norms with differentiation to reduce competition \[@Zhao2018\]. For premium apps, moderate differentiation appears optimal, allowing for high-quality perceptions while catering to a specific user base.
 
 This finding aligns with the broader literature on optimal distinctiveness, which explores how firms should manage the balance between conformity and differentiation in order to achieve superior performance [@Zhao2018]. On the one hand, products need to conform to category norms to build legitimacy, but on the other hand, they should differ enough to avoid intense competition. The study by [@vanangeren2022] further extends this line of inquiry by considering how the relationship between differentiation and performance varies based on the product’s revenue model. For premium apps, moderate differentiation appears to be an optimal strategy, allowing for both quality perception and enough market fit, but with the trade-off of a smaller, more specific user base.
 
 ## Limitations
 
-Several limitations must be acknowledged. Downloads do not necessarily indicate revenue for freemium models [@djaruma2023]. The time the user spends on an app and the purchases made within this app [@ross2018] are better measures of the revenue for freemium applications.
+This study has several limitations. Downloads are not a comprehensive measure of app success, particularly for freemium models. Metrics such as user retention, in-app purchases, and time spent on the app may better reflect profitability and user engagement \[@ross2018\]. Additionally, the dataset predates the rise of TikTok, a platform whose unique revenue model could alter findings, particularly for levels emphasizing in-app purchases (e.g., Level 3). Including more recent data could provide a fuller picture of trends and revenue strategies.
 
-Moreover, the data used for this project was collected before the launch of Tiktok, the social media platform with over 900 million users worldwide [@Ceci2024TikTokUsers]. As is mentioned in Section @sec-revenue-estimation, Tiktok has a business model that relies more on purchases through their online shop than solely user retention, making it different from other social media platforms. The inclusion of TikTok might have lead to different results when analyzing the amount of downloads, particularly level 3.
-
-Causality is another limitation. While correlations were observed between revenue models, downloads, and ratings, confounding factors may be at play. Variables such as marketing efforts, app category, and regional preferences could influence success. Consequently, the findings should not be interpreted as direct causal relationships.
+Causality is another challenge. While the study identifies correlations between revenue models, downloads, and ratings, these relationships are influenced by external factors such as marketing efforts, app category, and regional preferences. Therefore, the results should not be interpreted as causal. Moreover, the exclusion of revenue estimates due to data limitations prevents deeper insights into profitability, a critical dimension of app success.
 
 ## Practical Implications for Businesses
 
-For app developers, these findings offer valuable guidance. Selecting a revenue model should align with the app's target audience and objectives. Free models are ideal for maximizing reach, but consistent quality control is crucial. Freemium models provide flexibility, catering to diverse user preferences while driving profitability through in-app purchases. Premium models are suited for niche markets with high user expectations but require substantial upfront investment in quality.
+For app developers, these findings offer valuable guidance. Free models (Levels 0 and 1) are effective for maximizing reach, but ensuring quality remains critical to sustaining user engagement. Freemium models provide a flexible approach, appealing to both casual users and paying customers. However, success in these models requires a strong focus on user retention and feature quality. Premium models, while catering to niche audiences, demand significant investment in quality to meet high user expectations.
 
-Businesses must avoid over-reliance on these results, as they only reflect correlations. Nonetheless, revenue strategies should consider these trade-offs, balancing user satisfaction and profitability.
+Businesses should consider these trade-offs when selecting a revenue model, aligning their choices with the app’s target audience and objectives. However, over-reliance on these findings should be avoided, as they reflect correlations rather than definitive success drivers.
 
 ## Future Research Directions
 
-Future studies could address limitations by incorporating datasets from more recent app markets, including platforms like TikTok. Further exploration of hypotheses that were not supported, such as H2b, could provide deeper insights into rating variance. Expanding the analysis to include additional metrics, such as user retention and in-app purchases, would enhance the understanding of revenue models' impact on success.
+Future studies should address limitations by integrating newer datasets that include platforms like TikTok and expanding metrics to capture user engagement and in-app purchases. Exploring additional dimensions of app success, such as long-term user retention, would provide a more nuanced understanding of monetization strategies.
 
-Ultimately, app monetization is a dynamic field. Ongoing research is essential to keep pace with evolving user preferences and technological advancements. By building on these findings, future work can contribute to more nuanced strategies for app success.
+Ongoing research is crucial in this dynamic field. By building on these findings, future work can contribute to more effective and user-centric app monetization strategies, supporting businesses in navigating the ever-evolving app market.
 
 # References
 
