@@ -642,6 +642,97 @@
             "title": "On the monetization of mobile apps",
             "type": "article-journal",
             "volume": "37"
+        },
+        {
+            "DOI": "10.18178/ijimt.2016.7.5.677",
+            "author": [
+                {
+                    "family": "Tang",
+                    "given": "Ailie K. Y."
+                }
+            ],
+            "container-title": "International Journal of Innovation, Management and Technology",
+            "id": "Tang2016",
+            "issue": "5",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "page": "197-201",
+            "title": "Mobile app monetization: App business models in the digital era",
+            "title-short": "Mobile app monetization",
+            "type": "article-journal",
+            "volume": "7"
+        },
+        {
+            "DOI": "10.20895/dinda.v4i2.1589",
+            "author": [
+                {
+                    "family": "Widianto",
+                    "given": "Adi"
+                },
+                {
+                    "family": "Pebriyanto",
+                    "given": "Eka"
+                },
+                {
+                    "family": "Fitriyanti",
+                    "given": "Fitriyanti"
+                },
+                {
+                    "family": "Marna",
+                    "given": "Marna"
+                }
+            ],
+            "container-title": "DINDA: Digital Information and Database",
+            "id": "Widianto2023",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023
+                    ]
+                ]
+            },
+            "keyword": "Document Similarity, TF-IDF, Cosine Similarity",
+            "page": "—",
+            "title": "Document similarity using term frequency-inverse document frequency representation and cosine similarity",
+            "type": "article-journal",
+            "volume": "4"
+        },
+        {
+            "DOI": "https://doi.org/10.1016/j.advwatres.2005.02.005",
+            "ISSN": "0309-1708",
+            "URL": "https://www.sciencedirect.com/science/article/pii/S0309170805000606",
+            "abstract": "Using data from two very large watersheds and five smaller, this paper explores the use of Bayesian methods for fitting rating curves. Posterior distribution of rating-curve parameters were calculated using Markov Chain Monte Carlo (MCMC) methods, and 95",
+            "author": [
+                {
+                    "family": "Moyeed",
+                    "given": "R. A."
+                },
+                {
+                    "family": "Clarke",
+                    "given": "R. T."
+                }
+            ],
+            "container-title": "Advances in Water Resources",
+            "id": "MOYEED2005807",
+            "issue": "8",
+            "issued": {
+                "date-parts": [
+                    [
+                        2005
+                    ]
+                ]
+            },
+            "keyword": "Bayesian, MCMC, Rating curves",
+            "page": "807-818",
+            "title": "The use of bayesian methods for fitting rating curves, with case studies",
+            "type": "article-journal",
+            "volume": "28"
         }
     ],
     "project_biblios": []
