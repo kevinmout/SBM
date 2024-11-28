@@ -24,7 +24,7 @@ Most research uses these three established categories—paid, freemium, and free
 In a review paper from 2023 [@djaruma2023], different levels of monetization are suggested based on previous literature. These levels provide a clear framework for the revenue models of mobile apps, and are briefly summarized in @tbl-levels.
 
 | Strategy                                           | Description                                                                                                                      |
-|-----------------------|-------------------------------------------------|
+|------------------------|------------------------------------------------|
 | Level 5: Premium                                   | Pay to use the application. This either happens up-front, or after a trial period.                                               |
 | Level 4: Semi-premium                              | Use a limited number of features for free. Unlock the app with all features through an in-app purchase.                          |
 | Level 3: In-app advertisement and in-app purchases | Free application with ads, encouraging users to remove ads or to make in-app purchases.                                          |
@@ -112,10 +112,6 @@ Freemium apps can be implemented with either in-app purchases or different versi
 
 *H1c: For apps that utilize a sample and a premium version of the same app (level 2), the free versions of an app will have more downloads than their paid-for counterpart.*
 
-Finally, many games use a pay-to-win mechanism [@nieborg2016]. Therefore, we expect these in-app payment constructions to be used for most highly downloaded games.
-
-*H1d: The most downloaded apps in the gaming category will likely fall under level 3 and 4.*
-
 ### Rating
 
 The downloads of an app are not everything. An app can be downloaded often, but may not be highly rated. Ratings provide valuable insights into user satisfaction, which often reflects the perceived quality and value of an app. Therefore, we hypothesize revenue models that prioritize short-term gains may achieve high download counts but could negatively affect ratings if users feel misled or dissatisfied.
@@ -130,13 +126,7 @@ The majority of the apps are free-to-use [@djaruma2023]. However, this means the
 
 In the same vein as H2a, users have more realistic expectations of paid apps compared to apps that require you to unlock features [@kumar2014]. Therefore, more users downloading premium apps will be satisfied with their purchase, leading to less variance. Thus, the following should follow from our data.
 
-*H2c: Fully premium apps (level 5) and premium version of level 2 will have less variance in their ratings, while all other levels will have more.*
-
-As was shown by @liu2012freemium, apps with a high rating for the premium version of an app, tended to also have a higher rating for the free counterpart. The study done by @liu2012freemium only utilized the most popular apps in the Google Play Store, but a similar pattern should emerge from our dataset. Therefore, we postulate the following.
-
-*H2d: For apps that utilize a sample and a premium version of the same app (level 2), the rating of the paid-for version is positively associated with the rating of the free version of the same app.*
-
-While popularity and ratings are distinct measures of success, they are inherently connected. Revenue models that increase downloads can also shape user expectations, which in turn influence ratings. For example, level 1 apps may dominate in terms of downloads (H1a) but face fluctuating ratings (H2c) due to quality variation. Similarly, level 2 apps may achieve high download counts for their free versions (H1c), but the gap between free and paid features could drive dissatisfaction (H2a).
+While popularity and ratings are distinct measures of success, they are inherently connected. Revenue models that increase downloads can also shape user expectations, which in turn influence ratings. For example, level 1 apps may dominate in terms of downloads (H1a) but face fluctuating ratings (H2b) due to quality variation. Similarly, level 2 apps may achieve high download counts for their free versions (H1c), but the gap between free and paid features could drive dissatisfaction (H2a).
 
 ### Revenue Estimation {#revenue-estimation}
 
@@ -190,7 +180,7 @@ The analysis focuses on a subset of 13 variables selected from the dataset, as s
 <!-- Table 2: Selected Variables for Analysis -->
 
 | **Variable Name**    | **Description**                                                         |
-|------------------------|-----------------------------------------------|
+|-------------------------|-----------------------------------------------|
 | `my_app_id`          | Unique identifier for each app.                                         |
 | `num_downloads`      | Number of downloads for the app. Key indicator of app success.          |
 | `rating_app`         | Average user rating. Measures user satisfaction.                        |
