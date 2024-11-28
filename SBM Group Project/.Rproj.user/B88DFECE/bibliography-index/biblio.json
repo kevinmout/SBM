@@ -733,6 +733,130 @@
             "title": "The use of bayesian methods for fitting rating curves, with case studies",
             "type": "article-journal",
             "volume": "28"
+        },
+        {
+            "DOI": "10.1007/s11747-021-00815-w",
+            "URL": "https://doi.org/10.1007/s11747-021-00815-w",
+            "author": [
+                {
+                    "family": "Stocchi",
+                    "given": "Lara"
+                },
+                {
+                    "family": "Pourazad",
+                    "given": "Naser"
+                },
+                {
+                    "family": "Michaelidou",
+                    "given": "Nina"
+                },
+                {
+                    "family": "Tanusondjaja",
+                    "given": "Arry"
+                },
+                {
+                    "family": "Harrigan",
+                    "given": "Paul"
+                }
+            ],
+            "container-title": "Journal of the Academy of Marketing Science",
+            "id": "stocchi2022",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2022,
+                        3,
+                        1
+                    ]
+                ]
+            },
+            "page": "195-225",
+            "title": "Marketing research on mobile apps: Past, present and future",
+            "title-short": "Marketing research on mobile apps",
+            "type": "article-journal",
+            "volume": "50"
+        },
+        {
+            "DOI": "10.1002/smj.3394",
+            "URL": "https://onlinelibrary.wiley.com/doi/abs/10.1002/smj.3394",
+            "author": [
+                {
+                    "dropping-particle": "van",
+                    "family": "Angeren",
+                    "given": "Joey"
+                },
+                {
+                    "family": "Vroom",
+                    "given": "Govert"
+                },
+                {
+                    "family": "McCann",
+                    "given": "Brian T."
+                },
+                {
+                    "family": "Podoynitsyna",
+                    "given": "Ksenia"
+                },
+                {
+                    "family": "Langerak",
+                    "given": "Fred"
+                }
+            ],
+            "container-title": "Strategic Management Journal",
+            "id": "vanangeren2022",
+            "issue": "10",
+            "issued": {
+                "date-parts": [
+                    [
+                        2022
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1002/smj.3394",
+            "page": "2066-2100",
+            "title": "Optimal distinctiveness across revenue models: Performance effects of differentiation of paid and free products in a mobile app market",
+            "title-short": "Optimal distinctiveness across revenue models",
+            "type": "article-journal",
+            "volume": "43"
+        },
+        {
+            "DOI": "10.1287/orsc.2017.1194",
+            "URL": "https://doi.org/10.1287/orsc.2017.1194",
+            "author": [
+                {
+                    "family": "Zhao",
+                    "given": "Eric Yanfei"
+                },
+                {
+                    "family": "Ishihara",
+                    "given": "Masakazu"
+                },
+                {
+                    "family": "Jennings",
+                    "given": "P. Devereaux"
+                },
+                {
+                    "family": "Lounsbury",
+                    "given": "Michael"
+                }
+            ],
+            "container-title": "Organization Science",
+            "id": "Zhao2018",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "page": "492-510",
+            "title": "Optimal distinctiveness in the console video game industry: An exemplar-based model of proto-category evolution",
+            "title-short": "Optimal distinctiveness in the console video game industry",
+            "type": "article-journal",
+            "volume": "29"
         }
     ],
     "project_biblios": []

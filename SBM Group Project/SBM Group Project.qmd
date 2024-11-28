@@ -457,45 +457,37 @@ The potential implications of this research could directly influence app develop
 
 <!-- Insightful discussion of findings in relation to the research question and literature. Reflection on practical implications and contributions to the ongoing debate.  Content: Provide a thoughtful discussion of the findings in relation to the research question and the literature. Reflect on the practical implications and contributions to the academic debate.  Key Elements: Reflection on findings. Linkage to existing literature. Practical -->
 
+This study examined the relationship between six revenue strategies and app success, measured by downloads and ratings. The findings reveal clear trade-offs among these models, offering insights into app monetization strategies.
+
 ## Reflection on the Findings
 
-<!-- Later checken of dit nog goed aansluit op results -->
+We found that free apps (Levels 0 and 1) dominate in terms of downloads. However, these apps also have higher variance in ratings, suggesting they struggle with consistent quality. While this aligns with existing literature suggesting that free apps attract a broad audience but often deliver inconsistent experiences [@mileros2024], it does raise the question of whether the amount of downloads should be the primary measure of success. Free apps may have more downloads, but without understanding the deeper dynamics of user engagement and satisfaction, these figures could be misleading. For example, apps with high ratings but fewer downloads could still represent significant success in specific niches.
 
-The analysis reveals clear trade-offs between the six revenue models and app success. Free models dominate in popularity due to accessibility but struggle with consistent quality. Freemium models strike a balance, appealing to users seeking flexibility, while premium apps deliver the highest quality but have limited reach. These findings suggest that app developers must align their revenue strategies with their target audience’s expectations and priorities, balancing reach, user satisfaction, and profitability.
+The finding that freemium models (Levels 2 and 3) strike a balance between accessibility and profitability is promising, as it suggests a flexible approach that could cater to both casual users and those willing to pay for premium features. As noted in previous research [@kumar2014], user retention and monetization are deeply interconnected in freemium models. This issue could explain why some freemium apps fail to reach their full potential despite high download numbers. Furthermore, we concluded the correlation between sample and premium ratings is likely due to the app quality both versions. But, this does on take into account the influence of other factors such as app category and external marketing efforts [@stocchi2022] on the ratings of the app.
 
-H1a: Wel meer downloads, niet meer variance
+The strong correlation found between premium apps (Level 5) and higher ratings aligns with the assumption that users expect a higher level of quality from paid apps. However, the trade-off here is the limited reach of premium apps, as shown by their lower download numbers. This finding suggests that while premium apps may offer superior experiences, their market appeal is often restricted by their pricing structure. It raises the issue of how to balance quality with accessibility in a market where competition is fierce, and user expectations are high.
 
-H1b: KLOPT / SUPPORTED (maar: Tiktok)
-
-H1c: KLOPT / SUPPORTED: Sample heeft veel meer downloads (premium maar 1%)
-
-H1d: KLOPT / SUPPORTED: Games met level 3/4 krijgen meer downloads
-
-H2a: KLOPT / SUPPORTED
-
-H2b: NOT SUPPORTED: Premium apps hebben juist meer variance, bij Baysian wel. Dus onduidelijk -\> misschien meer onderzoek nodig.
-
-H2c: KLOPT / SUPPORTED, maar de sterkte van correlation hangt af van normaal average vs Baysian average.
+This finding aligns with the broader literature on optimal distinctiveness, which explores how firms should manage the balance between conformity and differentiation in order to achieve superior performance [@Zhao2018]. On the one hand, products need to conform to category norms to build legitimacy, but on the other hand, they should differ enough to avoid intense competition. The study by [@vanangeren2022] further extends this line of inquiry by considering how the relationship between differentiation and performance varies based on the product’s revenue model. For premium apps, moderate differentiation appears to be an optimal strategy, allowing for both quality perception and enough market fit, but with the trade-off of a smaller, more specific user base.
 
 ## Limitations
 
-Downloads do not necessarily indicate revenue for freemium models [@djaruma2023]. The time the user spends on an app and the purchases made within this app [@ross2018] are better measures of the revenue for freemium applications.
+Several limitations must be acknowledged. Downloads do not necessarily indicate revenue for freemium models [@djaruma2023]. The time the user spends on an app and the purchases made within this app [@ross2018] are better measures of the revenue for freemium applications.
 
-The data used for this project was collected before the launch of Tiktok, the social media platform with over 900 million users worldwide [@Ceci2024TikTokUsers]. As is mentioned in Section @revenue-estimation, Tiktok has a business model that relies more on user retention
+Moreover, the data used for this project was collected before the launch of Tiktok, the social media platform with over 900 million users worldwide [@Ceci2024TikTokUsers]. As is mentioned in Section @revenue-estimation, Tiktok has a business model that relies more on purchases through their online shop than solely user retention, making it different from other social media platforms. The inclusion of TikTok might have lead to different results when analyzing the amount of downloads, particularly level 3.
 
-We have found certain factors () are correlated with higher downloads, and x, y, z are correlated with higher ratings. However, it is important to note this does not necessarily imply a causal relationship. Other confounding variables may be at play. Therefore, we cannot assume implementing these revenue strategies will definitely boost downloads and/or ratings.
+Causality is another limitation. While correlations were observed between revenue models, downloads, and ratings, confounding factors may be at play. Variables such as marketing efforts, app category, and regional preferences could influence success. Consequently, the findings should not be interpreted as direct causal relationships.
 
 ## Practical Implications for Businesses
 
-As the results only show correlations and no causal relationships, it is important to not over-inflate the significance of these results. However, it may still be interesting to consider what revenue strategy best fits your specific app.
+For app developers, these findings offer valuable guidance. Selecting a revenue model should align with the app's target audience and objectives. Free models are ideal for maximizing reach, but consistent quality control is crucial. Freemium models provide flexibility, catering to diverse user preferences while driving profitability through in-app purchases. Premium models are suited for niche markets with high user expectations but require substantial upfront investment in quality.
 
-Best revenue models.
+Businesses must avoid over-reliance on these results, as they only reflect correlations. Nonetheless, revenue strategies should consider these trade-offs, balancing user satisfaction and profitability.
 
 ## Future Research Directions
 
-On other datasets
+Future studies could address limitations by incorporating datasets from more recent app markets, including platforms like TikTok. Further exploration of hypotheses that were not supported, such as H2b, could provide deeper insights into rating variance. Expanding the analysis to include additional metrics, such as user retention and in-app purchases, would enhance the understanding of revenue models' impact on success.
 
-Further investigate hypotheses that were disproven.
+Ultimately, app monetization is a dynamic field. Ongoing research is essential to keep pace with evolving user preferences and technological advancements. By building on these findings, future work can contribute to more nuanced strategies for app success.
 
 # References
 
